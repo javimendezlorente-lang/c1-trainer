@@ -3,7 +3,7 @@ import { submitReview } from '../../application/reviewSubmission'
 import type { ReviewRating } from '../../domain/review'
 import type { ErrorBankRecord } from '../../learning'
 import { previewReviewRatings, type ReviewCardProjection } from '../../learning/fsrs'
-import { getPart1ReviewPrompt } from './reviewPrompt'
+import { getReviewPrompt } from './reviewPrompt'
 import { nowIso } from '../../time/clock'
 
 interface ReviewSessionPageProps {
@@ -26,7 +26,7 @@ export default function ReviewSessionPage({ cards, records, onDone }: ReviewSess
     return <section className="learning-page" aria-labelledby="review-complete-title"><p className="eyebrow">C1 Trainer</p><h1 id="review-complete-title">Review complete</h1><div className="learning-card"><p>Reviewed: {total}</p><ul className="learning-list review-summary-list">{ratings.map((rating) => <li key={rating}>{rating}: {counts[rating]}</li>)}</ul><button type="button" onClick={onDone}>Back to Review</button></div></section>
   }
   const record = records.find((item) => item.itemKey === `${card.exerciseId}:${card.questionId}`)
-  const prompt = record ? getPart1ReviewPrompt(record) : undefined
+  const prompt = record ? getReviewPrompt(record) : undefined
 
   if (!card || !prompt) {
     return <div className="learning-card"><p>This review item is no longer available in the approved content.</p><button type="button" onClick={onDone}>Back to Review</button></div>

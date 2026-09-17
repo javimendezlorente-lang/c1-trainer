@@ -1,5 +1,5 @@
-import Part1ExercisePage from '../features/part1/Part1ExercisePage'
+import UseOfEnglishPracticePage from '../features/useOfEnglish/UseOfEnglishPracticePage'
 
 export default function Practice() {
-  return <Part1ExercisePage />
+  return <UseOfEnglishPracticePage />
 }

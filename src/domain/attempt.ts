@@ -5,10 +5,22 @@ export const ATTEMPT_EVENT_VERSION = '1.0.0' as const
 
 export interface AttemptQuestionResult {
   questionId: string
-  selectedOptionId: string | null
-  correctOptionId: 'A' | 'B' | 'C' | 'D'
+  answerKind: 'choice' | 'text' | 'transformation'
+  answer: string | null
   correct: boolean
-  marks: 0 | 1
+  marks: number
+  maxMarks: number
+  selectedOptionId?: string | null
+  correctOptionId?: 'A' | 'B' | 'C' | 'D'
+  canonicalAnswer: string
+  acceptedAnswers: string[]
+  primarySkill: SkillSet['primarySkill']
+  secondarySkills: SkillSet['secondarySkills']
+  root?: string
+  transformations?: string[]
+  originalSentence?: string
+  keyword?: string
+  secondSentence?: string
 }
 
 export interface AttemptEvent {
@@ -19,8 +31,8 @@ export interface AttemptEvent {
   occurredAt: string
   exerciseId: string
   exerciseSchemaVersion: SchemaVersion
-  part: 1
-  type: 'multiple_choice_cloze'
+  part: 1 | 2 | 3 | 4
+  type: 'multiple_choice_cloze' | 'open_cloze' | 'word_formation' | 'key_word_transformation'
   answers: Record<string, string | null>
   explanationReferences: Record<string, string>
   grade: {

@@ -86,9 +86,9 @@ function toCard(snapshot: ReviewCardStateSnapshot): Card {
   }
 }
 
-export function createNewReviewCard(identity: ReviewCardIdentity, createdAt: string, part: 1, primarySkill: ReviewCardProjection['primarySkill']): ReviewCardProjection {
+export function createNewReviewCard(identity: ReviewCardIdentity, createdAt: string, part: ReviewCardProjection['part'], primarySkill: ReviewCardProjection['primarySkill'], metadata: Pick<ReviewCardProjection, 'answerKind' | 'promptSnapshot'> = {}): ReviewCardProjection {
   const snapshot = toSnapshot(createEmptyCard(toDate(createdAt)))
-  return { ...identity, ...snapshot, part, primarySkill, createdAt }
+  return { ...identity, ...snapshot, part, primarySkill, createdAt, ...metadata }
 }
 
 export function applyReviewRating(card: ReviewCardProjection, rating: ReviewRating, reviewedAt: string): ReviewCardProjection {
@@ -111,6 +111,6 @@ export function previewReviewRatings(card: ReviewCardProjection, reviewedAt: str
 }
 
 export function snapshotFromReviewCard(card: ReviewCardProjection): ReviewCardStateSnapshot {
-  const { id: _id, exerciseId: _exerciseId, questionId: _questionId, part: _part, primarySkill: _skill, createdAt: _createdAt, ...snapshot } = card
+  const { id: _id, exerciseId: _exerciseId, questionId: _questionId, part: _part, primarySkill: _skill, createdAt: _createdAt, answerKind: _answerKind, promptSnapshot: _promptSnapshot, ...snapshot } = card
   return snapshot
 }

@@ -122,6 +122,8 @@ Acceptance criteria:
 - Accepted-answer and spelling policies are explicit and tested.
 - Feedback explains grammar/morphology without claiming official Cambridge scoring beyond the documented raw marks.
 
+Status: complete. Parts 2 and 3 ship with three approved original exercises each, deterministic graders, generic AttemptEvents, rebuildable learning projections, review cards, backup compatibility, and offline UI.
+
 ## Milestone 8 — Part 4
 
 **Goal:** add key word transformations with defensible marking.
@@ -132,7 +134,9 @@ Acceptance criteria:
 - Partial-credit rules are documented before implementation and covered by tests.
 - The grader never relies on exact-string equality alone and never silently invents semantic equivalence.
 
-## Milestone 9 — FSRS and adaptive practice
+Status: complete. Part 4 ships with three approved original exercises, explicit full/partial accepted-answer units, mark-aware analytics, transformation review snapshots, and mixed-history backup regression coverage.
+
+## Milestone 9 — Adaptive practice
 
 **Goal:** schedule review of errors and concepts.
 

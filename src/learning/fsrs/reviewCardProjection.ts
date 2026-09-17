@@ -8,9 +8,11 @@ export interface ReviewCardIdentity {
 }
 
 export interface ReviewCardProjection extends ReviewCardIdentity, ReviewCardStateSnapshot {
-  part: 1
+  part: 1 | 2 | 3 | 4
   primarySkill: Skill
   createdAt: string
+  answerKind?: 'choice' | 'text' | 'transformation'
+  promptSnapshot?: { originalSentence?: string; secondSentence?: string; keyword?: string; root?: string; canonicalAnswer?: string; acceptedAnswers?: string[]; explanation?: string }
 }
 
 export function reviewCardId(exerciseId: string, questionId: string): string {

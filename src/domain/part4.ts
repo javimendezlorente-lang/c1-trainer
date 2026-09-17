@@ -3,6 +3,7 @@ import type { BaseExercise } from './exercise'
 export interface PartialCreditUnit {
   id: string
   marks: 0 | 1 | 2
+  acceptedAnswers?: string[]
   description?: string
 }
 

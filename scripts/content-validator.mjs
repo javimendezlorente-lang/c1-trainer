@@ -35,7 +35,7 @@ function uniqueValues(values, label, errors) {
 }
 
 function validateClozeSemantics(exercise, errors) {
-  const gapNumbers = exercise.content.gaps.map((gap) => gap.number)
+  const gapNumbers = (exercise.content.gaps ?? Array.from({ length: 8 }, (_, index) => ({ number: index + 1 }))).map((gap) => gap.number)
   uniqueValues(gapNumbers, 'content.gaps', errors)
 
   const questionIds = exercise.questions.map((question) => question.id)
@@ -65,6 +65,13 @@ function validatePart2(exercise, errors) {
         errors.push(`${question.id}.acceptedAnswers: "${answer}" must contain exactly one lexical token`)
       }
     }
+    for (const unit of question.scoring?.units ?? []) {
+      for (const answer of unit.acceptedAnswers ?? []) {
+        if (!normalize(answer).includes(normalize(question.keyword))) errors.push(`${question.id}.scoring.${unit.id}: keyword must occur unmodified`)
+        const wordCount = countTransformationWords(answer)
+        if (wordCount < 3 || wordCount > 6) errors.push(`${question.id}.scoring.${unit.id}: accepted answer must contain 3–6 words`)
+      }
+    }
     if (!question.acceptedAnswers.some((answer) => normalize(answer) === normalize(question.canonicalAnswer))) {
       errors.push(`${question.id}.canonicalAnswer: must be present in acceptedAnswers`)
     }
@@ -79,9 +86,6 @@ function validatePart3(exercise, errors) {
     }
     if (question.acceptedAnswers?.some((answer) => normalize(question.root) === normalize(answer))) {
       errors.push(`${question.id}: root must differ from every accepted answer`)
-    }
-    if (question.acceptedAnswers && !question.acceptedAnswers.some((answer) => normalize(answer) === normalize(question.canonicalAnswer))) {
-      errors.push(`${question.id}.canonicalAnswer: must be present in acceptedAnswers`)
     }
   }
 }

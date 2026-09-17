@@ -1,0 +1,18 @@
+import { useState } from 'react'
+import { listApprovedPart1Exercises, listApprovedPart2Exercises, listApprovedPart3Exercises, listApprovedPart4Exercises } from '../../content'
+import type { ImplementedExercise } from '../../domain/exercise'
+import type { Part1Exercise } from '../../domain/part1'
+import Part1ExercisePage from '../part1/Part1ExercisePage'
+import TextExercisePage from './TextExercisePage'
+
+export default function UseOfEnglishPracticePage() {
+  const [part, setPart] = useState<number | null>(null)
+  const [part1Exercise, setPart1Exercise] = useState<Part1Exercise | null>(null)
+  const [selectedExercise, setSelectedExercise] = useState<ImplementedExercise | null>(null)
+  const exercises: readonly ImplementedExercise[] = part === 2 ? listApprovedPart2Exercises() : part === 3 ? listApprovedPart3Exercises() : part === 4 ? listApprovedPart4Exercises() : []
+  if (part === 1) return <Part1ExercisePage initialExercise={part1Exercise} />
+  if (selectedExercise) return <TextExercisePage exercise={selectedExercise} onBack={() => setSelectedExercise(null)} />
+  if (part) return <section className="part1-shell part1-selector" aria-labelledby="part-title"><div className="part1-heading"><p className="eyebrow">Reading &amp; Use of English · Part {part}</p><h1 id="part-title">Choose an exercise</h1><p className="part1-instruction">Select one of the approved original exercises.</p></div><div className="part1-exercise-list" aria-label={`Available Part ${part} exercises`}>{exercises.map((exercise, index) => <button className="part1-exercise-choice" type="button" key={exercise.id} onClick={() => setSelectedExercise(exercise)}><span><strong>Exercise {index + 1}</strong><span>{exercise.title}</span></span><span aria-hidden="true">→</span></button>)}</div><button type="button" onClick={() => setPart(null)}>← Back to practice</button></section>
+  const parts = [{ number: 1, title: 'Multiple-choice cloze', description: 'Vocabulary, collocation and fixed expressions.', count: listApprovedPart1Exercises().length }, { number: 2, title: 'Open cloze', description: 'Grammar and cohesion with one-word answers.', count: listApprovedPart2Exercises().length }, { number: 3, title: 'Word formation', description: 'Form the correct word from the capitalised root.', count: listApprovedPart3Exercises().length }, { number: 4, title: 'Key word transformation', description: 'Rewrite the sentence in 3–6 words.', count: listApprovedPart4Exercises().length }]
+  return <section className="part1-shell part1-selector" aria-labelledby="practice-title"><div className="part1-heading"><p className="eyebrow">Cambridge C1 Advanced</p><h1 id="practice-title">Practice</h1><p className="part1-instruction">Choose a focused exercise. Your answers are saved locally when you submit.</p></div>{parts.map((item) => <div key={item.number}><div className="part1-section-heading"><h2>Reading &amp; Use of English</h2><span>Part {item.number}</span></div><button className="part1-type-card" type="button" onClick={() => setPart(item.number)}><span><strong>{item.title}</strong><small>{item.description}</small></span><span className="part1-count">{item.count} exercises →</span></button>{item.number === 1 && <div className="part1-exercise-list" aria-label="Available Part 1 exercises">{listApprovedPart1Exercises().map((exercise, index) => <button className="part1-exercise-choice" type="button" key={exercise.id} onClick={() => { setPart1Exercise(exercise); setPart(1) }}><span><strong>Exercise {index + 1}</strong><span>{exercise.title}</span></span><span aria-hidden="true">→</span></button>)}</div>}</div>)}</section>
+}

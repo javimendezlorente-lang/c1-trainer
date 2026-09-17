@@ -1,0 +1,14 @@
+import type { Part4Exercise, Part4Question } from '../domain/part4'
+import { C1_RUOE_STRUCTURE } from '../domain/scoring'
+export type Part4UserAnswers = Readonly<Record<string, string | null | undefined>>
+export interface Part4QuestionResult { questionId: string; answer: string | null; canonicalAnswer: string; acceptedAnswers: string[]; correct: boolean; marks: 0 | 1 | 2; maxMarks: 2; originalSentence: string; keyword: string; secondSentence: string }
+export interface Part4Grade { exerciseId: string; score: number; maxScore: number; complete: boolean; fullyCorrectQuestions: number; marksEarned: number; marksAvailable: number; results: Part4QuestionResult[] }
+export const normalizeTransformationAnswer = (value: string) => value.trim().replace(/\s+/gu, ' ').toLocaleLowerCase('en-US')
+export const countTransformationWords = (value: string) => value.trim() === '' ? 0 : value.trim().split(/\s+/u).length
+function validShape(answer: string, question: Part4Question) { if (countTransformationWords(answer) < 3 || countTransformationWords(answer) > 6) return false; return answer.split(/\s+/u).some((token) => token.replace(/[^a-z]/giu, '').toLocaleUpperCase('en-US') === question.keyword) }
+function scoreAnswer(answer: string, question: Part4Question): 0 | 1 | 2 { if (!validShape(answer, question)) return 0; const normalized = normalizeTransformationAnswer(answer); const full = [question.canonicalAnswer, ...question.acceptedAnswers].some((item) => normalizeTransformationAnswer(item) === normalized); if (full) return 2; return (question.scoring?.units ?? []).reduce<0 | 1 | 2>((best, unit) => unit.acceptedAnswers?.some((item) => normalizeTransformationAnswer(item) === normalized) ? Math.max(best, unit.marks) as 0 | 1 | 2 : best, 0) }
+export function gradePart4(exercise: Part4Exercise, userAnswers: Part4UserAnswers = {}): Part4Grade {
+  const results = exercise.questions.map((question) => { const raw = userAnswers[question.id]; const answer = typeof raw === 'string' && raw.trim() !== '' ? raw.trim() : null; const marks = answer === null ? 0 : scoreAnswer(answer, question); return { questionId: question.id, answer, canonicalAnswer: question.canonicalAnswer, acceptedAnswers: [...question.acceptedAnswers], correct: marks === 2, marks, maxMarks: 2 as const, originalSentence: question.originalSentence, keyword: question.keyword, secondSentence: question.secondSentence } })
+  const marksEarned = results.reduce((sum, item) => sum + item.marks, 0)
+  return { exerciseId: exercise.id, score: marksEarned, maxScore: C1_RUOE_STRUCTURE[4].maxMarks, complete: exercise.questions.every((question) => typeof userAnswers[question.id] === 'string' && userAnswers[question.id]!.trim() !== ''), fullyCorrectQuestions: results.filter((item) => item.correct).length, marksEarned, marksAvailable: results.reduce((sum, item) => sum + item.maxMarks, 0), results }
+}

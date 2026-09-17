@@ -9,12 +9,12 @@ import './part1.css'
 
 type Answers = Record<string, string>
 
-export default function Part1ExercisePage() {
+export default function Part1ExercisePage({ initialExercise = null }: { initialExercise?: Part1ExerciseModel | null } = {}) {
   const exercises = listApprovedPart1Exercises()
-  const [selectedExercise, setSelectedExercise] = useState<Part1ExerciseModel | null>(null)
+  const [selectedExercise, setSelectedExercise] = useState<Part1ExerciseModel | null>(initialExercise)
   const [answers, setAnswers] = useState<Answers>({})
   const [grade, setGrade] = useState<Part1Grade | null>(null)
-  const [idempotencyKey, setIdempotencyKey] = useState('')
+  const [idempotencyKey, setIdempotencyKey] = useState(() => initialExercise ? `part1-${typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`}` : '')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submissionError, setSubmissionError] = useState<string | null>(null)
 

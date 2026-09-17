@@ -54,7 +54,7 @@
     "ClozeText": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["text", "gaps"],
+        "required": ["text", "gaps"],
       "properties": {
         "text": { "type": "string", "minLength": 1 },
         "gaps": {

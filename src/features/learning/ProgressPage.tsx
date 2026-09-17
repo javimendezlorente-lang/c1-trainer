@@ -27,6 +27,7 @@ export default function ProgressPage() {
         <div><strong>{progress.attempts}</strong><span>Attempts</span></div>
         <div><strong>{progress.accuracy}%</strong><span>Accuracy</span></div>
         <div><strong>{progress.score} / {progress.maxScore}</strong><span>Marks</span></div>
+        <div><strong>{progress.markAccuracy}%</strong><span>Mark accuracy</span></div>
       </div>
       <div className="learning-card">
         <h2>Skill profile</h2>

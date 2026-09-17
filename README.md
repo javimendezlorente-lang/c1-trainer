@@ -2,7 +2,7 @@
 
 Mobile-first browser application for deliberate practice of Cambridge C1 Advanced English, on the path to a full PWA.
 
-This repository starts with the product and engineering contract. The implementation now has an installable shell plus the canonical domain and validation contract that will precede Reading and Use of English practice.
+This repository starts with the product and engineering contract. The implementation now has an installable shell, a canonical domain/content contract, and a complete original Part 1 practice slice.
 
 ## Scope of the first release
 
@@ -13,7 +13,7 @@ This repository starts with the product and engineering contract. The implementa
 
 ## Current milestone
 
-Phase 3 — Installable PWA Shell + Offline Verification is complete. The app contains only the rebranded shell, while the repository defines and validates original Part 1–4 content contracts and precaches the current shell for offline startup. No learner corpus is bundled.
+Phase 4 — Cambridge C1 Advanced Part 1 Vertical Slice is complete. Practice now bundles three original, validated Part 1 multiple-choice cloze exercises with local answer state, deterministic grading, explanations, and a results flow. Attempts are not persisted and Parts 2–8, Error Bank, and adaptive learning remain future milestones.
 
 The project is a personal, non-commercial study tool. It is independent and is not affiliated with, endorsed by, or sponsored by Cambridge English or the University of Cambridge.
 
@@ -21,9 +21,9 @@ Read [AGENTS.md](AGENTS.md) before making changes. The normative product documen
 
 ## Planned delivery
 
-1. Part 1 multiple-choice cloze.
-2. Error Bank and statistics.
-3. Parts 2–4 and their dedicated graders.
+1. Attempt/event model, Error Bank, and statistics.
+2. Parts 2–4 and their dedicated graders.
+3. Adaptive practice and spaced review.
 
 ## Development
 
@@ -32,7 +32,7 @@ npm install
 npm test -- --run
 npm run lint
 npm run typecheck
-npm run validate:content -- tests/fixtures/content/valid
+npm run validate:content -- content/approved/part1
 npm run build
 npm run verify:pwa
 npm run preview -- --host 127.0.0.1

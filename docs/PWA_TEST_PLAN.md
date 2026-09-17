@@ -1,6 +1,6 @@
 # PWA acceptance test plan
 
-This plan separates repeatable automated/build checks from manual browser and iPhone acceptance. The current milestone proves app-shell offline capability only. It does not make future exercise content available offline.
+This plan separates repeatable automated/build checks from manual browser and iPhone acceptance. The current build proves offline app-shell capability and bundles the approved Part 1 corpus for the implemented vertical slice. It does not imply offline support for future content or learning history.
 
 ## Automated and production-build checks
 
@@ -11,7 +11,7 @@ npm install
 npm test -- --run
 npm run lint
 npm run typecheck
-npm run validate:content -- content/approved
+npm run validate:content -- content/approved/part1
 npm run build
 npm run verify:pwa
 ```
@@ -23,7 +23,7 @@ Confirm that `dist/` contains:
 - `assets/` JavaScript and CSS bundles;
 - `icons/c1-trainer-192.png` and `icons/c1-trainer-512.png`.
 
-`npm run verify:pwa` checks the generated manifest, base paths, icon sizes, registration path, service-worker output, absence of external URLs, and a small predictable precache list. Inspect `dist/manifest.webmanifest` and confirm `start_url` and `scope` are `/c1-trainer/`, `display` is `standalone`, language is `en`, and both PNG sizes are declared. Inspect `dist/sw.js` and its Workbox precache list; it should contain only the current shell build and small static assets, not future content or external URLs.
+`npm run verify:pwa` checks the generated manifest, base paths, icon sizes, registration path, service-worker output, absence of external URLs, and a small predictable precache list. Inspect `dist/manifest.webmanifest` and confirm `start_url` and `scope` are `/c1-trainer/`, `display` is `standalone`, language is `en`, and both PNG sizes are declared. Inspect `dist/sw.js` and its Workbox precache list; it should contain the current shell build and bundled Part 1 code/content, not future content or external URLs.
 
 The unit suite covers manifest-adjacent configuration indirectly through production output checks, preserves the five shell routes, and keeps domain/content validation independent of React. It does not attempt to mock the complete service-worker lifecycle.
 
@@ -39,7 +39,8 @@ The unit suite covers manifest-adjacent configuration indirectly through product
 8. Hard-refresh or close and reopen the production URL.
 9. Confirm the shell starts and the five routes remain navigable offline.
 10. At a viewport of approximately 390 px wide, confirm there is no horizontal overflow.
-11. Confirm that no exercise corpus, grader, Error Bank, or learning-history feature is presented as available.
+11. Confirm that Part 1 exercise text, answers, grading, and explanations remain usable offline after the service worker controls the page.
+12. Confirm that no Parts 2–8, Error Bank, or learning-history feature is presented as available.
 
 Restore the browser network condition and stop the preview server after the test. Development-server behavior is not authoritative for this test because Vite dev mode does not represent the generated production service worker.
 

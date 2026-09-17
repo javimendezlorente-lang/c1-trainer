@@ -33,4 +33,6 @@ Each milestone must be independently testable and deployable. Do not begin a lat
 - [x] Fork/baseline the technical foundation and record the inherited checks.
 - [x] Strip unrelated language-learning functionality and establish the C1 Trainer shell.
 - [x] Define the canonical C1 exercise domain and versioned content schema.
-- [ ] Build the installable PWA shell and offline app-shell smoke test.
+- [x] Build the installable PWA shell and offline app-shell smoke test.
+- [x] Implement a complete original Part 1 vertical slice with bundled content, deterministic grading, and results explanations.
+- [ ] Design the attempt/event model and Error Bank persistence.

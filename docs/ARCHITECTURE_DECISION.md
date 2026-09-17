@@ -1,6 +1,6 @@
 # Architecture decision
 
-Status: approved foundation decision; Phase 3 PWA shell implemented
+Status: approved foundation decision; Phase 4 Part 1 vertical slice implemented
 
 ## Decision
 
@@ -41,11 +41,11 @@ Retain React and the useful shell/state patterns from `examiner`. Zustand handle
 
 ### Content
 
-Approved JSON content is loaded at build time and never generated at runtime in v0.1. Versioned Draft 2020-12 schemas live under `schemas/c1/v1/`, and domain-only TypeScript types live under `src/domain/`. A content validation command must fail if an item is structurally invalid, violates semantic answer constraints, is missing explanations/provenance, or contains a duplicate ID.
+Approved JSON content is loaded at build time and never generated at runtime in v0.1. Versioned Draft 2020-12 schemas live under `schemas/c1/v1/`, domain-only TypeScript types live under `src/domain/`, and `src/content/contentRepository.ts` exposes the bundled approved corpus to the UI. A content validation command must fail if an item is structurally invalid, violates semantic answer constraints, is missing explanations/provenance, or contains a duplicate ID.
 
 ### Grading
 
-Every grader is a pure function and is independent of React. Part 1 has deterministic option grading; Parts 2 and 3 have constrained accepted answers; Part 4 has an explicit answer set, word-count check, keyword check, and a separately specified partial-credit policy.
+Every grader is a pure function and is independent of React. Part 1 has deterministic option grading through `gradePart1`; Parts 2 and 3 have constrained accepted answers; Part 4 has an explicit answer set, word-count check, keyword check, and a separately specified partial-credit policy.
 
 ### Learning data
 
@@ -65,4 +65,4 @@ Use hash routing or another GitHub Pages-safe route strategy, an installable man
 
 ## Consequences
 
-This choice minimizes infrastructure work but requires a careful migration from generic JS/JSX vocabulary flows to typed, content-driven CAE flows. Phase 2 provides the canonical domain/schema contract and Phase 3 provides installable app-shell infrastructure without exercise UI or grading. Licensing provenance remains an explicit build concern. The next milestone is Part 1 UI and deterministic grading, not learning history or AI.
+This choice minimizes infrastructure work but requires a careful migration from generic JS/JSX vocabulary flows to typed, content-driven CAE flows. Phase 2 provides the canonical domain/schema contract, Phase 3 provides installable app-shell infrastructure, and Phase 4 proves the boundary with a complete Part 1 slice. Licensing provenance remains an explicit build concern. The next milestone is the attempt/event model and Error Bank, not AI or adaptive learning.

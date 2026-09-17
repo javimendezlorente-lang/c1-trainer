@@ -1,6 +1,6 @@
 # Implementation plan
 
-This plan follows the audit decision. Phase 3 adds installable PWA shell infrastructure and production offline verification only; exercise UI, graders, persistence, and Cambridge exercise content remain out of scope.
+This plan follows the audit decision. Phase 4 adds the first complete Cambridge C1 Advanced practice slice while keeping attempts, persistence, and later parts out of scope.
 
 ## Milestone 0 — Baseline the foundation
 
@@ -66,6 +66,8 @@ Acceptance criteria:
 - Learners can select/change answers, submit once, see raw marks, correct answers, and explanations.
 - Grading is pure and unit tested, including empty and malformed responses.
 - No content is bundled unless it passes the validator and has review metadata.
+
+Status: complete. The selector, three-exercise approved corpus, local-only session flow, pure grader, and results feedback are implemented under `src/content/`, `src/grading/`, and `src/features/part1/`.
 
 ## Milestone 5 — Attempts, Error Bank, and statistics
 

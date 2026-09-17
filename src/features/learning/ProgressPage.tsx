@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react'
 import { rebuildProjections } from '../../application/part1Submission'
-import type { ProgressProjection } from '../../learning'
+import type { ProgressProjection, ReviewProgressProjection } from '../../learning'
 import './learning.css'
 
 export default function ProgressPage() {
   const [progress, setProgress] = useState<ProgressProjection | null>(null)
+  const [review, setReview] = useState<ReviewProgressProjection | null>(null)
 
   useEffect(() => {
     let active = true
     rebuildProjections().then((projections) => {
-      if (active) setProgress(projections.progress)
+      if (active) { setProgress(projections.progress); setReview(projections.review) }
     })
     return () => {
       active = false
@@ -39,6 +40,12 @@ export default function ProgressPage() {
             </tbody>
           </table>
         )}
+      </div>
+      <div className="learning-card">
+        <h2>Memory reviews</h2>
+        <p className="learning-muted">Review activity is separate from practice accuracy.</p>
+        <div className="learning-summary"><div><strong>{review?.reviewsCompleted ?? 0}</strong><span>Completed</span></div><div><strong>{review?.reviewsDue ?? 0}</strong><span>Due now</span></div><div><strong>{review?.reviewedCards ?? 0}</strong><span>Cards reviewed</span></div></div>
+        <p>{review ? Object.entries(review.ratingDistribution).map(([rating, count]) => `${rating}: ${count}`).join(' · ') : 'Loading review metrics…'}</p>
       </div>
       </>}
     </section>

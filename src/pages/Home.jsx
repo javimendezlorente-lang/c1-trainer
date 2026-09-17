@@ -1,11 +1,5 @@
-import PlaceholderPage from '../components/PlaceholderPage'
+import HomeLearningPage from '../features/learning/HomeLearningPage'
 
 export default function Home() {
-  return (
-    <PlaceholderPage
-      title="Home"
-      description="Your future daily training entry point."
-    />
-  )
+  return <HomeLearningPage />
 }
-

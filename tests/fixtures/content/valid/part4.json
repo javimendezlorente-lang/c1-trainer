@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "c1-ruoe-p4-000001",
+  "exam": "C1_ADVANCED",
+  "paper": "READING_USE_OF_ENGLISH",
+  "part": 4,
+  "type": "key_word_transformation",
+  "title": "Equivalent meanings",
+  "difficulty": 4,
+  "topic": "paraphrase and grammar",
+  "source": { "kind": "original_manual", "reviewStatus": "approved" },
+  "skills": { "primarySkill": "inversion", "secondarySkills": ["collocation", "concession"] },
+  "questions": [
+    { "id": "q1", "originalSentence": "Lena did not need to attend the briefing.", "keyword": "HAVE", "secondSentence": "Lena {{answer}} the briefing.", "canonicalAnswer": "need not have attended", "acceptedAnswers": ["need not have attended"], "maxMarks": 2, "scoring": { "maxMarks": 2, "units": [] } },
+    { "id": "q2", "originalSentence": "Sam regretted ignoring the warning.", "keyword": "SHOULD", "secondSentence": "Sam admitted he {{answer}} the warning.", "canonicalAnswer": "should not have ignored", "acceptedAnswers": ["should not have ignored"], "maxMarks": 2 },
+    { "id": "q3", "originalSentence": "Nina succeeded in securing the victory.", "keyword": "MANAGE", "secondSentence": "Nina did {{answer}} the victory.", "canonicalAnswer": "manage to secure", "acceptedAnswers": ["manage to secure"], "maxMarks": 2 },
+    { "id": "q4", "originalSentence": "The lecture was extremely complex.", "keyword": "SUCH", "secondSentence": "It was {{answer}} lecture.", "canonicalAnswer": "such a complex", "acceptedAnswers": ["such a complex"], "maxMarks": 2 },
+    { "id": "q5", "originalSentence": "You should call ahead.", "keyword": "IF", "secondSentence": "It would be wise {{answer}} ahead.", "canonicalAnswer": "if you called", "acceptedAnswers": ["if you called"], "maxMarks": 2 },
+    { "id": "q6", "originalSentence": "The flight was cancelled because of fog.", "keyword": "DUE", "secondSentence": "The flight was cancelled {{answer}} fog.", "canonicalAnswer": "due to the", "acceptedAnswers": ["due to the"], "maxMarks": 2 }
+  ]
+}

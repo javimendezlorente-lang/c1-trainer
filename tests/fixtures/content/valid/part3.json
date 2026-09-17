@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "c1-ruoe-p3-000001",
+  "exam": "C1_ADVANCED",
+  "paper": "READING_USE_OF_ENGLISH",
+  "part": 3,
+  "type": "word_formation",
+  "title": "Design under pressure",
+  "difficulty": 3,
+  "topic": "engineering",
+  "source": { "kind": "original_manual", "reviewStatus": "approved" },
+  "skills": { "primarySkill": "suffix", "secondarySkills": ["word_class_change"] },
+  "content": {
+    "text": "The first design was {{gap:1}}, but later tests revealed its {{gap:2}}. Engineers worked {{gap:3}} to improve the frame, paying particular {{gap:4}} to the joints. Their final report was both {{gap:5}} and {{gap:6}}, offering a {{gap:7}} account of the process and a practical {{gap:8}} for future teams.",
+    "gaps": [
+      { "id": "g1", "number": 1 }, { "id": "g2", "number": 2 }, { "id": "g3", "number": 3 }, { "id": "g4", "number": 4 },
+      { "id": "g5", "number": 5 }, { "id": "g6", "number": 6 }, { "id": "g7", "number": 7 }, { "id": "g8", "number": 8 }
+    ]
+  },
+  "questions": [
+    { "id": "q1", "gap": 1, "root": "RELY", "canonicalAnswer": "reliable", "transformations": ["suffix", "word_class_change"], "explanation": "The adjective reliable is formed from rely." },
+    { "id": "q2", "gap": 2, "root": "WEAK", "canonicalAnswer": "weakness", "transformations": ["suffix", "word_class_change"], "explanation": "The noun weakness names the quality revealed by testing." },
+    { "id": "q3", "gap": 3, "root": "SYSTEM", "canonicalAnswer": "systematically", "transformations": ["suffix", "word_class_change"], "explanation": "The adverb systematically modifies worked." },
+    { "id": "q4", "gap": 4, "root": "ATTEND", "canonicalAnswer": "attention", "transformations": ["internal_change", "word_class_change"], "explanation": "Pay attention is the required noun phrase." },
+    { "id": "q5", "gap": 5, "root": "CLARITY", "canonicalAnswer": "clear", "transformations": ["internal_change", "word_class_change"], "explanation": "Clear is the adjective required after was." },
+    { "id": "q6", "gap": 6, "root": "LOGIC", "canonicalAnswer": "logical", "transformations": ["suffix", "word_class_change"], "explanation": "Logical is the second adjective in the coordinated phrase." },
+    { "id": "q7", "gap": 7, "root": "DETAIL", "canonicalAnswer": "detailed", "transformations": ["suffix", "word_class_change"], "explanation": "Detailed modifies account." },
+    { "id": "q8", "gap": 8, "root": "RECOMMEND", "canonicalAnswer": "recommendation", "transformations": ["suffix", "word_class_change"], "explanation": "Recommendation is the noun required by practical." }
+  ]
+}

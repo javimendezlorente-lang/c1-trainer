@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "c1-ruoe-p1-000099",
+  "exam": "C1_ADVANCED",
+  "paper": "READING_USE_OF_ENGLISH",
+  "part": 1,
+  "type": "multiple_choice_cloze",
+  "title": "Invalid duplicate options",
+  "difficulty": 2,
+  "topic": "validation",
+  "source": { "kind": "original_manual", "reviewStatus": "draft" },
+  "skills": { "primarySkill": "collocation", "secondarySkills": [] },
+  "content": {
+    "text": "A {{gap:1}} B {{gap:2}} C {{gap:3}} D {{gap:4}} E {{gap:5}} F {{gap:6}} G {{gap:7}} H {{gap:8}}.",
+    "gaps": [
+      { "id": "g1", "number": 1 }, { "id": "g2", "number": 2 }, { "id": "g3", "number": 3 }, { "id": "g4", "number": 4 },
+      { "id": "g5", "number": 5 }, { "id": "g6", "number": 6 }, { "id": "g7", "number": 7 }, { "id": "g8", "number": 8 }
+    ]
+  },
+  "questions": [
+    { "id": "q1", "gap": 1, "options": [{ "id": "A", "text": "same" }, { "id": "B", "text": "same" }, { "id": "C", "text": "other" }, { "id": "D", "text": "else" }], "correctOptionId": "A", "explanation": "This fixture is intentionally invalid." },
+    { "id": "q2", "gap": 2, "options": [{ "id": "A", "text": "one" }, { "id": "B", "text": "two" }, { "id": "C", "text": "three" }, { "id": "D", "text": "four" }], "correctOptionId": "A", "explanation": "This fixture is intentionally invalid." },
+    { "id": "q3", "gap": 3, "options": [{ "id": "A", "text": "one" }, { "id": "B", "text": "two" }, { "id": "C", "text": "three" }, { "id": "D", "text": "four" }], "correctOptionId": "A", "explanation": "This fixture is intentionally invalid." },
+    { "id": "q4", "gap": 4, "options": [{ "id": "A", "text": "one" }, { "id": "B", "text": "two" }, { "id": "C", "text": "three" }, { "id": "D", "text": "four" }], "correctOptionId": "A", "explanation": "This fixture is intentionally invalid." },
+    { "id": "q5", "gap": 5, "options": [{ "id": "A", "text": "one" }, { "id": "B", "text": "two" }, { "id": "C", "text": "three" }, { "id": "D", "text": "four" }], "correctOptionId": "A", "explanation": "This fixture is intentionally invalid." },
+    { "id": "q6", "gap": 6, "options": [{ "id": "A", "text": "one" }, { "id": "B", "text": "two" }, { "id": "C", "text": "three" }, { "id": "D", "text": "four" }], "correctOptionId": "A", "explanation": "This fixture is intentionally invalid." },
+    { "id": "q7", "gap": 7, "options": [{ "id": "A", "text": "one" }, { "id": "B", "text": "two" }, { "id": "C", "text": "three" }, { "id": "D", "text": "four" }], "correctOptionId": "A", "explanation": "This fixture is intentionally invalid." },
+    { "id": "q8", "gap": 8, "options": [{ "id": "A", "text": "one" }, { "id": "B", "text": "two" }, { "id": "C", "text": "three" }, { "id": "D", "text": "four" }], "correctOptionId": "A", "explanation": "This fixture is intentionally invalid." }
+  ]
+}

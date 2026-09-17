@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://c1-trainer.local/schemas/c1/v1/shared.schema.json",
+  "$defs": {
+    "Source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "reviewStatus"],
+      "properties": {
+        "kind": { "enum": ["original_manual", "original_ai", "imported_permitted"] },
+        "generator": { "type": "string", "minLength": 1 },
+        "reviewStatus": { "enum": ["draft", "review", "approved", "rejected"] }
+      }
+    },
+    "Skills": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["primarySkill", "secondarySkills"],
+      "properties": {
+        "primarySkill": { "$ref": "#/$defs/Skill" },
+        "secondarySkills": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/Skill" }
+        }
+      }
+    },
+    "Skill": {
+      "type": "string",
+      "enum": [
+        "collocation", "fixed_expression", "phrasal_verb", "idiom", "semantic_precision", "complementation", "dependent_preposition",
+        "article", "auxiliary", "modal", "tense_aspect", "pronoun", "determiner", "conjunction", "relative_clause", "comparison", "conditionals", "inversion", "passive", "reporting_structure", "causative", "concession", "preposition",
+        "prefix", "negative_prefix", "suffix", "compound", "internal_change", "word_class_change",
+        "cohesion", "coherence", "reference", "inference", "attitude", "tone", "purpose", "detail", "main_idea"
+      ]
+    },
+    "BaseExercise": {
+      "type": "object",
+      "required": ["schemaVersion", "id", "exam", "paper", "part", "type", "title", "difficulty", "topic", "source", "skills"],
+      "properties": {
+        "schemaVersion": { "const": "1.0.0" },
+        "id": { "type": "string", "pattern": "^c1-ruoe-p[1-8]-[0-9]{6}$" },
+        "exam": { "const": "C1_ADVANCED" },
+        "paper": { "const": "READING_USE_OF_ENGLISH" },
+        "part": { "type": "integer", "minimum": 1, "maximum": 8 },
+        "type": { "type": "string" },
+        "title": { "type": "string", "minLength": 1 },
+        "difficulty": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "topic": { "type": "string", "minLength": 1 },
+        "source": { "$ref": "#/$defs/Source" },
+        "skills": { "$ref": "#/$defs/Skills" }
+      }
+    },
+    "ClozeText": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["text", "gaps"],
+      "properties": {
+        "text": { "type": "string", "minLength": 1 },
+        "gaps": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "number"],
+            "properties": {
+              "id": { "type": "string", "pattern": "^g[1-8]$" },
+              "number": { "type": "integer", "minimum": 1, "maximum": 8 }
+            }
+          }
+        }
+      }
+    }
+  }
+}

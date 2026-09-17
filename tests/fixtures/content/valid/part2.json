@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "c1-ruoe-p2-000001",
+  "exam": "C1_ADVANCED",
+  "paper": "READING_USE_OF_ENGLISH",
+  "part": 2,
+  "type": "open_cloze",
+  "title": "A measured response",
+  "difficulty": 2,
+  "topic": "decision making",
+  "source": { "kind": "original_manual", "reviewStatus": "approved" },
+  "skills": { "primarySkill": "concession", "secondarySkills": ["conjunction"] },
+  "content": {
+    "text": "The proposal was accepted {{gap:1}} several objections remained. The committee agreed {{gap:2}} the evidence was incomplete, and it asked {{gap:3}} further checks be made before the results were published. This caution was welcomed {{gap:4}} the wider team, many of {{gap:5}} had initially been doubtful. The chair said {{gap:6}} the process would continue {{gap:7}} long {{gap:8}} necessary.",
+    "gaps": [
+      { "id": "g1", "number": 1 }, { "id": "g2", "number": 2 }, { "id": "g3", "number": 3 }, { "id": "g4", "number": 4 },
+      { "id": "g5", "number": 5 }, { "id": "g6", "number": 6 }, { "id": "g7", "number": 7 }, { "id": "g8", "number": 8 }
+    ]
+  },
+  "questions": [
+    { "id": "q1", "gap": 1, "acceptedAnswers": ["although"], "canonicalAnswer": "although", "explanation": "Although introduces a contrast." },
+    { "id": "q2", "gap": 2, "acceptedAnswers": ["that"], "canonicalAnswer": "that", "explanation": "That introduces the committee's statement." },
+    { "id": "q3", "gap": 3, "acceptedAnswers": ["that"], "canonicalAnswer": "that", "explanation": "That introduces the requested action." },
+    { "id": "q4", "gap": 4, "acceptedAnswers": ["by"], "canonicalAnswer": "by", "explanation": "Welcomed by identifies the group receiving the response." },
+    { "id": "q5", "gap": 5, "acceptedAnswers": ["whom"], "canonicalAnswer": "whom", "explanation": "Whom refers back to the team members." },
+    { "id": "q6", "gap": 6, "acceptedAnswers": ["that"], "canonicalAnswer": "that", "explanation": "That introduces reported speech." },
+    { "id": "q7", "gap": 7, "acceptedAnswers": ["as"], "canonicalAnswer": "as", "explanation": "As long as expresses duration or condition." },
+    { "id": "q8", "gap": 8, "acceptedAnswers": ["as"], "canonicalAnswer": "as", "explanation": "As necessary completes the fixed expression." }
+  ]
+}

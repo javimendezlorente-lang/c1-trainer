@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "c1-ruoe-p1-000001",
+  "exam": "C1_ADVANCED",
+  "paper": "READING_USE_OF_ENGLISH",
+  "part": 1,
+  "type": "multiple_choice_cloze",
+  "title": "Signals in the canopy",
+  "difficulty": 3,
+  "topic": "scientific observation",
+  "source": { "kind": "original_manual", "reviewStatus": "approved" },
+  "skills": { "primarySkill": "collocation", "secondarySkills": ["semantic_precision"] },
+  "content": {
+    "text": "Field teams often {{gap:1}} careful notes before they {{gap:2}} a conclusion. This habit can {{gap:3}} researchers from making a hasty {{gap:4}} and helps them {{gap:5}} patterns that would otherwise {{gap:6}} unnoticed. A clear record also {{gap:7}} later comparison and {{gap:8}} shared discussion.",
+    "gaps": [
+      { "id": "g1", "number": 1 }, { "id": "g2", "number": 2 }, { "id": "g3", "number": 3 }, { "id": "g4", "number": 4 },
+      { "id": "g5", "number": 5 }, { "id": "g6", "number": 6 }, { "id": "g7", "number": 7 }, { "id": "g8", "number": 8 }
+    ]
+  },
+  "questions": [
+    { "id": "q1", "gap": 1, "options": [{ "id": "A", "text": "make" }, { "id": "B", "text": "take" }, { "id": "C", "text": "do" }, { "id": "D", "text": "set" }], "correctOptionId": "B", "explanation": "The collocation is take notes." },
+    { "id": "q2", "gap": 2, "options": [{ "id": "A", "text": "draw" }, { "id": "B", "text": "pull" }, { "id": "C", "text": "reach" }, { "id": "D", "text": "touch" }], "correctOptionId": "C", "explanation": "Reach a conclusion is the standard collocation." },
+    { "id": "q3", "gap": 3, "options": [{ "id": "A", "text": "prevent" }, { "id": "B", "text": "avoid" }, { "id": "C", "text": "refuse" }, { "id": "D", "text": "deny" }], "correctOptionId": "A", "explanation": "Prevent someone from doing something fits the grammar and meaning." },
+    { "id": "q4", "gap": 4, "options": [{ "id": "A", "text": "decision" }, { "id": "B", "text": "choice" }, { "id": "C", "text": "conclusion" }, { "id": "D", "text": "judgement" }], "correctOptionId": "D", "explanation": "Make a hasty judgement is the intended collocation." },
+    { "id": "q5", "gap": 5, "options": [{ "id": "A", "text": "notice" }, { "id": "B", "text": "observe" }, { "id": "C", "text": "watch" }, { "id": "D", "text": "look" }], "correctOptionId": "A", "explanation": "Notice patterns is the natural verb choice here." },
+    { "id": "q6", "gap": 6, "options": [{ "id": "A", "text": "remain" }, { "id": "B", "text": "stay" }, { "id": "C", "text": "go" }, { "id": "D", "text": "pass" }], "correctOptionId": "A", "explanation": "Remain unnoticed expresses the intended state." },
+    { "id": "q7", "gap": 7, "options": [{ "id": "A", "text": "allows" }, { "id": "B", "text": "permits" }, { "id": "C", "text": "enables" }, { "id": "D", "text": "lets" }], "correctOptionId": "C", "explanation": "Enables later comparison is the best formal collocation." },
+    { "id": "q8", "gap": 8, "options": [{ "id": "A", "text": "supports" }, { "id": "B", "text": "holds" }, { "id": "C", "text": "keeps" }, { "id": "D", "text": "carries" }], "correctOptionId": "A", "explanation": "Supports shared discussion fits the meaning." }
+  ]
+}

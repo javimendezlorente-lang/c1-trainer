@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://c1-trainer.local/schemas/c1/v1/exercise.schema.json",
+  "title": "C1 Trainer v1 exercise",
+  "description": "Discriminated union for the implemented C1 Advanced Reading and Use of English exercise types.",
+  "oneOf": [
+    { "$ref": "./part1.schema.json" },
+    { "$ref": "./part2.schema.json" },
+    { "$ref": "./part3.schema.json" },
+    { "$ref": "./part4.schema.json" }
+  ],
+  "$defs": {
+    "SupportedSchemaVersion": { "const": "1.0.0" },
+    "FutureExerciseType": {
+      "enum": [
+        "part5_multiple_choice_reading",
+        "part6_cross_text_multiple_matching",
+        "part7_gapped_text",
+        "part8_multiple_matching"
+      ]
+    }
+  }
+}

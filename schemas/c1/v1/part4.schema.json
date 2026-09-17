@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://c1-trainer.local/schemas/c1/v1/part4.schema.json",
+  "title": "C1 Advanced Part 4 key word transformation",
+  "type": "object",
+  "allOf": [
+    { "$ref": "./shared.schema.json#/$defs/BaseExercise" },
+    {
+      "type": "object",
+      "required": ["part", "type", "questions"],
+      "properties": {
+        "part": { "const": 4 },
+        "type": { "const": "key_word_transformation" },
+        "questions": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": { "$ref": "#/$defs/Question" }
+        }
+      }
+    }
+  ],
+  "unevaluatedProperties": false,
+  "$defs": {
+    "Question": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "originalSentence", "keyword", "secondSentence", "canonicalAnswer", "acceptedAnswers", "maxMarks"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^q[1-6]$" },
+        "originalSentence": { "type": "string", "minLength": 1 },
+        "keyword": { "type": "string", "pattern": "^[A-Z][A-Z0-9-]*$" },
+        "secondSentence": { "type": "string", "minLength": 1 },
+        "canonicalAnswer": { "type": "string", "minLength": 1 },
+        "acceptedAnswers": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "maxMarks": { "const": 2 },
+        "scoring": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["maxMarks", "units"],
+          "properties": {
+            "maxMarks": { "const": 2 },
+            "units": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["id", "marks"],
+                "properties": {
+                  "id": { "type": "string", "minLength": 1 },
+                  "marks": { "type": "integer", "minimum": 0, "maximum": 2 },
+                  "description": { "type": "string", "minLength": 1 }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

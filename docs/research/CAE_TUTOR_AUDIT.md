@@ -47,8 +47,8 @@ The repository README states CC BY-NC 4.0, and the audited tree contains `cae-tu
 
 ## Conflicts found
 
-- `references/exam-parts.md` describes Part 4 as producing **2–5 words**. Cambridge’s current official format says **3–6 words**, so the project specification uses 3–6.
-- `SKILL.md` contains a later Part 4 rule stating **2–6 words**, which is also inconsistent with the official format. It is not used as an exam-format authority.
+- `references/exam-parts.md` describes a lower word-count range for Part 4. Cambridge’s current official format says **3–6 words**, so the project specification uses 3–6.
+- `SKILL.md` contains a later conflicting lower-bound note for Part 4. It is not used as an exam-format authority; the project specification uses 3–6 words.
 - The writing reference includes an approximate “passing threshold” for the writing paper. It is not used for score prediction; C1 Trainer will show only internally defined practice metrics unless a separately verified scoring specification is added.
 - The repository describes Listening and Speaking as advice-only in some places while also documenting full-paper session modes. This is a product-design choice, not evidence that the app should generate those papers.
 

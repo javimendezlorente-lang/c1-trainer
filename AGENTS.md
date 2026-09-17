@@ -2,8 +2,8 @@
 
 ## Source of truth
 
-- `docs/CAMBRIDGE_SPEC.md` is the authority for exam-format claims.
-- `docs/CONTENT_SCHEMA.md` is the authority for the content model.
+- `docs/CAMBRIDGE_RULES.md` is the authority for exam-format claims.
+- `docs/CONTENT_SCHEMA.md` is the authority for the external JSON content model.
 - `docs/PRODUCT_SPEC.md` defines the current product boundary.
 - If a requirement is absent or ambiguous, stop and record the decision in the relevant specification before implementing it.
 
@@ -31,4 +31,3 @@ Before merging a change:
 ## Content review
 
 Generated content is a candidate, never an approved item. A human reviewer must be able to inspect the answer, distractors, explanation, tags, and provenance before an item moves to `approved/`.
-

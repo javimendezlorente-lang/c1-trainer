@@ -1,6 +1,6 @@
 # Implementation plan
 
-This plan follows the audit decision. Phase 1 implements the foundation baseline only; Cambridge exercise logic remains out of scope.
+This plan follows the audit decision. Phase 2 defines the canonical domain and content contract only; exercise UI, graders, persistence, and Cambridge exercise content remain out of scope.
 
 ## Milestone 0 — Baseline the foundation
 
@@ -27,7 +27,22 @@ Acceptance criteria:
 
 Status: complete. The shell now exposes Home, Practice, Review, Progress, and Settings only.
 
-## Milestone 2 — Foundation contracts and PWA
+## Milestone 2 — Canonical domain and versioned content schema
+
+**Goal:** define one validated, versioned contract for every future exercise, grader, content generator, Error Bank record, and renderer.
+
+Acceptance criteria:
+
+- Draft 2020-12 schemas are split into shared metadata plus Part 1–4 schemas and a discriminated union.
+- Domain-only TypeScript types mirror the JSON contract without migrating the React shell.
+- Controlled skills, provenance, difficulty, stable IDs, and schema-version policy are documented.
+- A single scoring definition derives 56 questions and 78 marks.
+- Structural AJV validation is separate from semantic validation and is covered by original fixtures and tests.
+- Part 4 explicitly uses 3–6 words including the unchanged keyword.
+
+Status: complete. See [`CONTENT_SCHEMA.md`](CONTENT_SCHEMA.md), [`DOMAIN_MODEL.md`](DOMAIN_MODEL.md), [`CAMBRIDGE_RULES.md`](CAMBRIDGE_RULES.md), and `scripts/validate-content.mjs`.
+
+## Milestone 3 — Foundation contracts and PWA
 
 **Goal:** establish typed domain boundaries and installable offline shell.
 
@@ -38,7 +53,7 @@ Acceptance criteria:
 - IndexedDB repository skeleton has schema versioning and migration tests.
 - Manifest, icons, service worker, standalone display, and production offline smoke test pass.
 
-## Milestone 3 — Part 1 engine
+## Milestone 4 — Part 1 engine
 
 **Goal:** deliver one complete, deterministic multiple-choice cloze flow.
 
@@ -49,7 +64,7 @@ Acceptance criteria:
 - Grading is pure and unit tested, including empty and malformed responses.
 - No content is bundled unless it passes the validator and has review metadata.
 
-## Milestone 4 — Attempts, Error Bank, and statistics
+## Milestone 5 — Attempts, Error Bank, and statistics
 
 **Goal:** make learning history durable and inspectable.
 
@@ -60,7 +75,7 @@ Acceptance criteria:
 - Part/tag accuracy is derived from stored events and labelled as internal practice data.
 - Export/import has a versioned format and migration tests.
 
-## Milestone 5 — Parts 2 and 3
+## Milestone 6 — Parts 2 and 3
 
 **Goal:** add open cloze and word formation with dedicated contracts.
 
@@ -70,7 +85,7 @@ Acceptance criteria:
 - Accepted-answer and spelling policies are explicit and tested.
 - Feedback explains grammar/morphology without claiming official Cambridge scoring beyond the documented raw marks.
 
-## Milestone 6 — Part 4
+## Milestone 7 — Part 4
 
 **Goal:** add key word transformations with defensible marking.
 
@@ -80,7 +95,7 @@ Acceptance criteria:
 - Partial-credit rules are documented before implementation and covered by tests.
 - The grader never relies on exact-string equality alone and never silently invents semantic equivalence.
 
-## Milestone 7 — FSRS and adaptive practice
+## Milestone 8 — FSRS and adaptive practice
 
 **Goal:** schedule review of errors and concepts.
 
@@ -91,7 +106,7 @@ Acceptance criteria:
 - Again/Hard/Good/Easy mapping is documented and tested.
 - Selection weights and “why this item was chosen” are deterministic and visible enough to debug.
 
-## Milestone 8 — Content scale and QA
+## Milestone 9 — Content scale and QA
 
 **Goal:** expand only after the pipeline is trusted.
 

@@ -1,6 +1,6 @@
 # Architecture decision
 
-Status: approved foundation decision; Phase 1 baseline implemented
+Status: approved foundation decision; Phase 2 domain/schema implemented
 
 ## Decision
 
@@ -41,7 +41,7 @@ Retain React and the useful shell/state patterns from `examiner`. Zustand handle
 
 ### Content
 
-Approved JSON content is loaded at build time and never generated at runtime in v0.1. Content schemas are versioned. A build must fail if an item is structurally invalid, ambiguous under its declared answer model, missing explanations/provenance, or contains a duplicate ID.
+Approved JSON content is loaded at build time and never generated at runtime in v0.1. Versioned Draft 2020-12 schemas live under `schemas/c1/v1/`, and domain-only TypeScript types live under `src/domain/`. A content validation command must fail if an item is structurally invalid, violates semantic answer constraints, is missing explanations/provenance, or contains a duplicate ID.
 
 ### Grading
 
@@ -65,4 +65,4 @@ Use hash routing or another GitHub Pages-safe route strategy, an installable man
 
 ## Consequences
 
-This choice minimizes infrastructure work but requires a careful migration from generic JS/JSX vocabulary flows to typed, content-driven CAE flows. Phase 1 now provides the smaller C1 Trainer shell; licensing provenance remains an explicit build concern. The next milestone is the canonical C1 exercise domain model and versioned content schema, not exercise UI.
+This choice minimizes infrastructure work but requires a careful migration from generic JS/JSX vocabulary flows to typed, content-driven CAE flows. Phase 2 now provides the canonical domain/schema contract without exercise UI or grading. Licensing provenance remains an explicit build concern. The next milestone is PWA installability and an offline app-shell smoke test, not Part 1 UI.

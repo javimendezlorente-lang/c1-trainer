@@ -1,100 +1,82 @@
 # Content schema
 
-Status: normative v0.1 contract
+## Philosophy
 
-## Design rules
+JSON Schema is the canonical external format for C1 Trainer content. Future content may be authored or generated outside the application, so it must be independently machine-validatable before it can be bundled. The application domain layer mirrors the validated shape but does not define a second runtime content format.
 
-- Content is data, not JSX or component code.
-- Each activity has a stable ID and one task type.
-- Answers and explanations are explicit and machine-checkable.
-- `source: original` is required for all v0.1 approved items.
-- Candidate content is isolated from approved content until reviewed.
+The current schemas use JSON Schema Draft 2020-12 and are split by responsibility:
 
-## Common activity shape
+```text
+schemas/c1/v1/
+├── shared.schema.json       # metadata, provenance, skills, cloze text
+├── exercise.schema.json     # discriminated Part 1–4 union
+├── part1.schema.json        # multiple-choice cloze
+├── part2.schema.json        # open cloze
+├── part3.schema.json        # word formation
+└── part4.schema.json        # key word transformation
+```
+
+Every exercise has stable metadata: a semantic version, globally unique corpus ID, exam/paper, part/type, title, internal difficulty, topic, provenance, and controlled skills. Content does not contain UI preferences such as `inlineOptions`, React state, CSS concerns, or screen-size assumptions.
+
+## IDs and provenance
+
+Exercise IDs follow `c1-ruoe-p{part}-{six-digit-sequence}`, for example `c1-ruoe-p1-000001`. Question IDs are local to an exercise (`q1` … `q8` or `q6` for Part 4), while cloze gaps are local (`g1` … `g8`). Exercise IDs are the stable global identity used by future attempts, Error Bank records, and content review logs.
+
+`source.kind` distinguishes `original_manual`, `original_ai`, and `imported_permitted`. `reviewStatus` distinguishes draft, review, approved, and rejected. Provenance stores metadata, not copied Cambridge text.
+
+## Versioning and compatibility
+
+The initial supported version is `1.0.0`. The validator rejects unsupported versions and unsupported major versions rather than silently parsing them.
+
+- PATCH: documentation or non-breaking clarification.
+- MINOR: backward-compatible optional fields.
+- MAJOR: breaking content-format changes.
+
+Each major version receives a separate schema directory. A future reader may support multiple majors explicitly, but it must never guess compatibility.
+
+## Structural versus semantic validation
+
+AJV validates JSON Schema structure. The semantic validator then checks constraints that are inconvenient or unsafe to express only in JSON Schema, including duplicate IDs, option-text uniqueness, answer membership, root/answer transformation, keyword preservation, and Part 4's 3–6-word policy.
+
+Run validation with:
+
+```bash
+npm run validate:content -- content/approved
+npm run validate:content -- tests/fixtures/content/valid
+```
+
+The command recursively visits JSON files, reports `STRUCTURAL` or `SEMANTIC`, includes the exact file path, and exits non-zero on failure. The invalid fixtures are intentionally excluded from the passing command and are exercised by automated tests.
+
+## Minimal examples
+
+Part 1 stores stable option IDs rather than treating array positions as answer truth:
 
 ```json
 {
-  "id": "C1-UOE-P1-0001",
-  "level": "C1",
-  "paper": "reading_use_of_english",
-  "part": 1,
-  "type": "multiple_choice_cloze",
-  "title": "The psychology of waiting",
-  "difficulty": 3,
-  "source": "original",
-  "tags": ["collocation", "lexical-precision"],
-  "instructions": "For questions 1–8, choose the best answer.",
-  "text": "...",
-  "items": []
+  "id": "q1",
+  "gap": 1,
+  "options": [
+    { "id": "A", "text": "first" },
+    { "id": "B", "text": "second" },
+    { "id": "C", "text": "third" },
+    { "id": "D", "text": "fourth" }
+  ],
+  "correctOptionId": "B",
+  "explanation": "The second option fits the context."
 }
 ```
 
-## Required common fields
-
-| Field | Type | Rule |
-| --- | --- | --- |
-| `id` | string | Globally unique; `C1-UOE-P{1..4}-{4 digits}` for v0.1 |
-| `level` | literal `C1` | Required |
-| `paper` | literal `reading_and_use_of_english` | Required |
-| `part` | integer 1–4 | Must match `type` |
-| `type` | enum | One supported task type |
-| `title` | string | Non-empty, original title |
-| `difficulty` | integer 1–5 | Editorial estimate, not official Cambridge difficulty |
-| `source` | literal `original` | Required in approved v0.1 content |
-| `tags` | non-empty string array | Controlled vocabulary preferred |
-| `instructions` | string | Non-empty |
-| `text` | string | Original exercise text |
-| `items` | array | Shape depends on task type |
-
-## Part-specific rules
-
-### Part 1: multiple-choice cloze
-
-- Exactly 8 items.
-- Exactly 4 non-empty options per item.
-- Exactly one correct option, represented by zero-based `answerIndex`.
-- Each item has a prompt marker that can be rendered in the text.
-- Correct explanation is required; each distractor should have an explanation when it is pedagogically meaningful.
+Part 4 stores multiple accepted solutions and an optional, currently empty partial-credit extension:
 
 ```json
 {
-  "number": 1,
-  "options": ["raise", "cast", "place", "put"],
-  "answerIndex": 1,
-  "explanation": {
-    "correct": "The fixed collocation is ...",
-    "wrong": {
-      "0": "...",
-      "2": "...",
-      "3": "..."
-    }
-  }
+  "keyword": "HAVE",
+  "secondSentence": "Lena {{answer}} the briefing.",
+  "canonicalAnswer": "need not have attended",
+  "acceptedAnswers": ["need not have attended"],
+  "maxMarks": 2,
+  "scoring": { "maxMarks": 2, "units": [] }
 }
 ```
 
-### Part 2: open cloze
-
-- Exactly 8 items.
-- One answer field per item.
-- The learner response is one word only.
-- `acceptedAnswers` supports orthographic variants only when they are genuinely equivalent.
-
-### Part 3: word formation
-
-- Exactly 8 items.
-- Each item has one supplied `promptWord`.
-- `acceptedAnswers` contains valid inflected or derived forms for the context.
-- The validator must ensure the answer is derived from the prompt word according to the editorial answer record.
-
-### Part 4: key word transformation
-
-- Exactly 6 items.
-- `keyword` is immutable and must appear in the learner-facing prompt.
-- Accepted answers contain 3–6 whitespace-delimited words.
-- Multiple legitimate answers may be stored.
-- Marking must support partial credit up to 2 marks; exact partial-credit rules require a separate grading specification before implementation.
-
-## Editorial metadata
-
-Approved items should also contain `review`, with reviewer, reviewed date, and quality-check version. This metadata is not shown as learner content.
-
+Fixtures under `tests/fixtures/content/` are original test infrastructure only. They are not a learner corpus and must not contain copied Cambridge sample-paper text.

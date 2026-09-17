@@ -24,7 +24,7 @@ Each milestone must be independently testable and deployable. Do not begin a lat
 
 - [x] Initial product boundary written.
 - [x] Cambridge-format contract written and linked to official sources.
-- [x] Canonical content contract drafted.
+- [x] Canonical content contract drafted and validated for Parts 1–4.
 - [x] Proposed architecture and mobile UI contract written.
 - [x] Reference repositories and licenses audited.
 - [x] Reuse matrix and architecture decision written.
@@ -32,4 +32,5 @@ Each milestone must be independently testable and deployable. Do not begin a lat
 - [x] Review and approve the docs.
 - [x] Fork/baseline the technical foundation and record the inherited checks.
 - [x] Strip unrelated language-learning functionality and establish the C1 Trainer shell.
-- [ ] Define the canonical C1 exercise domain and versioned content schema.
+- [x] Define the canonical C1 exercise domain and versioned content schema.
+- [ ] Build the installable PWA shell and offline app-shell smoke test.

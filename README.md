@@ -2,7 +2,7 @@
 
 Mobile-first browser application for deliberate practice of Cambridge C1 Advanced English, on the path to a full PWA.
 
-This repository starts with the product and engineering contract. The first implementation milestone is a small, stable offline shell followed by validated Reading and Use of English practice.
+This repository starts with the product and engineering contract. The implementation now has a small, stable shell plus the canonical domain and validation contract that will precede Reading and Use of English practice.
 
 ## Scope of the first release
 
@@ -13,7 +13,7 @@ This repository starts with the product and engineering contract. The first impl
 
 ## Current milestone
 
-Phase 1 — Technical Foundation Baseline is complete. The app currently contains the rebranded mobile shell, five navigation destinations, light/dark theme support, GitHub Pages-compatible hash routing, and no learner content yet.
+Phase 2 — Canonical C1 Exercise Domain Model + Versioned Content Schema is complete. The app still contains only the rebranded mobile shell, while the repository now defines and validates original Part 1–4 content contracts without bundling learner content.
 
 The project is a personal, non-commercial study tool. It is independent and is not affiliated with, endorsed by, or sponsored by Cambridge English or the University of Cambridge.
 
@@ -21,11 +21,10 @@ Read [AGENTS.md](AGENTS.md) before making changes. The normative product documen
 
 ## Planned delivery
 
-1. Canonical C1 exercise domain model and versioned content schema.
-2. PWA shell and offline installability.
-3. Part 1 multiple-choice cloze.
-4. Error Bank and statistics.
-5. Parts 2–4 and their dedicated graders.
+1. PWA shell and offline installability.
+2. Part 1 multiple-choice cloze.
+3. Error Bank and statistics.
+4. Parts 2–4 and their dedicated graders.
 
 ## Development
 
@@ -33,6 +32,8 @@ Read [AGENTS.md](AGENTS.md) before making changes. The normative product documen
 npm install
 npm test -- --run
 npm run lint
+npm run typecheck
+npm run validate:content -- tests/fixtures/content/valid
 npm run build
 ```
 

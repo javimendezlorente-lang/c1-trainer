@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://c1-trainer.local/schemas/content.schema.json",
+  "title": "C1 Trainer approved activity",
+  "type": "object",
+  "required": ["id", "level", "paper", "part", "type", "title", "difficulty", "source", "tags", "instructions", "text", "items"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^C1-UOE-P[1-4]-[0-9]{4}$" },
+    "level": { "const": "C1" },
+    "paper": { "const": "reading_and_use_of_english" },
+    "part": { "type": "integer", "minimum": 1, "maximum": 4 },
+    "type": { "enum": ["multiple_choice_cloze", "open_cloze", "word_formation", "key_word_transformation"] },
+    "title": { "type": "string", "minLength": 1 },
+    "difficulty": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "source": { "const": "original" },
+    "tags": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "instructions": { "type": "string", "minLength": 1 },
+    "text": { "type": "string", "minLength": 1 },
+    "items": { "type": "array", "minItems": 1 },
+    "review": {
+      "type": "object",
+      "required": ["reviewer", "reviewedOn", "checksVersion"],
+      "properties": {
+        "reviewer": { "type": "string", "minLength": 1 },
+        "reviewedOn": { "type": "string", "format": "date" },
+        "checksVersion": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": { "properties": { "part": { "const": 1 } } },
+      "then": {
+        "properties": {
+          "type": { "const": "multiple_choice_cloze" },
+          "items": {
+            "type": "array",
+            "minItems": 8,
+            "maxItems": 8,
+            "items": {
+              "type": "object",
+              "required": ["number", "options", "answerIndex", "explanation"],
+              "properties": {
+                "number": { "type": "integer", "minimum": 1, "maximum": 8 },
+                "options": { "type": "array", "minItems": 4, "maxItems": 4, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+                "answerIndex": { "type": "integer", "minimum": 0, "maximum": 3 },
+                "explanation": {
+                  "type": "object",
+                  "required": ["correct"],
+                  "properties": { "correct": { "type": "string", "minLength": 1 }, "wrong": { "type": "object" } },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "part": { "const": 2 } } },
+      "then": { "properties": { "type": { "const": "open_cloze" }, "items": { "minItems": 8, "maxItems": 8 } } }
+    },
+    {
+      "if": { "properties": { "part": { "const": 3 } } },
+      "then": { "properties": { "type": { "const": "word_formation" }, "items": { "minItems": 8, "maxItems": 8 } } }
+    },
+    {
+      "if": { "properties": { "part": { "const": 4 } } },
+      "then": { "properties": { "type": { "const": "key_word_transformation" }, "items": { "minItems": 6, "maxItems": 6 } } }
+    }
+  ]
+}

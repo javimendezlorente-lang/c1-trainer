@@ -1,6 +1,6 @@
 # Implementation plan
 
-This plan follows the audit decision. Phase 6 adds FSRS scheduling and dedicated review sessions on top of the Phase 5 ledgers while keeping export/import, adaptive selection, and later parts out of scope.
+This plan follows the audit decision. Phase 6.5 adds local versioned backup/restore on top of the Phase 6 ledgers while keeping cloud sync, adaptive selection, and later parts out of scope.
 
 ## Milestone 0 — Baseline the foundation
 
@@ -98,6 +98,20 @@ Acceptance criteria:
 
 Status: complete. See [`FSRS_MODEL.md`](FSRS_MODEL.md), [`REVIEW_EVENT.md`](REVIEW_EVENT.md), and [`REVIEW_SESSION.md`](REVIEW_SESSION.md).
 
+## Milestone 6.5 — Versioned backup and restore
+
+**Goal:** make the two historical ledgers portable without backing up or trusting derived projections.
+
+Acceptance criteria:
+
+- A versioned JSON envelope contains only AttemptEvents, ReviewEvents, and minimal metadata.
+- Export is pure until the browser download boundary and uses a deterministic filename.
+- Import validates the complete file before writing, previews a merge, detects immutable conflicts, and uses a transactional IndexedDB commit.
+- Duplicate imports are idempotent and successful restore rebuilds all projections and ReviewCards.
+- Settings exposes explicit export, import confirmation, and reset controls without changing theme preferences.
+
+Status: complete. See [`BACKUP_FORMAT.md`](BACKUP_FORMAT.md) and [`BACKUP_RESTORE.md`](BACKUP_RESTORE.md).
+
 ## Milestone 7 — Parts 2 and 3
 
 **Goal:** add open cloze and word formation with dedicated contracts.
@@ -129,7 +143,7 @@ Acceptance criteria:
 - Again/Hard/Good/Easy mapping is documented and tested.
 - Selection weights and “why this item was chosen” are deterministic and visible enough to debug.
 
-## Milestone 9 — Content scale and QA
+## Milestone 10 — Content scale and QA
 
 **Goal:** expand only after the pipeline is trusted.
 

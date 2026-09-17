@@ -16,3 +16,5 @@ Database `c1-trainer` is currently schema version 3:
 Version 3 adds review stores and does not alter or delete Phase 5 attempts. The migration backfills review idempotency keys if any exist. `replaceReviewCards()` clears only the materialized card projection before writing the rebuilt set.
 
 `clearLearningData()` clears attempts, review events, and review-card projections. Theme preferences live in Zustand/local storage and are intentionally outside this action.
+
+Backup/restore is application-level and does not add a backup store. Export reads only `attempts` and `reviewEvents`; restore validates both ledgers, merges them transactionally, and rebuilds `reviewCards` and all other projections afterward. See [`BACKUP_FORMAT.md`](BACKUP_FORMAT.md) and [`BACKUP_RESTORE.md`](BACKUP_RESTORE.md).

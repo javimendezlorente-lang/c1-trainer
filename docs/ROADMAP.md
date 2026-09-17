@@ -38,4 +38,4 @@ Each milestone must be independently testable and deployable. Do not begin a lat
 - [x] Define and persist idempotent AttemptEvents in IndexedDB.
 - [x] Rebuild Error Bank and Progress/skill profile projections from AttemptEvents.
 - [x] Add FSRS scheduling, ReviewEvents, rebuildable ReviewCards, and offline review sessions.
-- [ ] Add versioned attempt/review export/import and migration tooling.
+- [x] Add versioned AttemptEvent/ReviewEvent backup and merge-only restore.

@@ -13,3 +13,5 @@ Review rating ───────────────→ ReviewEvent ─�
 Error Bank, practice metrics, skill profile, ReviewCard state, and the due queue are projections. They can be deleted and rebuilt from AttemptEvents and ReviewEvents. A correct practice answer never silently becomes a Good review.
 
 Practice accuracy and review activity are reported separately. ReviewEvents are not counted as normal exam-question attempts.
+
+Backups preserve only the two historical ledgers. Restore never accepts or imports projections: it validates, merges, and rebuilds them.

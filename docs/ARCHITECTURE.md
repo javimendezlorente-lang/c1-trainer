@@ -1,6 +1,6 @@
 # Architecture
 
-Status: Phase 6 implemented; see [ARCHITECTURE_DECISION.md](ARCHITECTURE_DECISION.md), [ATTEMPT_EVENT_IMPLEMENTATION.md](ATTEMPT_EVENT_IMPLEMENTATION.md), and [FSRS_MODEL.md](FSRS_MODEL.md)
+Status: Phase 6.5 implemented; see [ARCHITECTURE_DECISION.md](ARCHITECTURE_DECISION.md), [ATTEMPT_EVENT_IMPLEMENTATION.md](ATTEMPT_EVENT_IMPLEMENTATION.md), [FSRS_MODEL.md](FSRS_MODEL.md), and [BACKUP_RESTORE.md](BACKUP_RESTORE.md)
 
 ## Runtime shape
 
@@ -63,6 +63,8 @@ Minimum stores:
 - `meta`
 
 `AttemptEvent` and `ReviewEvent` are the historical authorities; card state is never the sole source of truth.
+
+Backup/restore is local and application-level: export includes only the two historical ledgers; restore validates and merges them before rebuilding projections. There is no cloud sync or background backup.
 
 No sensitive personal data is required for v0.1.
 

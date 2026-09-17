@@ -1,6 +1,6 @@
 # Architecture decision
 
-Status: approved foundation decision; Phase 6 review scheduling and sessions implemented
+Status: approved foundation decision; Phase 6.5 versioned backup/restore implemented
 
 ## Decision
 
@@ -65,4 +65,4 @@ Use hash routing or another GitHub Pages-safe route strategy, an installable man
 
 ## Consequences
 
-This choice minimizes infrastructure work but requires a careful migration from generic JS/JSX vocabulary flows to typed, content-driven CAE flows. Phase 2 provides the canonical domain/schema contract, Phase 3 provides installable app-shell infrastructure, Phase 4 proves the Part 1 renderer/grader boundary, Phase 5 adds the historical attempt boundary, and Phase 6 adds rebuildable FSRS scheduling and offline review sessions. Licensing provenance remains an explicit build concern. The next milestone is versioned export/import and additional exercise types, not AI or adaptive selection.
+This choice minimizes infrastructure work but requires a careful migration from generic JS/JSX vocabulary flows to typed, content-driven CAE flows. Phase 2 provides the canonical domain/schema contract, Phase 3 provides installable app-shell infrastructure, Phase 4 proves the Part 1 renderer/grader boundary, Phase 5 adds the historical attempt boundary, Phase 6 adds rebuildable FSRS scheduling and offline review sessions, and Phase 6.5 adds local versioned backup/restore of the ledgers. Licensing provenance remains an explicit build concern. The next milestone is additional exercise types, not AI or adaptive selection.

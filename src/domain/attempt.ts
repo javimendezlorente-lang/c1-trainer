@@ -5,7 +5,7 @@ export const ATTEMPT_EVENT_VERSION = '1.0.0' as const
 
 export interface AttemptQuestionResult {
   questionId: string
-  answerKind: 'choice' | 'text' | 'transformation'
+  answerKind: 'choice' | 'text' | 'transformation' | 'matching'
   answer: string | null
   correct: boolean
   marks: number
@@ -21,6 +21,12 @@ export interface AttemptQuestionResult {
   originalSentence?: string
   keyword?: string
   secondSentence?: string
+  selectedTargetId?: string | null
+  correctTargetId?: string
+  targetLabel?: string
+  correctTargetLabel?: string
+  prompt?: string
+  contextSnapshot?: string
 }
 
 export interface AttemptEvent {
@@ -31,8 +37,8 @@ export interface AttemptEvent {
   occurredAt: string
   exerciseId: string
   exerciseSchemaVersion: SchemaVersion
-  part: 1 | 2 | 3 | 4
-  type: 'multiple_choice_cloze' | 'open_cloze' | 'word_formation' | 'key_word_transformation'
+  part: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
+  type: 'multiple_choice_cloze' | 'open_cloze' | 'word_formation' | 'key_word_transformation' | 'multiple_choice_reading' | 'cross_text_multiple_matching' | 'gapped_text' | 'multiple_matching'
   answers: Record<string, string | null>
   explanationReferences: Record<string, string>
   grade: {

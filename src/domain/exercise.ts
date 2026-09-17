@@ -2,6 +2,10 @@ import type { Part1Exercise } from './part1'
 import type { Part2Exercise } from './part2'
 import type { Part3Exercise } from './part3'
 import type { Part4Exercise } from './part4'
+import type { Part5Exercise } from './part5'
+import type { Part6Exercise } from './part6'
+import type { Part7Exercise } from './part7'
+import type { Part8Exercise } from './part8'
 import type { SkillSet } from './skills'
 
 export const SUPPORTED_SCHEMA_VERSION = '1.0.0' as const
@@ -36,11 +40,15 @@ export type ImplementedExercise =
   | Part2Exercise
   | Part3Exercise
   | Part4Exercise
+  | Part5Exercise
+  | Part6Exercise
+  | Part7Exercise
+  | Part8Exercise
 
 export type FutureExerciseType =
-  | 'part5_multiple_choice_reading'
-  | 'part6_cross_text_multiple_matching'
-  | 'part7_gapped_text'
-  | 'part8_multiple_matching'
+  | 'multiple_choice_reading'
+  | 'cross_text_multiple_matching'
+  | 'gapped_text'
+  | 'multiple_matching'
 
 export type Exercise = ImplementedExercise

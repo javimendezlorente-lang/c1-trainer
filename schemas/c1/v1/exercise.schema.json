@@ -8,6 +8,10 @@
     { "$ref": "./part2.schema.json" },
     { "$ref": "./part3.schema.json" },
     { "$ref": "./part4.schema.json" }
+    ,{ "$ref": "./part5.schema.json" }
+    ,{ "$ref": "./part6.schema.json" }
+    ,{ "$ref": "./part7.schema.json" }
+    ,{ "$ref": "./part8.schema.json" }
   ],
   "$defs": {
     "SupportedSchemaVersion": { "const": "1.0.0" },

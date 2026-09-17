@@ -7,7 +7,7 @@ const SCHEMA_DIR = path.resolve('schemas/c1/v1')
 const ROOT_SCHEMA_ID = 'https://c1-trainer.local/schemas/c1/v1/exercise.schema.json'
 const ANSWER_MARKER = '{{answer}}'
 
-const schemaFiles = ['shared.schema.json', 'part1.schema.json', 'part2.schema.json', 'part3.schema.json', 'part4.schema.json', 'exercise.schema.json']
+const schemaFiles = ['shared.schema.json', 'part1.schema.json', 'part2.schema.json', 'part3.schema.json', 'part4.schema.json', 'part5.schema.json', 'part6.schema.json', 'part7.schema.json', 'part8.schema.json', 'exercise.schema.json']
 
 export async function createContentValidator() {
   const ajv = new Ajv2020({ allErrors: true, strict: true })
@@ -112,6 +112,22 @@ function validatePart4(exercise, errors) {
   }
 }
 
+function validateReadingIds(exercise, errors, targetKey) {
+  uniqueValues(exercise.questions.map((q) => q.id), 'questions.id', errors)
+  const targets = targetKey === 'paragraphs' ? exercise.content.paragraphs : exercise.content.texts
+  uniqueValues(targets.map((item) => item.id), `content.${targetKey}.id`, errors)
+  for (const question of exercise.questions) if (!targets.some((item) => item.id === question[targetKey === 'paragraphs' ? 'correctParagraphId' : 'correctTextId'])) errors.push(`${question.id}: correct target does not exist`)
+}
+
+function validatePart5(exercise, errors) {
+  uniqueValues(exercise.questions.map((q) => q.id), 'questions.id', errors)
+  for (const question of exercise.questions) { const ids = question.options.map((o) => o.id); uniqueValues(ids, `${question.id}.options.id`, errors); uniqueValues(question.options.map((o) => normalize(o.text)), `${question.id}.options.text`, errors); if (!ids.includes(question.correctOptionId)) errors.push(`${question.id}.correctOptionId: target does not exist`) }
+}
+
+function validatePart6(exercise, errors) { validateReadingIds(exercise, errors, 'texts') }
+function validatePart7(exercise, errors) { validateReadingIds(exercise, errors, 'paragraphs'); const gapIds = exercise.content.segments.filter((s) => s.kind === 'gap').map((s) => s.gapId); uniqueValues(gapIds, 'content.segments.gapId', errors); if (gapIds.length !== 6) errors.push('content.segments: expected six gaps'); const correct = exercise.questions.map((q) => q.correctParagraphId); uniqueValues(correct, 'questions.correctParagraphId', errors) }
+function validatePart8(exercise, errors) { validateReadingIds(exercise, errors, 'texts') }
+
 export function validateSemantic(exercise) {
   const errors = []
   if (exercise.schemaVersion !== '1.0.0') {
@@ -121,6 +137,10 @@ export function validateSemantic(exercise) {
   if (exercise.part === 2) validatePart2(exercise, errors)
   if (exercise.part === 3) validatePart3(exercise, errors)
   if (exercise.part === 4) validatePart4(exercise, errors)
+  if (exercise.part === 5) validatePart5(exercise, errors)
+  if (exercise.part === 6) validatePart6(exercise, errors)
+  if (exercise.part === 7) validatePart7(exercise, errors)
+  if (exercise.part === 8) validatePart8(exercise, errors)
   return errors
 }
 

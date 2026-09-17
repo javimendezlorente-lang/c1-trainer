@@ -8,11 +8,11 @@ export interface ReviewCardIdentity {
 }
 
 export interface ReviewCardProjection extends ReviewCardIdentity, ReviewCardStateSnapshot {
-  part: 1 | 2 | 3 | 4
+  part: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
   primarySkill: Skill
   createdAt: string
-  answerKind?: 'choice' | 'text' | 'transformation'
-  promptSnapshot?: { originalSentence?: string; secondSentence?: string; keyword?: string; root?: string; canonicalAnswer?: string; acceptedAnswers?: string[]; explanation?: string }
+  answerKind?: 'choice' | 'text' | 'transformation' | 'matching'
+  promptSnapshot?: { originalSentence?: string; secondSentence?: string; keyword?: string; root?: string; canonicalAnswer?: string; acceptedAnswers?: string[]; explanation?: string; prompt?: string; contextSnapshot?: string; targetLabel?: string; correctTargetLabel?: string }
 }
 
 export function reviewCardId(exerciseId: string, questionId: string): string {

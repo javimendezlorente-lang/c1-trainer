@@ -18,3 +18,5 @@ Version 3 adds review stores and does not alter or delete Phase 5 attempts. The 
 `clearLearningData()` clears attempts, review events, and review-card projections. Theme preferences live in Zustand/local storage and are intentionally outside this action.
 
 Backup/restore is application-level and does not add a backup store. Export reads only `attempts` and `reviewEvents`; restore validates both ledgers, merges them transactionally, and rebuilds `reviewCards` and all other projections afterward. See [`BACKUP_FORMAT.md`](BACKUP_FORMAT.md) and [`BACKUP_RESTORE.md`](BACKUP_RESTORE.md).
+
+Reading Parts 5–8 use the same database version 3 and append-only AttemptEvent store. Matching answers persist stable target IDs plus compact prompt/target/context snapshots in derived Error Bank and review-card metadata; long reading passages are recovered from approved content. No migration or backup-format bump was required.

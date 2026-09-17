@@ -9,10 +9,14 @@ Exercise
 ├── Part1Exercise  multiple_choice_cloze
 ├── Part2Exercise  open_cloze
 ├── Part3Exercise  word_formation
-└── Part4Exercise  key_word_transformation
+├── Part4Exercise  key_word_transformation
+├── Part5Exercise  multiple_choice_reading
+├── Part6Exercise  cross_text_multiple_matching
+├── Part7Exercise  gapped_text
+└── Part8Exercise  multiple_matching
 ```
 
-The future type names `part5_multiple_choice_reading`, `part6_cross_text_multiple_matching`, `part7_gapped_text`, and `part8_multiple_matching` are reserved without pretending their schemas are complete.
+Parts 5–8 use stable target IDs for options, source texts, and paragraph candidates. The renderer may reorder or restyle targets without changing historical answers.
 
 The base metadata is shared by every exercise: `schemaVersion`, stable `id`, `exam`, `paper`, `part`, `type`, `title`, `difficulty`, `topic`, `source`, and `skills`. The part-specific payload owns the text, gaps, options, answers, and explanations.
 

@@ -9,11 +9,15 @@ The current schemas use JSON Schema Draft 2020-12 and are split by responsibilit
 ```text
 schemas/c1/v1/
 ├── shared.schema.json       # metadata, provenance, skills, cloze text
-├── exercise.schema.json     # discriminated Part 1–4 union
+├── exercise.schema.json     # discriminated Part 1–8 union
 ├── part1.schema.json        # multiple-choice cloze
 ├── part2.schema.json        # open cloze
 ├── part3.schema.json        # word formation
-└── part4.schema.json        # key word transformation
+├── part4.schema.json        # key word transformation
+├── part5.schema.json        # multiple-choice reading
+├── part6.schema.json        # cross-text multiple matching
+├── part7.schema.json        # gapped text
+└── part8.schema.json        # multiple matching
 ```
 
 Every exercise has stable metadata: a semantic version, globally unique corpus ID, exam/paper, part/type, title, internal difficulty, topic, provenance, and controlled skills. Content does not contain UI preferences such as `inlineOptions`, React state, CSS concerns, or screen-size assumptions.
@@ -36,7 +40,7 @@ Each major version receives a separate schema directory. A future reader may sup
 
 ## Structural versus semantic validation
 
-AJV validates JSON Schema structure. The semantic validator then checks constraints that are inconvenient or unsafe to express only in JSON Schema, including duplicate IDs, option-text uniqueness, answer membership, root/answer transformation, keyword preservation, and Part 4's 3–6-word policy.
+AJV validates JSON Schema structure. The semantic validator then checks constraints that are inconvenient or unsafe to express only in JSON Schema, including duplicate IDs, option-text uniqueness, answer membership, root/answer transformation, keyword preservation, Part 4's 3–6-word policy, reading target membership, and the Part 7 one-use/one-distractor rule.
 
 Run validation with:
 

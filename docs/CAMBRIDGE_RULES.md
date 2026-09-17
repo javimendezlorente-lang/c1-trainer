@@ -30,6 +30,8 @@ For Part 4, Cambridge specifies that the answer uses **three to six words**, inc
 - Answer acceptance is represented as data (`canonicalAnswer` plus `acceptedAnswers`). Grading and partial-credit rules are later milestones and are not inferred by this schema.
 - C1 Trainer reports raw practice marks only. It does not predict official Cambridge English Scale scores.
 
-## Scope boundary
+## Reading Parts 5–8
 
-This milestone encodes Parts 1–4 because those are the first exercise-domain contracts. The type names for Parts 5–8 are reserved in the schema architecture, but their content schemas and graders are deferred.
+The official [exam format](https://www.cambridgeenglish.org/exams-and-tests/qualifications/advanced/format/) and [C1 Advanced Handbook](https://www.cambridgeenglish.org/images/167804-c1-advanced-handbook.pdf) define the Reading section as Parts 1, 5, 6, 7 and 8. Part 5 is a text followed by six four-option questions; Part 6 has four short texts and four cross-text matching questions; Part 7 has six gaps and seven paragraph options, one extra; Part 8 has ten multiple-matching questions. C1 Trainer implements these as raw practice marks only and does not infer Cambridge English Scale scores.
+
+The [Cambridge preparation page](https://www.cambridgeenglish.org/exams-and-tests/qualifications/advanced/preparation/) confirms that each question in Parts 5, 6 and 7 carries two marks. Part 8 carries one mark per question. See [`READING_PARTS_5_TO_8.md`](READING_PARTS_5_TO_8.md) for the implementation contract.

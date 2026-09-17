@@ -136,6 +136,19 @@ Acceptance criteria:
 
 Status: complete. Part 4 ships with three approved original exercises, explicit full/partial accepted-answer units, mark-aware analytics, transformation review snapshots, and mixed-history backup regression coverage.
 
+## Milestone 8.1 — Reading Parts 5–8
+
+**Goal:** complete the Reading section’s remaining Cambridge task types over the existing event, review and backup contracts.
+
+Acceptance criteria:
+
+- Three original approved exercises per Part 5–8 pass structural and semantic validation.
+- Dedicated renderers support multiple choice, cross-text matching, gapped text and multiple matching on mobile and desktop.
+- Pure graders use official raw mark weights and stable target IDs; Part 7 enforces one use per paragraph and one extra paragraph.
+- Mixed Parts 1–8 AttemptEvents rebuild Error Bank, Progress and FSRS cards and round-trip through the existing backup envelope.
+
+Status: complete. The corpus contains 24 exercises and 168 scored items. Writing, Listening, Speaking, cloud sync, adaptive recommendations and FSRS parameter optimization remain out of scope.
+
 ## Milestone 9 — Adaptive practice
 
 **Goal:** schedule review of errors and concepts.
@@ -159,4 +172,4 @@ Acceptance criteria:
 
 ## Later milestones
 
-Reading Parts 5–8, Writing, exam simulation, Listening, Speaking, and optional AI evaluation each require their own Cambridge verification, content/licensing, privacy, and acceptance criteria. They do not block the v0.1 Parts 1–4 product.
+Writing, exam simulation, Listening, Speaking, and optional AI evaluation each require their own Cambridge verification, content/licensing, privacy, and acceptance criteria. They do not block the current offline Reading and Use of English practice core.

@@ -1,0 +1,6 @@
+import type { Part8Exercise } from '../domain/part8'
+import { C1_RUOE_STRUCTURE } from '../domain/scoring'
+export type Part8UserAnswers = Readonly<Record<string, string | null | undefined>>
+export interface Part8QuestionResult { questionId: string; answer: string | null; correctTextId: string; correct: boolean; marks: 0|1 }
+export interface Part8Grade { exerciseId: string; score: number; maxScore: number; complete: boolean; results: Part8QuestionResult[] }
+export function gradePart8(exercise: Part8Exercise, answers: Part8UserAnswers = {}): Part8Grade { const validIds = new Set(exercise.content.texts.map((t) => t.id)); const results = exercise.questions.map((q) => { const raw = answers[q.id]; const answer = typeof raw === 'string' && raw.trim() ? raw : null; const correct = answer !== null && validIds.has(answer) && answer === q.correctTextId; return { questionId: q.id, answer, correctTextId: q.correctTextId, correct, marks: correct ? 1 as const : 0 as const } }); return { exerciseId: exercise.id, score: results.reduce((s, r) => s + r.marks, 0), maxScore: C1_RUOE_STRUCTURE[8].maxMarks, complete: exercise.questions.every((q) => typeof answers[q.id] === 'string' && validIds.has(answers[q.id]!)), results } }

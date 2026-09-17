@@ -1,6 +1,6 @@
 # Architecture decision
 
-Status: approved foundation decision; Phase 6.5 versioned backup/restore implemented
+Status: approved foundation decision; Phase 8 Reading Parts 5–8 implemented
 
 ## Decision
 
@@ -53,7 +53,7 @@ Every grader is a pure function and is independent of React. Part 1 has determin
 
 ### Deployment
 
-Use hash routing or another GitHub Pages-safe route strategy, an installable manifest, a generated Workbox service worker, and a CI build/deploy workflow. The current PWA uses `vite-plugin-pwa` with `generateSW`, `registerType: 'autoUpdate'`, and a precache containing the shell plus the bundled Part 1 corpus. Offline behavior must be tested against a production build, not inferred from development mode.
+Use hash routing or another GitHub Pages-safe route strategy, an installable manifest, a generated Workbox service worker, and a CI build/deploy workflow. The current PWA uses `vite-plugin-pwa` with `generateSW`, `registerType: 'autoUpdate'`, and a precache containing the shell plus the bundled Parts 1–8 corpus. Offline behavior must be tested against a production build, not inferred from development mode.
 
 ## Rejected alternatives
 
@@ -65,4 +65,4 @@ Use hash routing or another GitHub Pages-safe route strategy, an installable man
 
 ## Consequences
 
-This choice minimizes infrastructure work but requires a careful migration from generic JS/JSX vocabulary flows to typed, content-driven CAE flows. Phase 2 provides the canonical domain/schema contract, Phase 3 provides installable app-shell infrastructure, Phase 4 proves the Part 1 renderer/grader boundary, Phase 5 adds the historical attempt boundary, Phase 6 adds rebuildable FSRS scheduling and offline review sessions, and Phase 6.5 adds local versioned backup/restore of the ledgers. Licensing provenance remains an explicit build concern. The next milestone is additional exercise types, not AI or adaptive selection.
+This choice minimizes infrastructure work but requires a careful migration from generic JS/JSX vocabulary flows to typed, content-driven CAE flows. Phase 2 provides the canonical domain/schema contract, Phase 3 provides installable app-shell infrastructure, Phase 4 proves the Part 1 renderer/grader boundary, Phase 5 adds the historical attempt boundary, Phase 6 adds rebuildable FSRS scheduling and offline review sessions, Phase 6.5 adds local versioned backup/restore of the ledgers, and Phase 8 adds dedicated Reading Parts 5–8 renderers over the same ledgers. Licensing provenance remains an explicit build concern. The next milestone is additional product scope, not AI or adaptive selection.

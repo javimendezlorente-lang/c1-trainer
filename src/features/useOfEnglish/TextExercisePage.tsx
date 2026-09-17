@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import type { ImplementedExercise } from '../../domain/exercise'
+import type { Part2Exercise } from '../../domain/part2'
+import type { Part3Exercise } from '../../domain/part3'
+import type { Part4Exercise } from '../../domain/part4'
 import { gradeExercise, type ExerciseGrade } from '../../grading'
 import { submitExerciseAttempt } from '../../application/attemptSubmission'
 
-interface Props { exercise: ImplementedExercise; onBack: () => void }
+interface Props { exercise: Part2Exercise | Part3Exercise | Part4Exercise; onBack: () => void }
 function newKey(part: number) { return `${part}-${typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`}` }
 function passage(text: string) { return text.split(/(\{\{gap:\d+\}\})/gu).map((part, index) => { const gap = part.match(/\{\{gap:(\d+)\}\}/u); return gap ? <span key={index}>({gap[1]}) ______</span> : <span key={index}>{part}</span> }) }
 export default function TextExercisePage({ exercise, onBack }: Props) {

@@ -40,7 +40,14 @@ export function gradePart1(exercise: Part1Exercise, userAnswers: Part1UserAnswer
     exerciseId: exercise.id,
     score: results.reduce((total, result) => total + result.marks, 0),
     maxScore: C1_RUOE_STRUCTURE[1].maxMarks,
-    complete: results.every((result) => result.selectedOptionId !== null),
+    complete: exercise.questions.every((question) => {
+      const selectedOptionId = userAnswers[question.id]
+      return (
+        typeof selectedOptionId === 'string' &&
+        selectedOptionId.trim() !== '' &&
+        question.options.some((option) => option.id === selectedOptionId)
+      )
+    }),
     results,
   }
 }

@@ -36,6 +36,11 @@ describe('gradePart1', () => {
     expect(grade.results).toHaveLength(8)
     expect(grade.results[1].selectedOptionId).toBe('Z')
     expect(grade.results[2].selectedOptionId).toBeNull()
+
+    const invalidOnly = gradePart1(exercise, answersFrom((question) => question.correctOptionId))
+    const invalidAnswers = { ...answersFrom((question) => question.correctOptionId), q1: 'Z' }
+    expect(invalidOnly.complete).toBe(true)
+    expect(gradePart1(exercise, invalidAnswers).complete).toBe(false)
   })
 
   it('does not mutate the exercise or answers', () => {

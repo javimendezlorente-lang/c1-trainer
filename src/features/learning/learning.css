@@ -98,3 +98,50 @@
   font-size: 0.8rem;
   font-weight: 700;
 }
+
+.review-start,
+.review-link {
+  display: inline-block;
+  margin: 0 0 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  background: var(--accent-color);
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.review-session-card {
+  margin: 1rem 0;
+}
+
+.review-context {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.review-answer {
+  border-top: 1px solid var(--border-color);
+  margin-top: 1rem;
+  padding-top: 1rem;
+  line-height: 1.5;
+}
+
+.review-ratings {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.review-ratings button {
+  min-height: 64px;
+  padding: 0.6rem;
+  font-weight: 750;
+}
+
+.review-ratings span {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 400;
+}

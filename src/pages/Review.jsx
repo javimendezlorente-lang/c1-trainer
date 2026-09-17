@@ -1,5 +1,5 @@
-import ErrorBankPage from '../features/learning/ErrorBankPage'
+import ReviewPage from '../features/learning/ReviewPage'
 
 export default function Review() {
-  return <ErrorBankPage />
+  return <ReviewPage />
 }

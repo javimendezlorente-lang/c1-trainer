@@ -5,8 +5,10 @@ interface Part1ExerciseProps {
   exercise: Part1ExerciseModel
   answers: Readonly<Record<string, string>>
   onAnswer: (questionId: string, optionId: Part1Option['id']) => void
-  onSubmit: () => void
+  onSubmit: () => void | Promise<void>
   onBack: () => void
+  isSubmitting?: boolean
+  submissionError?: string | null
 }
 
 function renderPassage(text: string) {
@@ -23,7 +25,7 @@ function renderPassage(text: string) {
   })
 }
 
-export default function Part1Exercise({ exercise, answers, onAnswer, onSubmit, onBack }: Part1ExerciseProps) {
+export default function Part1Exercise({ exercise, answers, onAnswer, onSubmit, onBack, isSubmitting = false, submissionError }: Part1ExerciseProps) {
   const unansweredCount = exercise.questions.filter((question) => !answers[question.id]).length
 
   return (
@@ -70,10 +72,11 @@ export default function Part1Exercise({ exercise, answers, onAnswer, onSubmit, o
               {unansweredCount} question{unansweredCount === 1 ? '' : 's'} still unanswered. You can submit now.
             </p>
           )}
-          <button className="part1-primary-button" type="submit">
-            Submit answers
+          <button className="part1-primary-button" type="submit" disabled={isSubmitting}>
+            {isSubmitting ? 'Saving locally…' : 'Submit answers'}
           </button>
         </div>
+        {submissionError && <p className="part1-submission-error" role="alert">{submissionError}</p>}
       </form>
     </section>
   )

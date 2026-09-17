@@ -25,7 +25,7 @@ describe('Part 1 practice flow', () => {
     expect(changedOption).toBeChecked()
 
     await user.click(screen.getByRole('button', { name: 'Submit answers' }))
-    expect(screen.getByText('Score: 1 / 8')).toBeInTheDocument()
+    expect(await screen.findByText('Score: 1 / 8')).toBeInTheDocument()
     expect(screen.getAllByText(/Correct answer:/i)).toHaveLength(8)
     expect(screen.getAllByText(/Explanation:/i)).toHaveLength(8)
 

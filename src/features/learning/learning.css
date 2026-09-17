@@ -1,0 +1,100 @@
+.learning-page {
+  width: min(100%, 900px);
+  margin: 0 auto;
+}
+
+.learning-page h1 {
+  margin: 0.25rem 0 0.75rem;
+  font-size: clamp(1.8rem, 7vw, 2.8rem);
+}
+
+.learning-intro {
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.learning-summary,
+.learning-card {
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--surface-color);
+}
+
+.learning-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+}
+
+.learning-summary strong,
+.learning-summary span {
+  display: block;
+}
+
+.learning-summary strong {
+  color: var(--accent-color);
+  font-size: 1.45rem;
+}
+
+.learning-summary span,
+.learning-muted {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.learning-list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.learning-card {
+  padding: 1rem;
+}
+
+.learning-card h2,
+.learning-card h3,
+.learning-card p {
+  margin-top: 0;
+}
+
+.learning-card h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+}
+
+.learning-card p:last-child {
+  margin-bottom: 0;
+}
+
+.learning-status-active {
+  color: #c44949;
+  font-weight: 700;
+}
+
+.learning-status-cleared {
+  color: #248a52;
+  font-weight: 700;
+}
+
+.learning-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.learning-table th,
+.learning-table td {
+  padding: 0.65rem 0.45rem;
+  border-bottom: 1px solid var(--border-color);
+  text-align: left;
+}
+
+.learning-table th {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 700;
+}

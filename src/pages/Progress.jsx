@@ -1,11 +1,5 @@
-import PlaceholderPage from '../components/PlaceholderPage'
+import ProgressPage from '../features/learning/ProgressPage'
 
 export default function Progress() {
-  return (
-    <PlaceholderPage
-      title="Progress"
-      description="Performance analytics will appear after the app records real practice attempts."
-    />
-  )
+  return <ProgressPage />
 }
-

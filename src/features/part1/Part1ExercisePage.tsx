@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import type { Part1Exercise as Part1ExerciseModel, Part1Option } from '../../domain/part1'
 import { listApprovedPart1Exercises } from '../../content'
-import { gradePart1 } from '../../grading'
 import type { Part1Grade } from '../../grading'
+import { submitPart1Attempt } from '../../application/part1Submission'
 import Part1Exercise from './Part1Exercise'
 import Part1Results from './Part1Results'
 import './part1.css'
@@ -14,17 +14,31 @@ export default function Part1ExercisePage() {
   const [selectedExercise, setSelectedExercise] = useState<Part1ExerciseModel | null>(null)
   const [answers, setAnswers] = useState<Answers>({})
   const [grade, setGrade] = useState<Part1Grade | null>(null)
+  const [idempotencyKey, setIdempotencyKey] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submissionError, setSubmissionError] = useState<string | null>(null)
+
+  const createSessionKey = () => {
+    if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+      return `part1-${crypto.randomUUID()}`
+    }
+    return `part1-${Date.now()}-${Math.random().toString(36).slice(2)}`
+  }
 
   const startExercise = (exercise: Part1ExerciseModel) => {
     setSelectedExercise(exercise)
     setAnswers({})
     setGrade(null)
+    setIdempotencyKey(createSessionKey())
+    setSubmissionError(null)
   }
 
   const backToList = () => {
     setSelectedExercise(null)
     setAnswers({})
     setGrade(null)
+    setIdempotencyKey('')
+    setSubmissionError(null)
   }
 
   const answerQuestion = (questionId: string, optionId: Part1Option['id']) => {
@@ -39,6 +53,8 @@ export default function Part1ExercisePage() {
         onRetry={() => {
           setAnswers({})
           setGrade(null)
+          setIdempotencyKey(createSessionKey())
+          setSubmissionError(null)
         }}
         onBack={backToList}
       />
@@ -51,8 +67,26 @@ export default function Part1ExercisePage() {
         exercise={selectedExercise}
         answers={answers}
         onAnswer={answerQuestion}
-        onSubmit={() => setGrade(gradePart1(selectedExercise, answers))}
+        onSubmit={async () => {
+          if (isSubmitting || !idempotencyKey) return
+          setIsSubmitting(true)
+          setSubmissionError(null)
+          try {
+            const submission = await submitPart1Attempt({
+              exercise: selectedExercise,
+              answers,
+              idempotencyKey,
+            })
+            setGrade(submission.grade)
+          } catch {
+            setSubmissionError('The attempt could not be saved locally. Please try submitting again.')
+          } finally {
+            setIsSubmitting(false)
+          }
+        }}
         onBack={backToList}
+        isSubmitting={isSubmitting}
+        submissionError={submissionError}
       />
     )
   }

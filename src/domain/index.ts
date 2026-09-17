@@ -1,4 +1,5 @@
 export * from './exercise'
+export * from './attempt'
 export * from './part1'
 export * from './part2'
 export * from './part3'

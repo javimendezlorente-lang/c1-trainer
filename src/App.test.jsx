@@ -1,28 +1,33 @@
 import { render, screen } from '@testing-library/react'
-import { BrowserRouter } from 'react-router-dom'
-import { describe, it, expect } from 'vitest'
+import { MemoryRouter } from 'react-router-dom'
+import { describe, expect, it } from 'vitest'
 import App from './App'
 
-describe('App', () => {
-  it('renders the app header', () => {
+describe('C1 Trainer shell', () => {
+  it('renders the rebranded product and all shell destinations', () => {
     render(
-      <BrowserRouter>
+      <MemoryRouter initialEntries={['/']}>
         <App />
-      </BrowserRouter>
+      </MemoryRouter>,
     )
-    expect(screen.getByText('C1 Examiner')).toBeInTheDocument()
+
+    expect(screen.getByRole('link', { name: /C1 Trainer home/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Home' })).toBeInTheDocument()
+
+    for (const label of ['Home', 'Practice', 'Review', 'Progress', 'Settings']) {
+      expect(screen.getByRole('link', { name: label, exact: true })).toBeInTheDocument()
+    }
   })
 
-  it('renders navigation links', () => {
+  it('does not expose the removed language-learning controls', () => {
     render(
-      <BrowserRouter>
+      <MemoryRouter>
         <App />
-      </BrowserRouter>
+      </MemoryRouter>,
     )
-    expect(screen.getByRole('navigation')).toBeInTheDocument()
-    const dashboardLink = screen.getAllByText('Dashboard')[0]
-    expect(dashboardLink).toBeInTheDocument()
-    expect(screen.getByText('Vocabulary')).toBeInTheDocument()
-    expect(screen.getByText('Practice')).toBeInTheDocument()
+
+    expect(screen.queryByText('Vocabulary')).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'English' })).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'Deutsch' })).not.toBeInTheDocument()
   })
 })

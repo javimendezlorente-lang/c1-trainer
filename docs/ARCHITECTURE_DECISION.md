@@ -1,10 +1,10 @@
 # Architecture decision
 
-Status: proposed; no product implementation authorised by this document
+Status: approved foundation decision; Phase 1 baseline implemented
 
 ## Decision
 
-Build C1 Trainer as a static React/Vite PWA, starting from a forked/adapted `dhanak/examiner` shell. Keep the first release client-only and deploy it to GitHub Pages. Use IndexedDB through a storage abstraction for learning history and small browser preferences through localStorage. Add `ts-fsrs` only after the Error Bank and attempt model are stable.
+Build C1 Trainer as a static React/Vite browser application on the way to a PWA, starting from an adapted `dhanak/examiner` shell. Keep the first release client-only and deploy it to GitHub Pages. Use IndexedDB through a storage abstraction for learning history in a later milestone and small browser preferences through localStorage. Add `ts-fsrs` only after the Error Bank and attempt model are stable.
 
 The project will be **reuse-first but license-first**: compatible MIT code may be adapted with notices, CC BY-NC material may be used only with attribution and non-commercial boundaries, the unlicensed benchmark remains reference-only, and GPL code is not part of the initial client.
 
@@ -65,5 +65,4 @@ Use hash routing or another GitHub Pages-safe route strategy, an installable man
 
 ## Consequences
 
-This choice minimizes infrastructure work but requires a careful migration from generic JS/JSX vocabulary flows to typed, content-driven CAE flows. It also makes licensing provenance an explicit build concern. The first technical milestone is therefore a baseline fork and audit trail, not Part 1 feature work.
-
+This choice minimizes infrastructure work but requires a careful migration from generic JS/JSX vocabulary flows to typed, content-driven CAE flows. Phase 1 now provides the smaller C1 Trainer shell; licensing provenance remains an explicit build concern. The next milestone is the canonical C1 exercise domain model and versioned content schema, not exercise UI.

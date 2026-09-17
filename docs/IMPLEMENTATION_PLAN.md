@@ -1,6 +1,6 @@
 # Implementation plan
 
-This plan follows the audit decision. It deliberately does not start product implementation in the audit task.
+This plan follows the audit decision. Phase 1 implements the foundation baseline only; Cambridge exercise logic remains out of scope.
 
 ## Milestone 0 — Baseline the foundation
 
@@ -13,6 +13,8 @@ Acceptance criteria:
 - MIT attribution is retained in `LICENSES/THIRD-PARTY.md`.
 - No C1 behavior or content has been added yet.
 
+Status: complete. See [`research/EXAMINER_BASELINE.md`](research/EXAMINER_BASELINE.md) and commit `cd24f02`.
+
 ## Milestone 1 — Strip generic language-learning scope
 
 **Goal:** convert the shell to C1 Advanced navigation without changing the grader contract.
@@ -22,6 +24,8 @@ Acceptance criteria:
 - German, Hungarian, Goethe, translation-direction, TTS, and vocabulary-only navigation are removed or isolated from the C1 core.
 - Home, Use of English, Error Bank, Statistics, and Settings routes have explicit empty states.
 - Existing and new route tests pass.
+
+Status: complete. The shell now exposes Home, Practice, Review, Progress, and Settings only.
 
 ## Milestone 2 — Foundation contracts and PWA
 
@@ -100,4 +104,3 @@ Acceptance criteria:
 ## Later milestones
 
 Reading Parts 5–8, Writing, exam simulation, Listening, Speaking, and optional AI evaluation each require their own Cambridge verification, content/licensing, privacy, and acceptance criteria. They do not block the v0.1 Parts 1–4 product.
-

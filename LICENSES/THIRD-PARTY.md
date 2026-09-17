@@ -10,8 +10,8 @@ This file records third-party material present in the current C1 Trainer foundat
 - Foundation commit: `df862f7fcc8f82271bfc53f54396a86c599eb861`
 - License: MIT
 - License text: [`EXAMINER-MIT.txt`](EXAMINER-MIT.txt)
-- Imported material: React/Vite shell, routing, theme, test infrastructure, generic UI components, configuration, and GitHub Pages workflow.
-- Modification status: the foundation is being progressively adapted into C1 Trainer; no Cambridge exercise content has been copied from this repository.
+- Imported material: React/Vite shell, routing, theme, test infrastructure, configuration, and GitHub Pages workflow. The generic exercise components were audited during the baseline and removed from the current product shell.
+- Modification status: adapted into C1 Trainer; no Cambridge exercise content has been copied from this repository.
 - Attribution: retain the MIT copyright and permission notice for copied or adapted portions. This project is not affiliated with David Hanak or the original project.
 
 Before the first reuse, record for each source:

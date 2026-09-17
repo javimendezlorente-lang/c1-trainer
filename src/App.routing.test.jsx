@@ -1,45 +1,32 @@
 import { render, screen } from '@testing-library/react'
-import { BrowserRouter } from 'react-router-dom'
-import { describe, it, expect } from 'vitest'
+import { MemoryRouter } from 'react-router-dom'
+import { describe, expect, it } from 'vitest'
 import App from './App'
 
-describe('App Routing Regression Tests', () => {
-  it('handles root path without trailing slash', () => {
-    // Regression test for bug #1: Dashboard URL missing final slash
-    window.history.pushState({}, 'Test', '/examiner')
-    
+describe('C1 Trainer routing', () => {
+  it.each([
+    ['/practice', 'Practice'],
+    ['/review', 'Review'],
+    ['/progress', 'Progress'],
+    ['/settings', 'Settings'],
+  ])('renders the %s shell section', (path, heading) => {
     render(
-      <BrowserRouter basename="/examiner">
+      <MemoryRouter initialEntries={[path]}>
         <App />
-      </BrowserRouter>
+      </MemoryRouter>,
     )
-    
-    // Should render Dashboard without redirect error
-    expect(screen.getByText('C1 Examiner')).toBeInTheDocument()
+
+    expect(screen.getByRole('heading', { name: heading })).toBeInTheDocument()
   })
 
-  it('handles root path with trailing slash', () => {
-    window.history.pushState({}, 'Test', '/examiner/')
-    
+  it('falls back safely for an obsolete vocabulary route', () => {
     render(
-      <BrowserRouter basename="/examiner">
+      <MemoryRouter initialEntries={['/vocabulary']}>
         <App />
-      </BrowserRouter>
+      </MemoryRouter>,
     )
-    
-    // Should render Dashboard
-    expect(screen.getByText('C1 Examiner')).toBeInTheDocument()
-  })
 
-  it('has all navigation links', () => {
-    render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    )
-    
-    expect(screen.getByText('Dashboard')).toBeInTheDocument()
-    expect(screen.getByText('Vocabulary')).toBeInTheDocument()
-    expect(screen.getByText('Practice')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Home' })).toBeInTheDocument()
+    expect(screen.queryByRole('heading', { name: 'Vocabulary' })).not.toBeInTheDocument()
   })
 })

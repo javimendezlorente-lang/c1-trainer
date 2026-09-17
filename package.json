@@ -1,9 +1,9 @@
 {
-  "name": "c1-examiner",
+  "name": "c1-trainer",
   "private": true,
   "version": "1.1.0",
   "type": "module",
-  "description": "Cambridge C1 Language Exam Training and Self-Testing Application",
+  "description": "Independent browser-first study tool for Cambridge C1 Advanced preparation",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

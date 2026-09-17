@@ -29,5 +29,7 @@ Each milestone must be independently testable and deployable. Do not begin a lat
 - [x] Reference repositories and licenses audited.
 - [x] Reuse matrix and architecture decision written.
 - [x] Implementation milestones and acceptance criteria written.
-- [ ] Review and approve the docs.
-- [ ] Fork/baseline the technical foundation; do not implement product behavior before that baseline.
+- [x] Review and approve the docs.
+- [x] Fork/baseline the technical foundation and record the inherited checks.
+- [x] Strip unrelated language-learning functionality and establish the C1 Trainer shell.
+- [ ] Define the canonical C1 exercise domain and versioned content schema.

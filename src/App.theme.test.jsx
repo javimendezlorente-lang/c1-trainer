@@ -1,70 +1,45 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, it, expect, beforeEach } from 'vitest'
-import { BrowserRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router-dom'
+import { beforeEach, describe, expect, it } from 'vitest'
 import App from './App'
+import { useThemeStore } from './store/themeStore'
 
-describe('App Theme Switcher', () => {
+describe('C1 Trainer theme', () => {
   beforeEach(() => {
-    // Clear localStorage before each test
     localStorage.clear()
-    // Reset data-theme attribute
+    useThemeStore.getState().setTheme('light')
     document.documentElement.removeAttribute('data-theme')
   })
 
-  it('renders theme toggle button', () => {
-    render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    )
-    
-    const themeButton = screen.getByRole('button', { name: /toggle theme/i })
-    expect(themeButton).toBeInTheDocument()
-  })
-
-  it('toggles theme when button is clicked', async () => {
+  it('supports light/dark theme changes from the shell', async () => {
     const user = userEvent.setup()
-    
+
     render(
-      <BrowserRouter>
+      <MemoryRouter>
         <App />
-      </BrowserRouter>
+      </MemoryRouter>,
     )
-    
-    const themeButton = screen.getByRole('button', { name: /toggle theme/i })
-    
-    // Initial state - should be light theme (default)
+
+    const themeButton = screen.getByRole('button', { name: /use dark theme/i })
     expect(document.documentElement.getAttribute('data-theme')).toBe('light')
-    expect(themeButton.textContent).toContain('☀️')
-    
-    // Click to switch to dark
+
     await user.click(themeButton)
+
     expect(document.documentElement.getAttribute('data-theme')).toBe('dark')
-    expect(themeButton.textContent).toContain('🌙')
-    
-    // Click again to switch back to light
-    await user.click(themeButton)
-    expect(document.documentElement.getAttribute('data-theme')).toBe('light')
-    expect(themeButton.textContent).toContain('☀️')
+    expect(screen.getByRole('button', { name: /use light theme/i })).toBeInTheDocument()
+    expect(JSON.parse(localStorage.getItem('theme-storage')).state.theme).toBe('dark')
   })
 
-  it('persists theme preference in localStorage', async () => {
-    const user = userEvent.setup()
-    
+  it('exposes the theme preference on Settings', () => {
     render(
-      <BrowserRouter>
+      <MemoryRouter initialEntries={['/settings']}>
         <App />
-      </BrowserRouter>
+      </MemoryRouter>,
     )
-    
-    const themeButton = screen.getByRole('button', { name: /toggle theme/i })
-    
-    // Switch to dark theme
-    await user.click(themeButton)
-    
-    // Check localStorage
-    const stored = JSON.parse(localStorage.getItem('theme-storage'))
-    expect(stored.state.theme).toBe('dark')
+
+    expect(screen.getByRole('heading', { name: 'Settings' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Theme' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /switch to dark theme/i })).toBeInTheDocument()
   })
 })

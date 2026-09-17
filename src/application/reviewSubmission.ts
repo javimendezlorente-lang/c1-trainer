@@ -2,6 +2,7 @@ import type { ReviewEvent, ReviewRating } from '../domain/review'
 import { applyReviewRating, snapshotFromReviewCard, type ReviewCardProjection } from '../learning/fsrs'
 import { rebuildLearningProjections, rebuildReviewCards } from '../learning'
 import { attemptRepository, type AttemptRepository } from '../storage'
+import { nowIso } from '../time/clock'
 
 export interface ReviewEventOptions {
   idempotencyKey: string
@@ -16,7 +17,7 @@ function createIdentifier(prefix: string): string {
 }
 
 export function createReviewEvent(card: ReviewCardProjection, nextCard: ReviewCardProjection, rating: ReviewRating, options: ReviewEventOptions): ReviewEvent {
-  const reviewedAt = options.reviewedAt ?? new Date().toISOString()
+  const reviewedAt = options.reviewedAt ?? nowIso()
   return {
     eventVersion: '1.0.0',
     eventId: options.eventId ?? createIdentifier('review'),
@@ -43,7 +44,8 @@ export interface SubmitReviewInput extends ReviewEventOptions {
 export async function submitReview(input: SubmitReviewInput) {
   const repository = input.repository ?? attemptRepository
   const existing = await repository.getReviewByIdempotencyKey(input.idempotencyKey)
-  const event = existing ?? createReviewEvent(input.card, applyReviewRating(input.card, input.rating, input.reviewedAt ?? new Date().toISOString()), input.rating, input)
+  const reviewedAt = input.reviewedAt ?? nowIso()
+  const event = existing ?? createReviewEvent(input.card, applyReviewRating(input.card, input.rating, reviewedAt), input.rating, { ...input, reviewedAt })
   const appendResult = existing ? { event: existing, inserted: false } : await repository.appendReviewEvent(event)
   const [attemptEvents, reviewEvents] = await Promise.all([repository.list(), repository.listReviewEvents()])
   const projections = rebuildLearningProjections(attemptEvents, reviewEvents)

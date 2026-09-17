@@ -3,6 +3,7 @@ import type { AttemptEvent } from '../domain/attempt'
 import { gradePart1, type Part1Grade } from '../grading'
 import { rebuildLearningProjections, rebuildReviewCards, type LearningProjections } from '../learning'
 import { attemptRepository, type AttemptRepository } from '../storage'
+import { nowIso } from '../time/clock'
 
 export interface AttemptEventOptions {
   idempotencyKey: string
@@ -55,7 +56,7 @@ export function createAttemptEvent(
     eventId: options.eventId ?? createIdentifier('attempt'),
     idempotencyKey: options.idempotencyKey,
     kind: 'attempt_submitted',
-    occurredAt: options.occurredAt ?? new Date().toISOString(),
+    occurredAt: options.occurredAt ?? nowIso(),
     exerciseId: exercise.id,
     exerciseSchemaVersion: exercise.schemaVersion,
     part: exercise.part,

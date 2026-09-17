@@ -3,12 +3,13 @@ import { loadReviewData, type ReviewData } from '../../application/reviewData'
 import { getDueReviewQueue } from '../../learning/fsrs'
 import ReviewSessionPage from './ReviewSessionPage'
 import { getPart1ReviewPrompt } from './reviewPrompt'
+import { nowIso } from '../../time/clock'
 import './learning.css'
 
 export default function ReviewPage() {
   const [data, setData] = useState<ReviewData | null>(null)
   const [session, setSession] = useState(false)
-  const now = new Date().toISOString()
+  const now = nowIso()
   const due = useMemo(() => data ? getDueReviewQueue(data.cards, now) : [], [data, now])
 
   useEffect(() => {

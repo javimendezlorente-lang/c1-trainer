@@ -4,6 +4,7 @@ import type { ReviewRating } from '../../domain/review'
 import type { ErrorBankRecord } from '../../learning'
 import { previewReviewRatings, type ReviewCardProjection } from '../../learning/fsrs'
 import { getPart1ReviewPrompt } from './reviewPrompt'
+import { nowIso } from '../../time/clock'
 
 interface ReviewSessionPageProps {
   cards: ReviewCardProjection[]
@@ -19,7 +20,7 @@ export default function ReviewSessionPage({ cards, records, onDone }: ReviewSess
   const [counts, setCounts] = useState<Record<ReviewRating, number>>({ Again: 0, Hard: 0, Good: 0, Easy: 0 })
   const [saving, setSaving] = useState(false)
   const card = cards[index]
-  const preview = useMemo(() => card ? previewReviewRatings(card, new Date().toISOString()) : [], [card])
+  const preview = useMemo(() => card ? previewReviewRatings(card, nowIso()) : [], [card])
   if (index >= cards.length) {
     const total = Object.values(counts).reduce((sum, value) => sum + value, 0)
     return <section className="learning-page" aria-labelledby="review-complete-title"><p className="eyebrow">C1 Trainer</p><h1 id="review-complete-title">Review complete</h1><div className="learning-card"><p>Reviewed: {total}</p><ul className="learning-list review-summary-list">{ratings.map((rating) => <li key={rating}>{rating}: {counts[rating]}</li>)}</ul><button type="button" onClick={onDone}>Back to Review</button></div></section>
@@ -34,7 +35,7 @@ export default function ReviewSessionPage({ cards, records, onDone }: ReviewSess
   async function rate(rating: ReviewRating) {
     setSaving(true)
     try {
-      await submitReview({ card, rating, idempotencyKey: `${card.id}:${card.reps}:${rating}:${card.due}`, reviewedAt: new Date().toISOString() })
+      await submitReview({ card, rating, idempotencyKey: `${card.id}:${card.reps}:${rating}:${card.due}`, reviewedAt: nowIso() })
       const nextCounts = { ...counts, [rating]: counts[rating] + 1 }
       setCounts(nextCounts)
       if (index + 1 >= cards.length) {

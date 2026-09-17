@@ -2,6 +2,7 @@ import type { AttemptEvent } from '../domain/attempt'
 import type { Skill } from '../domain/skills'
 import type { ReviewEvent, ReviewRating } from '../domain/review'
 import { applyReviewRating, createNewReviewCard, reviewCardId, type ReviewCardProjection } from './fsrs'
+import { nowIso } from '../time/clock'
 
 export interface ErrorBankRecord {
   itemKey: string
@@ -211,10 +212,10 @@ export function rebuildReviewCards(
   return [...cards.values()].sort((left, right) => left.id.localeCompare(right.id))
 }
 
-export function rebuildReviewProgress(reviewEvents: readonly ReviewEvent[], cards: readonly ReviewCardProjection[], nowIso = new Date().toISOString()): ReviewProgressProjection {
+export function rebuildReviewProgress(reviewEvents: readonly ReviewEvent[], cards: readonly ReviewCardProjection[], currentTimeIso = nowIso()): ReviewProgressProjection {
   const ratingDistribution: Record<ReviewRating, number> = { Again: 0, Hard: 0, Good: 0, Easy: 0 }
   for (const event of reviewEvents) ratingDistribution[event.rating] += 1
-  const now = new Date(nowIso).getTime()
+  const now = new Date(currentTimeIso).getTime()
   return {
     reviewsCompleted: reviewEvents.length,
     reviewsDue: cards.filter((card) => new Date(card.due).getTime() <= now).length,
@@ -226,12 +227,12 @@ export function rebuildReviewProgress(reviewEvents: readonly ReviewEvent[], card
 export function rebuildLearningProjections(
   events: readonly AttemptEvent[],
   reviewEvents: readonly ReviewEvent[] = [],
-  nowIso = new Date().toISOString(),
+  currentTimeIso = nowIso(),
 ): LearningProjections {
   const cards = rebuildReviewCards(events, reviewEvents)
   return {
     errorBank: rebuildErrorBank(events),
     progress: rebuildProgress(events),
-    review: rebuildReviewProgress(reviewEvents, cards, nowIso),
+    review: rebuildReviewProgress(reviewEvents, cards, currentTimeIso),
   }
 }

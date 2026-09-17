@@ -58,7 +58,10 @@ function percentage(correct: number, total: number): number {
 
 export function rebuildErrorBank(events: readonly AttemptEvent[]): ErrorBankRecord[] {
   const records = new Map<string, ErrorBankRecord>()
-  const orderedEvents = [...events].sort((left, right) => left.occurredAt.localeCompare(right.occurredAt))
+  const orderedEvents = [...events].sort((left, right) => {
+    const byTime = left.occurredAt.localeCompare(right.occurredAt)
+    return byTime === 0 ? left.eventId.localeCompare(right.eventId) : byTime
+  })
 
   for (const event of orderedEvents) {
     for (const result of event.grade.results) {

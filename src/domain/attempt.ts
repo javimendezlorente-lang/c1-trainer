@@ -1,8 +1,15 @@
-import type { Part1QuestionResult } from '../grading/part1Grader'
 import type { SchemaVersion } from './exercise'
 import type { SkillSet } from './skills'
 
 export const ATTEMPT_EVENT_VERSION = '1.0.0' as const
+
+export interface AttemptQuestionResult {
+  questionId: string
+  selectedOptionId: string | null
+  correctOptionId: 'A' | 'B' | 'C' | 'D'
+  correct: boolean
+  marks: 0 | 1
+}
 
 export interface AttemptEvent {
   eventVersion: typeof ATTEMPT_EVENT_VERSION
@@ -21,7 +28,7 @@ export interface AttemptEvent {
     score: number
     maxScore: number
     complete: boolean
-    results: Part1QuestionResult[]
+    results: AttemptQuestionResult[]
   }
   skills: SkillSet
 }

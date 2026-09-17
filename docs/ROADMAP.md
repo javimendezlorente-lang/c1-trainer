@@ -35,4 +35,6 @@ Each milestone must be independently testable and deployable. Do not begin a lat
 - [x] Define the canonical C1 exercise domain and versioned content schema.
 - [x] Build the installable PWA shell and offline app-shell smoke test.
 - [x] Implement a complete original Part 1 vertical slice with bundled content, deterministic grading, and results explanations.
-- [ ] Design the attempt/event model and Error Bank persistence.
+- [x] Define and persist idempotent AttemptEvents in IndexedDB.
+- [x] Rebuild Error Bank and Progress/skill profile projections from AttemptEvents.
+- [ ] Add versioned attempt export/import and migration tooling.

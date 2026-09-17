@@ -13,7 +13,7 @@ This repository starts with the product and engineering contract. The implementa
 
 ## Current milestone
 
-Phase 4 — Cambridge C1 Advanced Part 1 Vertical Slice is complete. Practice now bundles three original, validated Part 1 multiple-choice cloze exercises with local answer state, deterministic grading, explanations, and a results flow. Attempts are not persisted and Parts 2–8, Error Bank, and adaptive learning remain future milestones.
+Phase 5 — Attempt Events, Error Bank, and Progress is complete. Part 1 submissions now create idempotent append-only AttemptEvents in IndexedDB. Error Bank and Progress/skill profile are rebuildable projections of that history. Parts 2–8, export/import, and adaptive learning remain future milestones.
 
 The project is a personal, non-commercial study tool. It is independent and is not affiliated with, endorsed by, or sponsored by Cambridge English or the University of Cambridge.
 
@@ -21,8 +21,8 @@ Read [AGENTS.md](AGENTS.md) before making changes. The normative product documen
 
 ## Planned delivery
 
-1. Attempt/event model, Error Bank, and statistics.
-2. Parts 2–4 and their dedicated graders.
+1. Parts 2–4 and their dedicated graders.
+2. Versioned attempt export/import.
 3. Adaptive practice and spaced review.
 
 ## Development
@@ -38,4 +38,4 @@ npm run verify:pwa
 npm run preview -- --host 127.0.0.1
 ```
 
-The production bundle is written to `dist/`. The PWA is configured for `https://USERNAME.github.io/c1-trainer/`; the local preview URL is `http://127.0.0.1:4173/c1-trainer/`. On iPhone Safari use **Share → Add to Home Screen**. After one successful online load, the current app shell, routes, theme, and static assets work offline; this does not imply that future exercise content is available offline. See [the PWA test plan](docs/PWA_TEST_PLAN.md), [AGENTS.md](AGENTS.md), [the implementation plan](docs/IMPLEMENTATION_PLAN.md), and [the audit record](docs/research/EXAMINER_BASELINE.md).
+The production bundle is written to `dist/`. The PWA is configured for `https://USERNAME.github.io/c1-trainer/`; the local preview URL is `http://127.0.0.1:4173/c1-trainer/`. On iPhone Safari use **Share → Add to Home Screen**. After one successful online load, the shell, Part 1 content, grading, explanations, and local IndexedDB history work offline where the browser supports service workers and IndexedDB. See [the PWA test plan](docs/PWA_TEST_PLAN.md), [the Part 1 implementation](docs/PART1_IMPLEMENTATION.md), [the attempt-event implementation](docs/ATTEMPT_EVENT_IMPLEMENTATION.md), [AGENTS.md](AGENTS.md), and [the implementation plan](docs/IMPLEMENTATION_PLAN.md).

@@ -1,6 +1,6 @@
 # Architecture decision
 
-Status: approved foundation decision; Phase 4 Part 1 vertical slice implemented
+Status: approved foundation decision; Phase 5 AttemptEvents and rebuildable projections implemented
 
 ## Decision
 
@@ -49,11 +49,11 @@ Every grader is a pure function and is independent of React. Part 1 has determin
 
 ### Learning data
 
-Question responses and concept-level review cards are separate records. The Error Bank is not just a set of failed question IDs. It retains the response event, skill tags, explanation reference, counts, and review state.
+`AttemptEvent` is the historical source of truth. It stores the answer snapshot, grade snapshot, stable idempotency key, timestamp, skills, and explanation references. Error Bank and Progress/skill profile are derived projections; materialized forms may be added later, but every projection must be reconstructible from AttemptEvents alone. Question responses and concept-level review cards remain separate records.
 
 ### Deployment
 
-Use hash routing or another GitHub Pages-safe route strategy, an installable manifest, a generated Workbox service worker, and a CI build/deploy workflow. The current PWA uses `vite-plugin-pwa` with `generateSW`, `registerType: 'autoUpdate'`, and a small precache of current shell assets only. Offline behavior must be tested against a production build, not inferred from development mode.
+Use hash routing or another GitHub Pages-safe route strategy, an installable manifest, a generated Workbox service worker, and a CI build/deploy workflow. The current PWA uses `vite-plugin-pwa` with `generateSW`, `registerType: 'autoUpdate'`, and a precache containing the shell plus the bundled Part 1 corpus. Offline behavior must be tested against a production build, not inferred from development mode.
 
 ## Rejected alternatives
 
@@ -65,4 +65,4 @@ Use hash routing or another GitHub Pages-safe route strategy, an installable man
 
 ## Consequences
 
-This choice minimizes infrastructure work but requires a careful migration from generic JS/JSX vocabulary flows to typed, content-driven CAE flows. Phase 2 provides the canonical domain/schema contract, Phase 3 provides installable app-shell infrastructure, and Phase 4 proves the boundary with a complete Part 1 slice. Licensing provenance remains an explicit build concern. The next milestone is the attempt/event model and Error Bank, not AI or adaptive learning.
+This choice minimizes infrastructure work but requires a careful migration from generic JS/JSX vocabulary flows to typed, content-driven CAE flows. Phase 2 provides the canonical domain/schema contract, Phase 3 provides installable app-shell infrastructure, Phase 4 proves the Part 1 renderer/grader boundary, and Phase 5 adds the historical event boundary plus rebuildable projections. Licensing provenance remains an explicit build concern. The next milestone is versioned export/import and then additional exercise types, not AI or adaptive learning.

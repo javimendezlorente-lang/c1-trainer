@@ -1,6 +1,6 @@
 # Architecture
 
-Status: v0.1 proposal; see [ARCHITECTURE_DECISION.md](ARCHITECTURE_DECISION.md) and the [reuse matrix](research/REUSE_MATRIX.md)
+Status: Phase 5 implemented; see [ARCHITECTURE_DECISION.md](ARCHITECTURE_DECISION.md) and [ATTEMPT_EVENT_IMPLEMENTATION.md](ATTEMPT_EVENT_IMPLEMENTATION.md)
 
 ## Runtime shape
 
@@ -46,12 +46,13 @@ tests/         unit, integration, and content fixtures
 2. Validation rejects malformed, ambiguous, duplicated, or incomplete content before build.
 3. The app loads the approved catalogue into a session.
 4. A pure grader returns marks, correctness, and feedback references.
-5. The session writer stores an attempt and creates or updates Error Bank records.
-6. Statistics and review queues are derived from local records.
+5. `createAttemptEvent` snapshots the graded submission.
+6. The append-only IndexedDB repository stores the AttemptEvent idempotently.
+7. Error Bank and Progress/skill profile are rebuilt from the complete event history.
 
 ## Persistence
 
-IndexedDB is the planned storage layer. Records must be versioned and migrated. The storage boundary must allow a future sync implementation without coupling UI code to IndexedDB.
+IndexedDB is the storage layer. AttemptEvents are versioned and migrated; the storage boundary allows a future sync implementation without coupling UI code to IndexedDB. Projections are never authoritative and must remain rebuildable.
 
 Minimum stores:
 

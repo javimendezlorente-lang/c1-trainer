@@ -1,6 +1,6 @@
 # Implementation plan
 
-This plan follows the audit decision. Phase 4 adds the first complete Cambridge C1 Advanced practice slice while keeping attempts, persistence, and later parts out of scope.
+This plan follows the audit decision. Phase 5 adds durable AttemptEvents and rebuildable learning projections on top of the Phase 4 Part 1 slice while keeping export/import, adaptive learning, and later parts out of scope.
 
 ## Milestone 0 — Baseline the foundation
 
@@ -78,7 +78,11 @@ Acceptance criteria:
 - Each response stores item ID, timestamp, selected answer, result, marks, skills, and explanation reference.
 - Incorrect responses can enter the Error Bank without duplicating the same concept record.
 - Part/tag accuracy is derived from stored events and labelled as internal practice data.
-- Export/import has a versioned format and migration tests.
+- Submission is idempotent by stable session key and cannot duplicate an AttemptEvent.
+- Error Bank and Progress/skill profile are pure projections that can be rebuilt from the complete event history.
+- IndexedDB has an explicit versioned migration with regression coverage.
+
+Status: complete. See [`ATTEMPT_EVENT_IMPLEMENTATION.md`](ATTEMPT_EVENT_IMPLEMENTATION.md).
 
 ## Milestone 6 — Parts 2 and 3
 

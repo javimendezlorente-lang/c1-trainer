@@ -1,6 +1,6 @@
 # Implementation plan
 
-This plan follows the audit decision. Phase 5 adds durable AttemptEvents and rebuildable learning projections on top of the Phase 4 Part 1 slice while keeping export/import, adaptive learning, and later parts out of scope.
+This plan follows the audit decision. Phase 6 adds FSRS scheduling and dedicated review sessions on top of the Phase 5 ledgers while keeping export/import, adaptive selection, and later parts out of scope.
 
 ## Milestone 0 — Baseline the foundation
 
@@ -84,7 +84,21 @@ Acceptance criteria:
 
 Status: complete. See [`ATTEMPT_EVENT_IMPLEMENTATION.md`](ATTEMPT_EVENT_IMPLEMENTATION.md).
 
-## Milestone 6 — Parts 2 and 3
+## Milestone 6 — FSRS scheduling and review sessions
+
+**Goal:** schedule deliberate review of Error Bank items while preserving historical AttemptEvents and adding an append-only ReviewEvent ledger.
+
+Acceptance criteria:
+
+- `ts-fsrs` 5.4.2 is isolated behind a serializable ISO-date adapter with library defaults and no optimizer.
+- ReviewEvents are idempotent and contain auditable before/after card snapshots.
+- Due ReviewCards are deterministic, touch-friendly, offline, and rebuildable after deleting the materialized projection.
+- Practice correctness remains separate from explicit Again/Hard/Good/Easy memory ratings.
+- IndexedDB v3 preserves Phase 5 attempts and adds review stores.
+
+Status: complete. See [`FSRS_MODEL.md`](FSRS_MODEL.md), [`REVIEW_EVENT.md`](REVIEW_EVENT.md), and [`REVIEW_SESSION.md`](REVIEW_SESSION.md).
+
+## Milestone 7 — Parts 2 and 3
 
 **Goal:** add open cloze and word formation with dedicated contracts.
 
@@ -94,7 +108,7 @@ Acceptance criteria:
 - Accepted-answer and spelling policies are explicit and tested.
 - Feedback explains grammar/morphology without claiming official Cambridge scoring beyond the documented raw marks.
 
-## Milestone 7 — Part 4
+## Milestone 8 — Part 4
 
 **Goal:** add key word transformations with defensible marking.
 
@@ -104,7 +118,7 @@ Acceptance criteria:
 - Partial-credit rules are documented before implementation and covered by tests.
 - The grader never relies on exact-string equality alone and never silently invents semantic equivalence.
 
-## Milestone 8 — FSRS and adaptive practice
+## Milestone 9 — FSRS and adaptive practice
 
 **Goal:** schedule review of errors and concepts.
 

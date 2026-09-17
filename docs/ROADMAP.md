@@ -37,4 +37,5 @@ Each milestone must be independently testable and deployable. Do not begin a lat
 - [x] Implement a complete original Part 1 vertical slice with bundled content, deterministic grading, and results explanations.
 - [x] Define and persist idempotent AttemptEvents in IndexedDB.
 - [x] Rebuild Error Bank and Progress/skill profile projections from AttemptEvents.
-- [ ] Add versioned attempt export/import and migration tooling.
+- [x] Add FSRS scheduling, ReviewEvents, rebuildable ReviewCards, and offline review sessions.
+- [ ] Add versioned attempt/review export/import and migration tooling.

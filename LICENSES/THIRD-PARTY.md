@@ -40,3 +40,13 @@ Current audited sources and decisions are documented in [`docs/research/LICENSIN
 - Source: <https://github.com/GoogleChrome/workbox>
 - Use: generated precaching and navigation fallback for the current application shell only.
 - Modification status: generated output only; no Workbox source is copied or modified.
+
+### `ts-fsrs`
+
+- Package: `ts-fsrs` `5.4.2`
+- Source: <https://github.com/open-spaced-repetition/ts-fsrs>
+- License: MIT (package metadata and distributed license)
+- Node requirement: `>=20.0.0`
+- Use: browser-side FSRS scheduling for deliberate Error Bank review sessions, isolated behind `src/learning/fsrs/fsrsAdapter.ts`.
+- Modification status: package is used as published; the optional optimizer/binding package is not installed.
+- Purpose: calculate and preview Again/Hard/Good/Easy scheduling outcomes. It does not grade exercises or replace the append-only AttemptEvent/ReviewEvent history.

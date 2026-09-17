@@ -1,6 +1,6 @@
 # Architecture
 
-Status: Phase 5 implemented; see [ARCHITECTURE_DECISION.md](ARCHITECTURE_DECISION.md) and [ATTEMPT_EVENT_IMPLEMENTATION.md](ATTEMPT_EVENT_IMPLEMENTATION.md)
+Status: Phase 6 implemented; see [ARCHITECTURE_DECISION.md](ARCHITECTURE_DECISION.md), [ATTEMPT_EVENT_IMPLEMENTATION.md](ATTEMPT_EVENT_IMPLEMENTATION.md), and [FSRS_MODEL.md](FSRS_MODEL.md)
 
 ## Runtime shape
 
@@ -18,7 +18,7 @@ IndexedDB in the browser
 
 The deployed artifact is a static PWA served by GitHub Pages. GitHub Actions runs validation, tests, and the production build. There is no permanent server in v0.1.
 
-The implementation strategy is reuse-first with a license-first gate: the audited `examiner` shell is the preferred technical foundation, `ts-fsrs` is a later dependency, `cae-tutor` is a reviewed pedagogical reference, and unlicensed or GPL-covered application code is not part of the initial client.
+The implementation strategy is reuse-first with a license-first gate: the audited `examiner` shell is the preferred technical foundation, `ts-fsrs` is isolated behind the FSRS adapter, `cae-tutor` is a reviewed pedagogical reference, and unlicensed or GPL-covered application code is not part of the initial client.
 
 ## Proposed boundaries
 
@@ -48,7 +48,8 @@ tests/         unit, integration, and content fixtures
 4. A pure grader returns marks, correctness, and feedback references.
 5. `createAttemptEvent` snapshots the graded submission.
 6. The append-only IndexedDB repository stores the AttemptEvent idempotently.
-7. Error Bank and Progress/skill profile are rebuilt from the complete event history.
+7. Error Bank and practice Progress are rebuilt from AttemptEvents.
+8. ReviewEvents are appended after explicit ratings; ReviewCards and review Progress are rebuilt from both ledgers.
 
 ## Persistence
 
@@ -56,11 +57,12 @@ IndexedDB is the storage layer. AttemptEvents are versioned and migrated; the st
 
 Minimum stores:
 
-- `attempts`
-- `itemResponses`
-- `errorBank`
-- `reviewSchedule`
-- `settings`
+- `attempts` and `attemptKeys`
+- `reviewEvents` and `reviewKeys`
+- `reviewCards` (materialized projection)
+- `meta`
+
+`AttemptEvent` and `ReviewEvent` are the historical authorities; card state is never the sole source of truth.
 
 No sensitive personal data is required for v0.1.
 

@@ -1,10 +1,10 @@
 # Architecture decision
 
-Status: approved foundation decision; Phase 5 AttemptEvents and rebuildable projections implemented
+Status: approved foundation decision; Phase 6 review scheduling and sessions implemented
 
 ## Decision
 
-Build C1 Trainer as a static React/Vite browser application on the way to a PWA, starting from an adapted `dhanak/examiner` shell. Keep the first release client-only and deploy it to GitHub Pages. Use IndexedDB through a storage abstraction for learning history in a later milestone and small browser preferences through localStorage. Add `ts-fsrs` only after the Error Bank and attempt model are stable.
+Build C1 Trainer as a static React/Vite browser application on the way to a PWA, starting from an adapted `dhanak/examiner` shell. Keep the first release client-only and deploy it to GitHub Pages. Use IndexedDB through a storage abstraction for learning history and small browser preferences through localStorage. Use `ts-fsrs` only behind a narrow adapter after the Error Bank and attempt model are stable.
 
 The project will be **reuse-first but license-first**: compatible MIT code may be adapted with notices, CC BY-NC material may be used only with attribution and non-commercial boundaries, the unlicensed benchmark remains reference-only, and GPL code is not part of the initial client.
 
@@ -49,7 +49,7 @@ Every grader is a pure function and is independent of React. Part 1 has determin
 
 ### Learning data
 
-`AttemptEvent` is the historical source of truth. It stores the answer snapshot, grade snapshot, stable idempotency key, timestamp, skills, and explanation references. Error Bank and Progress/skill profile are derived projections; materialized forms may be added later, but every projection must be reconstructible from AttemptEvents alone. Question responses and concept-level review cards remain separate records.
+`AttemptEvent` is practice history and `ReviewEvent` is deliberate review history. Error Bank, Progress/skill profile, ReviewCard state, and the due queue are derived projections; materialized forms may be cached, but they must be reconstructible from the historical ledgers. Question attempts and review cards remain separate records.
 
 ### Deployment
 
@@ -65,4 +65,4 @@ Use hash routing or another GitHub Pages-safe route strategy, an installable man
 
 ## Consequences
 
-This choice minimizes infrastructure work but requires a careful migration from generic JS/JSX vocabulary flows to typed, content-driven CAE flows. Phase 2 provides the canonical domain/schema contract, Phase 3 provides installable app-shell infrastructure, Phase 4 proves the Part 1 renderer/grader boundary, and Phase 5 adds the historical event boundary plus rebuildable projections. Licensing provenance remains an explicit build concern. The next milestone is versioned export/import and then additional exercise types, not AI or adaptive learning.
+This choice minimizes infrastructure work but requires a careful migration from generic JS/JSX vocabulary flows to typed, content-driven CAE flows. Phase 2 provides the canonical domain/schema contract, Phase 3 provides installable app-shell infrastructure, Phase 4 proves the Part 1 renderer/grader boundary, Phase 5 adds the historical attempt boundary, and Phase 6 adds rebuildable FSRS scheduling and offline review sessions. Licensing provenance remains an explicit build concern. The next milestone is versioned export/import and additional exercise types, not AI or adaptive selection.

@@ -8,7 +8,7 @@ Phase 4 implements a complete Cambridge C1 Advanced Reading & Use of English Par
 - Every file is checked by `scripts/content-validator.mjs` before it is eligible for bundling.
 - `src/content/contentRepository.ts` uses Vite's eager static glob to load only approved Part 1 JSON at build time and exposes stable-ID lookup.
 - `src/grading/part1Grader.ts` is a pure, React-independent function. It returns the exercise ID, score, maximum score, completion flag, and one result for each of the eight questions.
-- `src/features/part1/` owns ephemeral answer state. On submit, the application boundary creates an AttemptEvent and appends it to IndexedDB; Error Bank and Progress are derived from the event history. There is no adaptive selection or FSRS integration yet.
+- `src/features/part1/` owns ephemeral answer state. On submit, the application boundary creates an AttemptEvent and appends it to IndexedDB; Error Bank and Progress are derived from the event history. Deliberate review of incorrect responses is scheduled separately through the Phase 6 ReviewEvent/FSRS boundary; practice correctness is never auto-rated as memory.
 
 ## User flow
 

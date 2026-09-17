@@ -1,6 +1,6 @@
 # PWA acceptance test plan
 
-This plan separates repeatable automated/build checks from manual browser and iPhone acceptance. The current build proves offline app-shell capability and bundles the approved Part 1 corpus for the implemented vertical slice. It does not imply offline support for future content or learning history.
+This plan separates repeatable automated/build checks from manual browser and iPhone acceptance. The current build proves offline app-shell capability, bundles the approved Part 1 corpus, and supports local review calculations and IndexedDB learning history for the implemented vertical slice. It does not imply offline support for future content.
 
 ## Automated and production-build checks
 
@@ -40,7 +40,8 @@ The unit suite covers manifest-adjacent configuration indirectly through product
 9. Confirm the shell starts and the five routes remain navigable offline.
 10. At a viewport of approximately 390 px wide, confirm there is no horizontal overflow.
 11. Confirm that Part 1 exercise text, answers, grading, and explanations remain usable offline after the service worker controls the page.
-12. Confirm that no Parts 2–8, Error Bank, or learning-history feature is presented as available.
+12. Complete a wrong-answer Part 1 attempt, open Review, reveal a prompt, rate it, and confirm the ReviewEvent and next due state persist while offline.
+13. Confirm that no Parts 2–8 are presented as available.
 
 Restore the browser network condition and stop the preview server after the test. Development-server behavior is not authoritative for this test because Vite dev mode does not represent the generated production service worker.
 

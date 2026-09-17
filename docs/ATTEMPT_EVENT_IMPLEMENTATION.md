@@ -30,7 +30,7 @@ rebuildLearningProjections(allEvents)
 
 ## IndexedDB
 
-`src/storage/attemptRepository.ts` uses a small Dexie adapter. The append-only `attempts` store is the historical source, while `attemptKeys` provides an atomic key-to-event lookup used for idempotence. Database version 2 explicitly migrates version 1 records by backfilling event metadata and the idempotency-key index. No projection is authoritative.
+`src/storage/attemptRepository.ts` uses a small Dexie adapter. The append-only `attempts` store is the historical source, while `attemptKeys` provides an atomic key-to-event lookup used for idempotence. Database version 3 adds append-only `reviewEvents`, `reviewKeys`, and materialized `reviewCards` without deleting old attempts. No projection is authoritative.
 
 ## Rebuildable projections
 
@@ -44,4 +44,4 @@ The UI pages under `src/features/learning/` read events and rebuild projections 
 
 ## Current limits and next work
 
-There is no export/import format, FSRS scheduling, adaptive selection, or multi-device sync yet. The next persistence milestone should define versioned event export/import and test migrations against real user data before adding additional exercise types.
+Review scheduling is documented in [`FSRS_MODEL.md`](FSRS_MODEL.md), [`REVIEW_EVENT.md`](REVIEW_EVENT.md), and [`REVIEW_SESSION.md`](REVIEW_SESSION.md). Export/import, adaptive selection, and multi-device sync remain future work.

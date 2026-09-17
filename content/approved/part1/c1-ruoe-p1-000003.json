@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "c1-ruoe-p1-000003",
+  "exam": "C1_ADVANCED",
+  "paper": "READING_USE_OF_ENGLISH",
+  "part": 1,
+  "type": "multiple_choice_cloze",
+  "title": "The language of repair",
+  "difficulty": 4,
+  "topic": "infrastructure",
+  "source": { "kind": "original_manual", "reviewStatus": "approved" },
+  "skills": { "primarySkill": "phrasal_verb", "secondarySkills": ["dependent_preposition", "semantic_precision"] },
+  "content": {
+    "text": "A maintenance plan is useful only if it is followed through. Before contractors {{gap:1}} out repairs, managers must check whether old components are likely to {{gap:2}} down or whether hidden faults could {{gap:3}} up the schedule. Teams may {{gap:4}} up against difficulties when a supplier changes specifications, and a delayed delivery can {{gap:5}} up the entire project. For that reason, supervisors regularly {{gap:6}} into the plans, {{gap:7}} out unrealistic assumptions and insist that each team {{gap:8}} through on its commitments.",
+    "gaps": [
+      { "id": "g1", "number": 1 }, { "id": "g2", "number": 2 }, { "id": "g3", "number": 3 }, { "id": "g4", "number": 4 },
+      { "id": "g5", "number": 5 }, { "id": "g6", "number": 6 }, { "id": "g7", "number": 7 }, { "id": "g8", "number": 8 }
+    ]
+  },
+  "questions": [
+    { "id": "q1", "gap": 1, "options": [{ "id": "A", "text": "carry" }, { "id": "B", "text": "make" }, { "id": "C", "text": "take" }, { "id": "D", "text": "run" }], "correctOptionId": "A", "explanation": "Carry out repairs means perform them.", "distractorExplanations": { "B": "Make repairs is possible, but carry out is the intended formal expression.", "C": "Take out repairs does not describe performing repairs.", "D": "Run out repairs is not idiomatic." } },
+    { "id": "q2", "gap": 2, "options": [{ "id": "A", "text": "fall" }, { "id": "B", "text": "break" }, { "id": "C", "text": "come" }, { "id": "D", "text": "wear" }], "correctOptionId": "B", "explanation": "Break down means stop functioning.", "distractorExplanations": { "A": "Fall down describes collapse, not a component ceasing to function.", "C": "Come down does not fit the intended meaning.", "D": "Wear down means gradually weaken, not fail suddenly." } },
+    { "id": "q3", "gap": 3, "options": [{ "id": "A", "text": "hold" }, { "id": "B", "text": "set" }, { "id": "C", "text": "put" }, { "id": "D", "text": "take" }], "correctOptionId": "A", "explanation": "Hold up means delay.", "distractorExplanations": { "B": "Set up means arrange or establish, not delay a schedule.", "C": "Put up has several meanings but not this one in the sentence.", "D": "Take up would mean occupy time or space." } },
+    { "id": "q4", "gap": 4, "options": [{ "id": "A", "text": "come" }, { "id": "B", "text": "bring" }, { "id": "C", "text": "put" }, { "id": "D", "text": "get" }], "correctOptionId": "A", "explanation": "Come up against difficulties means encounter them.", "distractorExplanations": { "B": "Bring up against is not idiomatic in this structure.", "C": "Put up against means place something next to or in opposition to something else.", "D": "Get up against is not the standard expression." } },
+    { "id": "q5", "gap": 5, "options": [{ "id": "A", "text": "hold" }, { "id": "B", "text": "set" }, { "id": "C", "text": "put" }, { "id": "D", "text": "keep" }], "correctOptionId": "A", "explanation": "Hold up the project means delay it.", "distractorExplanations": { "B": "Set up means establish, not delay.", "C": "Put up does not fit the object and meaning.", "D": "Keep up means maintain pace or standards, not cause delay." } },
+    { "id": "q6", "gap": 6, "options": [{ "id": "A", "text": "look" }, { "id": "B", "text": "go" }, { "id": "C", "text": "run" }, { "id": "D", "text": "get" }], "correctOptionId": "A", "explanation": "Look into the plans means investigate them.", "distractorExplanations": { "B": "Go into can mean discuss or enter a subject, but is not the intended collocation here.", "C": "Run into means encounter something unexpectedly.", "D": "Get into can mean become involved in something, not investigate it." } },
+    { "id": "q7", "gap": 7, "options": [{ "id": "A", "text": "rule" }, { "id": "B", "text": "cross" }, { "id": "C", "text": "cancel" }, { "id": "D", "text": "clear" }], "correctOptionId": "A", "explanation": "Rule out means exclude from consideration.", "distractorExplanations": { "B": "Cross out means delete written text, not reject an assumption conceptually.", "C": "Cancel out means neutralise an effect.", "D": "Clear out means remove people or things physically." } },
+    { "id": "q8", "gap": 8, "options": [{ "id": "A", "text": "carry" }, { "id": "B", "text": "follow" }, { "id": "C", "text": "keep" }, { "id": "D", "text": "work" }], "correctOptionId": "B", "explanation": "Follow through on commitments means do what was promised.", "distractorExplanations": { "A": "Carry through usually means complete something, but the preposition on points to follow through.", "C": "Keep through is not idiomatic in this structure.", "D": "Work through means deal with a problem, not honour a commitment." } }
+  ]
+}

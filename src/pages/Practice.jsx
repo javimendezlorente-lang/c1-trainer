@@ -1,10 +1,5 @@
-import PlaceholderPage from '../components/PlaceholderPage'
+import Part1ExercisePage from '../features/part1/Part1ExercisePage'
 
 export default function Practice() {
-  return (
-    <PlaceholderPage
-      title="Practice"
-      description="The Cambridge C1 Advanced exercise selector will be added in a later milestone."
-    />
-  )
+  return <Part1ExercisePage />
 }

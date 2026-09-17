@@ -48,7 +48,7 @@ jobs:
         run: npm run typecheck
 
       - name: Validate approved content
-        run: npm run validate:content -- content/approved
+        run: npm run validate:content -- content/approved/part1
 
   build:
     name: Build

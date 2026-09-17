@@ -41,5 +41,8 @@ describe('C1 Trainer theme', () => {
     expect(screen.getByRole('heading', { name: 'Settings' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Theme' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /switch to dark theme/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Export backup' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Import backup' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Reset learning data' })).toBeInTheDocument()
   })
 })

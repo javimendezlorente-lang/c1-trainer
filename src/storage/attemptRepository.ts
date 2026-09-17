@@ -2,6 +2,7 @@ import Dexie, { type Table } from 'dexie'
 import type { AttemptEvent } from '../domain/attempt'
 import type { ReviewEvent } from '../domain/review'
 import type { ReviewCardProjection } from '../learning/fsrs'
+import { sameHistoricalEvent } from '../backup/compare'
 
 export const ATTEMPT_DATABASE_NAME = 'c1-trainer'
 export const ATTEMPT_DATABASE_VERSION = 3
@@ -33,6 +34,13 @@ export interface AppendReviewResult {
   inserted: boolean
 }
 
+export interface HistoricalImportResult {
+  attemptEventsAdded: number
+  attemptEventsSkipped: number
+  reviewEventsAdded: number
+  reviewEventsSkipped: number
+}
+
 export interface AttemptRepository {
   append(event: AttemptEvent): Promise<AppendAttemptResult>
   getByIdempotencyKey(idempotencyKey: string): Promise<AttemptEvent | undefined>
@@ -43,6 +51,7 @@ export interface AttemptRepository {
   listReviewCards(): Promise<ReviewCardProjection[]>
   replaceReviewCards(cards: readonly ReviewCardProjection[]): Promise<void>
   clearLearningData(): Promise<void>
+  mergeHistoricalEvents(attemptEvents: readonly AttemptEvent[], reviewEvents: readonly ReviewEvent[]): Promise<HistoricalImportResult>
 }
 
 export class C1TrainerDatabase extends Dexie {
@@ -199,6 +208,47 @@ export class DexieAttemptRepository implements AttemptRepository {
         this.db.reviewKeys.clear(),
         this.db.reviewCards.clear(),
       ])
+    })
+  }
+
+  async mergeHistoricalEvents(attemptEvents: readonly AttemptEvent[], reviewEvents: readonly ReviewEvent[]): Promise<HistoricalImportResult> {
+    return this.db.transaction('rw', this.db.attempts, this.db.attemptKeys, this.db.reviewEvents, this.db.reviewKeys, async () => {
+      const existingAttempts = await this.db.attempts.toArray()
+      const existingReviews = await this.db.reviewEvents.toArray()
+      const attemptsById = new Map(existingAttempts.map((event) => [event.eventId, event]))
+      const reviewsById = new Map(existingReviews.map((event) => [event.eventId, event]))
+      const attemptKeys = new Map(existingAttempts.map((event) => [event.idempotencyKey, event]))
+      const reviewKeys = new Map(existingReviews.map((event) => [event.idempotencyKey, event]))
+      const newAttempts: AttemptEvent[] = []
+      const newReviews: ReviewEvent[] = []
+
+      for (const event of attemptEvents) {
+        const byId = attemptsById.get(event.eventId)
+        const byKey = attemptKeys.get(event.idempotencyKey)
+        if ((byId && !sameHistoricalEvent(byId, event)) || (byKey && !sameHistoricalEvent(byKey, event))) throw new Error(`AttemptEvent conflict: ${event.eventId} has a different historical payload.`)
+        if (!byId && !byKey) { newAttempts.push(event); attemptsById.set(event.eventId, event); attemptKeys.set(event.idempotencyKey, event) }
+      }
+      for (const event of reviewEvents) {
+        const byId = reviewsById.get(event.eventId)
+        const byKey = reviewKeys.get(event.idempotencyKey)
+        if ((byId && !sameHistoricalEvent(byId, event)) || (byKey && !sameHistoricalEvent(byKey, event))) throw new Error(`ReviewEvent conflict: ${event.eventId} has a different historical payload.`)
+        if (!byId && !byKey) { newReviews.push(event); reviewsById.set(event.eventId, event); reviewKeys.set(event.idempotencyKey, event) }
+      }
+
+      if (newAttempts.length) {
+        await this.db.attempts.bulkAdd(newAttempts)
+        await this.db.attemptKeys.bulkAdd(newAttempts.map((event) => ({ idempotencyKey: event.idempotencyKey, eventId: event.eventId })))
+      }
+      if (newReviews.length) {
+        await this.db.reviewEvents.bulkAdd(newReviews)
+        await this.db.reviewKeys.bulkAdd(newReviews.map((event) => ({ idempotencyKey: event.idempotencyKey, eventId: event.eventId })))
+      }
+      return {
+        attemptEventsAdded: newAttempts.length,
+        attemptEventsSkipped: attemptEvents.length - newAttempts.length,
+        reviewEventsAdded: newReviews.length,
+        reviewEventsSkipped: reviewEvents.length - newReviews.length,
+      }
     })
   }
 

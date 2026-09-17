@@ -6,4 +6,4 @@ export {
   attemptRepository,
   deleteAttemptDatabase,
 } from './attemptRepository'
-export type { AppendAttemptResult, AppendReviewResult, AttemptRepository } from './attemptRepository'
+export type { AppendAttemptResult, AppendReviewResult, AttemptRepository, HistoricalImportResult } from './attemptRepository'

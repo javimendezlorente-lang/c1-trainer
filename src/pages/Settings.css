@@ -45,6 +45,48 @@
   color: white;
 }
 
+.settings-learning-card {
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+.settings-learning-card p,
+.settings-import-preview p {
+  margin-bottom: 0.5rem;
+  line-height: 1.45;
+}
+
+.settings-actions {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.settings-actions button {
+  min-width: 170px;
+}
+
+.settings-actions .settings-danger {
+  background: transparent;
+  color: #b83b3b;
+  border: 1px solid #b83b3b;
+}
+
+.settings-import-preview {
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+.settings-message {
+  margin-top: 1rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background: var(--surface-color);
+  line-height: 1.45;
+}
+
 @media (max-width: 560px) {
   .settings-card {
     align-items: stretch;
@@ -55,4 +97,3 @@
     width: 100%;
   }
 }
-

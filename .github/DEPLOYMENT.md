@@ -8,7 +8,10 @@ C1 Trainer is a browser-first static application. The GitHub Actions workflow bu
 npm install
 npm test -- --run
 npm run lint
+npm run typecheck
+npm run validate:content -- content/approved
 npm run build
+npm run verify:pwa
 ```
 
 The production output is written to `dist/`.
@@ -17,11 +20,17 @@ The production output is written to `dist/`.
 
 The workflow in `.github/workflows/deploy.yml`:
 
-1. runs tests and lint on pushes and pull requests targeting `master`;
+1. runs tests, lint, TypeScript checks, and approved-content validation on pushes and pull requests targeting `master`;
 2. builds the production bundle after the test job succeeds;
-3. deploys the build only for a tag matching `v*`.
+3. deploys the build only for pushes to `master`.
 
-The Vite base path is currently inherited as `/examiner/` and must be changed to the final repository Pages path when the repository is connected to GitHub. Hash routing keeps client-side navigation compatible with static hosting.
+The current Vite base path is `/c1-trainer/`, matching the intended repository URL shape `https://USERNAME.github.io/c1-trainer/`. If the repository name changes, update `base`, the manifest `start_url`/`scope`, and the Pages configuration together. Hash routing keeps client-side navigation compatible with static hosting.
+
+The production build generates `manifest.webmanifest`, `sw.js`, `registerSW.js`, and Workbox support chunks under `dist/`. The service worker uses `generateSW` and precaches only the current shell assets; no broad runtime or cross-origin caching is configured.
+
+## iPhone installation
+
+Open the deployed HTTPS URL in Safari, choose **Share → Add to Home Screen**, and launch C1 Trainer from the Home Screen. There is intentionally no custom install button. Updates use automatic service-worker behavior for this shell; revisit that policy before adding long-lived unsaved activities such as Writing tasks.
 
 ## Scope and attribution
 

@@ -25,3 +25,18 @@ Before the first reuse, record for each source:
 - whether the source is code, documentation, data, or a reference-only observation.
 
 Current audited sources and decisions are documented in [`docs/research/LICENSING.md`](../docs/research/LICENSING.md) and [`docs/research/REUSE_MATRIX.md`](../docs/research/REUSE_MATRIX.md).
+
+### `vite-plugin-pwa` and Workbox
+
+- Package: `vite-plugin-pwa` `1.3.0` (MIT)
+- Source: <https://github.com/vite-pwa/vite-plugin-pwa>
+- Use: Vite integration with the `generateSW` strategy for manifest generation, service-worker generation, and shell precaching.
+- Modification status: configuration only; no custom service worker is shipped.
+- Transitive Workbox packages are brought in by the plugin and remain build-time dependencies. Their generated service worker is not hand-edited.
+
+### Workbox
+
+- Package family: Workbox `7.4.1` (MIT), brought in transitively by `vite-plugin-pwa`.
+- Source: <https://github.com/GoogleChrome/workbox>
+- Use: generated precaching and navigation fallback for the current application shell only.
+- Modification status: generated output only; no Workbox source is copied or modified.

@@ -1,6 +1,6 @@
 # Implementation plan
 
-This plan follows the audit decision. Phase 2 defines the canonical domain and content contract only; exercise UI, graders, persistence, and Cambridge exercise content remain out of scope.
+This plan follows the audit decision. Phase 3 adds installable PWA shell infrastructure and production offline verification only; exercise UI, graders, persistence, and Cambridge exercise content remain out of scope.
 
 ## Milestone 0 — Baseline the foundation
 
@@ -44,14 +44,17 @@ Status: complete. See [`CONTENT_SCHEMA.md`](CONTENT_SCHEMA.md), [`DOMAIN_MODEL.m
 
 ## Milestone 3 — Foundation contracts and PWA
 
-**Goal:** establish typed domain boundaries and installable offline shell.
+**Goal:** establish installable offline shell infrastructure without adding exercise behavior.
 
 Acceptance criteria:
 
-- `schemas/content.schema.json` and TypeScript domain types agree.
-- Content directories and build-time approved-content loading are wired without exercise logic.
-- IndexedDB repository skeleton has schema versioning and migration tests.
-- Manifest, icons, service worker, standalone display, and production offline smoke test pass.
+- `schemas/c1/v1/` and TypeScript domain types remain unchanged and continue to validate.
+- `vite-plugin-pwa` uses `generateSW` with automatic update behavior.
+- Manifest, neutral icons, service worker, standalone display, and GitHub Pages subpath configuration are generated.
+- Production preview and a repeatable desktop offline acceptance test are documented.
+- The workflow validates tests, lint, TypeScript, content, and build, and deploys only from `master`.
+
+Status: complete. See [`PWA_TEST_PLAN.md`](PWA_TEST_PLAN.md).
 
 ## Milestone 4 — Part 1 engine
 

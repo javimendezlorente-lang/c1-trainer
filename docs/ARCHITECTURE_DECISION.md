@@ -1,6 +1,6 @@
 # Architecture decision
 
-Status: approved foundation decision; Phase 2 domain/schema implemented
+Status: approved foundation decision; Phase 3 PWA shell implemented
 
 ## Decision
 
@@ -53,7 +53,7 @@ Question responses and concept-level review cards are separate records. The Erro
 
 ### Deployment
 
-Use hash routing or another GitHub Pages-safe route strategy, an installable manifest, a service worker, and a CI build/deploy workflow. Offline behavior must be tested against a production build, not inferred from development mode.
+Use hash routing or another GitHub Pages-safe route strategy, an installable manifest, a generated Workbox service worker, and a CI build/deploy workflow. The current PWA uses `vite-plugin-pwa` with `generateSW`, `registerType: 'autoUpdate'`, and a small precache of current shell assets only. Offline behavior must be tested against a production build, not inferred from development mode.
 
 ## Rejected alternatives
 
@@ -65,4 +65,4 @@ Use hash routing or another GitHub Pages-safe route strategy, an installable man
 
 ## Consequences
 
-This choice minimizes infrastructure work but requires a careful migration from generic JS/JSX vocabulary flows to typed, content-driven CAE flows. Phase 2 now provides the canonical domain/schema contract without exercise UI or grading. Licensing provenance remains an explicit build concern. The next milestone is PWA installability and an offline app-shell smoke test, not Part 1 UI.
+This choice minimizes infrastructure work but requires a careful migration from generic JS/JSX vocabulary flows to typed, content-driven CAE flows. Phase 2 provides the canonical domain/schema contract and Phase 3 provides installable app-shell infrastructure without exercise UI or grading. Licensing provenance remains an explicit build concern. The next milestone is Part 1 UI and deterministic grading, not learning history or AI.

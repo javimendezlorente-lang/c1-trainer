@@ -1,0 +1,141 @@
+.flip-card-deck {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.card-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  margin-bottom: 1.5rem;
+  overflow: visible;
+}
+
+.navigation-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  flex-shrink: 0;
+  padding-bottom: 1rem;
+}
+
+.keyboard-hint {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--accent-hover);
+}
+
+.btn-nav {
+  min-width: 120px;
+}
+
+.btn-secondary {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--button-hover);
+  border-color: var(--accent-color);
+}
+
+.no-words {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+}
+
+/* Responsive design */
+@media (min-width: 1024px) {
+  .card-container {
+    min-height: 450px;
+  }
+  
+  .btn-nav {
+    min-width: 140px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    min-height: 380px;
+    margin-bottom: 1rem;
+  }
+
+  .navigation-controls {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .keyboard-hint {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .btn-nav {
+    min-width: 110px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  .card-container {
+    min-height: 350px;
+  }
+
+  .navigation-controls {
+    padding-bottom: 0.5rem;
+  }
+  
+  .btn-nav {
+    min-width: 100px;
+  }
+}

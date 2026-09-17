@@ -1,0 +1,270 @@
+.multiple-choice {
+  /* Container for question card */
+}
+
+.question-card {
+  width: 700px;
+  max-width: 100%;
+  margin: 0 auto;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+  position: relative;
+}
+
+.multiple-choice .badges {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.multiple-choice .level-badge,
+.multiple-choice .pos-badge {
+  position: static;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.multiple-choice .level-badge {
+  background: var(--primary-color);
+  color: white;
+}
+
+.multiple-choice .pos-badge {
+  background: var(--background-color);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.prompt-word {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  min-height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Align speaker next to the prompt word similar to flipcard front */
+.prompt-word .multiplechoice-speaker {
+  margin-left: 1.2rem;
+  margin-top: 0.5rem;
+  align-self: center;
+  /* Use speaker translate variable so the speaking animation preserves this offset */
+  --speaker-translate: translateY(0.12em);
+}
+
+/* Position speaker icons on the right side of option buttons */
+.option-button .multiplechoice-speaker {
+  margin-left: auto;
+}
+
+.instruction {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: auto;
+}
+
+.option-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: var(--background-color);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.option-button:hover:not(:disabled) {
+  border-color: var(--primary-color);
+  background: var(--hover-color);
+  transform: translateY(-1px);
+}
+
+.option-button:disabled {
+  cursor: not-allowed;
+}
+
+.option-button.selected {
+  border-color: var(--primary-color);
+  background: var(--hover-color);
+}
+
+.option-button.correct {
+  border-color: var(--success-color);
+  background: rgba(34, 197, 94, 0.1);
+}
+
+.option-button.wrong {
+  border-color: var(--error-color);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+
+.option-button.correct .hotkey {
+  background: var(--success-color);
+  color: white;
+}
+
+.option-button.wrong .hotkey {
+  background: var(--error-color);
+  color: white;
+}
+
+.option-text {
+  flex: 1;
+  font-size: 1rem;
+}
+
+.option-icon {
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.option-button.correct .option-icon {
+  color: var(--success-color);
+}
+
+.option-button.wrong .option-icon {
+  color: var(--error-color);
+}
+
+.feedback {
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 400px;
+}
+
+.correct-feedback {
+  background: rgba(34, 197, 94, 0.15);
+  border: 2px solid var(--success-color);
+}
+
+.wrong-feedback {
+  background: rgba(239, 68, 68, 0.15);
+  border: 2px solid var(--error-color);
+}
+
+.feedback p {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.correct-feedback p {
+  color: var(--success-color);
+}
+
+.wrong-feedback p {
+  color: var(--error-color);
+}
+
+.next-button {
+  padding: 0.75rem 2rem;
+  background: var(--success-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.correct-feedback .next-button {
+  background: var(--success-color);
+}
+
+.wrong-feedback .next-button {
+  background: var(--error-color);
+}
+
+.next-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  filter: brightness(1.1);
+}
+
+.next-button:active {
+  transform: translateY(0);
+}
+
+.keyboard-hints {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.no-words-message {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: var(--text-secondary);
+}
+
+.no-words-message p {
+  margin: 0.5rem 0;
+}
+
+.no-words-message p:first-child {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .question-card {
+    width: 100%;
+    padding: 1.5rem;
+    min-height: 400px;
+  }
+
+  .prompt-word {
+    font-size: 2rem;
+  }
+
+  .option-button {
+    padding: 0.875rem 1rem;
+  }
+}

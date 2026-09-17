@@ -72,12 +72,13 @@ describe('DexieAttemptRepository', () => {
       exerciseSchemaVersion: '1.0.0',
       type: 'multiple_choice_cloze',
     })
+    await expect(repository.list()).resolves.toHaveLength(1)
     await repository.close()
   })
 
   it('exposes the expected database migration version', () => {
     const database = new C1TrainerDatabase(uniqueDatabaseName())
-    expect(database.verno).toBe(2)
+    expect(database.verno).toBe(3)
     database.close()
   })
 })

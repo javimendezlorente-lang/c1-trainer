@@ -1,7 +1,7 @@
 import type { Part1Exercise } from '../domain/part1'
 import type { AttemptEvent } from '../domain/attempt'
 import { gradePart1, type Part1Grade } from '../grading'
-import { rebuildLearningProjections, type LearningProjections } from '../learning'
+import { rebuildLearningProjections, rebuildReviewCards, type LearningProjections } from '../learning'
 import { attemptRepository, type AttemptRepository } from '../storage'
 
 export interface AttemptEventOptions {
@@ -85,15 +85,19 @@ export async function submitPart1Attempt(input: SubmitPart1AttemptInput): Promis
   const event = existingEvent ?? createAttemptEvent(input.exercise, input.answers, grade, input)
   const appendResult = existingEvent ? { event: existingEvent, inserted: false } : await repository.append(event)
   const events = await repository.list()
+  const reviewEvents = await repository.listReviewEvents()
+  const projections = rebuildLearningProjections(events, reviewEvents)
+  await repository.replaceReviewCards(rebuildReviewCards(events, reviewEvents))
 
   return {
     event: appendResult.event,
     grade: appendResult.event.grade,
     inserted: appendResult.inserted,
-    projections: rebuildLearningProjections(events),
+    projections,
   }
 }
 
 export async function rebuildProjections(repository: AttemptRepository = attemptRepository): Promise<LearningProjections> {
-  return rebuildLearningProjections(await repository.list())
+  const [events, reviewEvents] = await Promise.all([repository.list(), repository.listReviewEvents()])
+  return rebuildLearningProjections(events, reviewEvents)
 }

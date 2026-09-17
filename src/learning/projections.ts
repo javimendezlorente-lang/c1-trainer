@@ -1,5 +1,7 @@
 import type { AttemptEvent } from '../domain/attempt'
 import type { Skill } from '../domain/skills'
+import type { ReviewEvent, ReviewRating } from '../domain/review'
+import { applyReviewRating, createNewReviewCard, reviewCardId, type ReviewCardProjection } from './fsrs'
 
 export interface ErrorBankRecord {
   itemKey: string
@@ -47,9 +49,17 @@ export interface ProgressProjection {
   bySkill: SkillProgressRecord[]
 }
 
+export interface ReviewProgressProjection {
+  reviewsCompleted: number
+  reviewsDue: number
+  reviewedCards: number
+  ratingDistribution: Record<ReviewRating, number>
+}
+
 export interface LearningProjections {
   errorBank: ErrorBankRecord[]
   progress: ProgressProjection
+  review: ReviewProgressProjection
 }
 
 function percentage(correct: number, total: number): number {
@@ -155,9 +165,73 @@ export function rebuildProgress(events: readonly AttemptEvent[]): ProgressProjec
   }
 }
 
-export function rebuildLearningProjections(events: readonly AttemptEvent[]): LearningProjections {
+export function rebuildReviewCards(
+  attemptEvents: readonly AttemptEvent[],
+  reviewEvents: readonly ReviewEvent[] = [],
+): ReviewCardProjection[] {
+  const errorBank = rebuildErrorBank(attemptEvents)
+  const firstIncorrect = new Map<string, { occurredAt: string; primarySkill: Skill; eventId: string }>()
+  for (const event of [...attemptEvents].sort((left, right) => left.occurredAt.localeCompare(right.occurredAt) || left.eventId.localeCompare(right.eventId))) {
+    for (const result of event.grade.results) {
+      if (result.correct) continue
+      const key = reviewCardId(event.exerciseId, result.questionId)
+      if (!firstIncorrect.has(key)) firstIncorrect.set(key, { occurredAt: event.occurredAt, primarySkill: event.skills.primarySkill, eventId: event.eventId })
+    }
+  }
+
+  const cards = new Map<string, ReviewCardProjection>()
+  for (const record of errorBank) {
+    const id = reviewCardId(record.exerciseId, record.questionId)
+    const origin = firstIncorrect.get(id)
+    const firstEvent = reviewEvents
+      .filter((event) => event.reviewCardId === id)
+      .sort((left, right) => left.reviewedAt.localeCompare(right.reviewedAt) || left.eventId.localeCompare(right.eventId))[0]
+    const createdAt = origin?.occurredAt ?? firstEvent?.reviewedAt
+    if (!createdAt) continue
+    let card = createNewReviewCard({ id, exerciseId: record.exerciseId, questionId: record.questionId }, createdAt, record.part, record.skill)
+    const history = reviewEvents
+      .filter((event) => event.reviewCardId === id)
+      .sort((left, right) => left.reviewedAt.localeCompare(right.reviewedAt) || left.eventId.localeCompare(right.eventId))
+    for (const event of history) card = applyReviewRating(card, event.rating, event.reviewedAt)
+    cards.set(id, card)
+  }
+
+  // Keep a historically reviewed card even if its attempt projection is incomplete.
+  for (const event of reviewEvents) {
+    if (cards.has(event.reviewCardId)) continue
+    const card = createNewReviewCard(
+      { id: event.reviewCardId, exerciseId: event.exerciseId, questionId: event.questionId },
+      event.reviewedAt,
+      1,
+      event.skillSet?.primarySkill ?? 'collocation',
+    )
+    cards.set(event.reviewCardId, applyReviewRating(card, event.rating, event.reviewedAt))
+  }
+
+  return [...cards.values()].sort((left, right) => left.id.localeCompare(right.id))
+}
+
+export function rebuildReviewProgress(reviewEvents: readonly ReviewEvent[], cards: readonly ReviewCardProjection[], nowIso = new Date().toISOString()): ReviewProgressProjection {
+  const ratingDistribution: Record<ReviewRating, number> = { Again: 0, Hard: 0, Good: 0, Easy: 0 }
+  for (const event of reviewEvents) ratingDistribution[event.rating] += 1
+  const now = new Date(nowIso).getTime()
+  return {
+    reviewsCompleted: reviewEvents.length,
+    reviewsDue: cards.filter((card) => new Date(card.due).getTime() <= now).length,
+    reviewedCards: new Set(reviewEvents.map((event) => event.reviewCardId)).size,
+    ratingDistribution,
+  }
+}
+
+export function rebuildLearningProjections(
+  events: readonly AttemptEvent[],
+  reviewEvents: readonly ReviewEvent[] = [],
+  nowIso = new Date().toISOString(),
+): LearningProjections {
+  const cards = rebuildReviewCards(events, reviewEvents)
   return {
     errorBank: rebuildErrorBank(events),
     progress: rebuildProgress(events),
+    review: rebuildReviewProgress(reviewEvents, cards, nowIso),
   }
 }

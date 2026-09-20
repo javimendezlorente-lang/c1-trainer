@@ -1,41 +1,55 @@
 # Roadmap
 
+Status: Writing frozen; Phase 8.5 active
+
 ## Delivery rules
 
-Each milestone must be independently testable and deployable. Do not begin a later milestone while the current milestone has conceptual bugs in its contracts or grading.
+Each milestone must be independently testable and deployable. A later subphase cannot begin while the current one has unresolved contract, grading, security or critical calibration defects. Existing event-sourced history and backup compatibility are release gates.
 
-## Milestones
+## Completed foundation
 
-| Version | Scope | Exit criteria |
+| Phase | Scope | Status |
 | --- | --- | --- |
-| v0.1 | PWA shell | Installable shell, responsive navigation, offline app-shell smoke test |
-| v0.2 | Part 1 | Deterministic multiple-choice cloze UI, grader, feedback, tests |
-| v0.3 | Error Bank + stats | Attempts persist locally; error records and internal accuracy are derived correctly |
-| v0.4 | Parts 2–4 | Dedicated content models and graders; accepted-answer tests |
-| v0.5 | Adaptive practice + SRS | Transparent selection policy and review scheduling with tests |
-| v0.6 | Content expansion | At least 500 approved questions/items, all validated and reviewed |
-| v0.7 | Reading Parts 5–8 | Mobile long-text UX and format-specific graders |
-| v0.8 | Writing | Prompt, editor, word count, timer, draft history; no runtime AI required |
-| v0.9 | Exam simulation | Timed multi-part session and summary, subject to format verification |
-| v1.0 | C1 Trainer core | Stable Parts 1–8, Writing, offline learning data, quality documentation |
-| v1.x | Listening / Speaking / optional AI | Separate privacy, licensing, audio, and evaluation specifications required |
+| 1–3 | Product contract, architecture, PWA shell and offline baseline | Complete |
+| 4 | Part 1 vertical slice and deterministic grading | Complete |
+| 5 | Attempt events, Error Bank and Progress projections | Complete |
+| 6 | FSRS review events, queue and rebuildable cards | Complete |
+| 6.5 | Versioned backup and merge-only restore | Complete |
+| 7 | Use of English Parts 2–4 | Complete as technical foundation; content recalibration required |
+| 8 | Reading Parts 5–8 | Complete as technical foundation; content and mobile UX recalibration required |
 
-## Current checkpoint
+The former next milestone, Writing, is deliberately stopped. It is not resumed until Phase 8.5 is working well across Parts 1–8.
 
-- [x] Initial product boundary written.
-- [x] Cambridge-format contract written and linked to official sources.
-- [x] Canonical content contract drafted and validated for Parts 1–4.
-- [x] Proposed architecture and mobile UI contract written.
-- [x] Reference repositories and licenses audited.
-- [x] Reuse matrix and architecture decision written.
-- [x] Implementation milestones and acceptance criteria written.
-- [x] Review and approve the docs.
-- [x] Fork/baseline the technical foundation and record the inherited checks.
-- [x] Strip unrelated language-learning functionality and establish the C1 Trainer shell.
-- [x] Define the canonical C1 exercise domain and versioned content schema.
-- [x] Build the installable PWA shell and offline app-shell smoke test.
-- [x] Implement a complete original Part 1 vertical slice with bundled content, deterministic grading, and results explanations.
-- [x] Define and persist idempotent AttemptEvents in IndexedDB.
-- [x] Rebuild Error Bank and Progress/skill profile projections from AttemptEvents.
-- [x] Add FSRS scheduling, ReviewEvents, rebuildable ReviewCards, and offline review sessions.
-- [x] Add versioned AttemptEvent/ReviewEvent backup and merge-only restore.
+## Phase 8.5 — Dynamic content, calibration and product reset
+
+| Subphase | Scope | Exit gate | Status |
+| --- | --- | --- | --- |
+| 8.5A | Product/UX audit and Cambridge calibration audit | UX audit, Parts 1–8 benchmarks, machine profile and updated specs | **Complete** |
+| 8.5B | Secure backend/API proof of concept for Part 1 | Backend decision, secret boundary, structured Part 1 response, request/cost limits and contract tests | Next |
+| 8.5C | Part 1 planner, validation, critic and novelty engine | Real pipeline; finite retries; 20-candidate acceptance report passes | Blocked by 8.5B |
+| 8.5D | Ready pool and generated-content IndexedDB | Consume/replenish/offline/failure behavior tested; history/fingerprints stored separately | Blocked by 8.5C |
+| 8.5E | Home, Practice and Review product redesign | New exercise is primary; learner context replaces IDs; disposition actions preserve history | Blocked by 8.5D |
+| 8.5F | Dynamic generation Parts 2–4 | Per-part validators/critics and calibrated sample evidence pass | Blocked by Part 1 gate |
+| 8.5G | Dynamic generation Parts 5–8 | Reading calibration, mobile reference UX and quality evidence pass | Blocked by 8.5F |
+
+## 8.5A deliverables
+
+- [x] Audit Home, Practice, selection, Parts 1–8, Results, Review, FSRS, Progress, Settings and backup.
+- [x] Classify findings CRITICAL/HIGH/MEDIUM/LOW in [`UX_AUDIT.md`](UX_AUDIT.md).
+- [x] Measure two official public exemplars without copying their text.
+- [x] Create Parts 1–8 calibration profiles under [`docs/calibration/`](calibration/README.md).
+- [x] Record the dynamic-generation, security, ready-pool, novelty, offline and backup boundaries in [`PHASE_8_5_SPEC.md`](PHASE_8_5_SPEC.md).
+- [x] Reframe the 24 bundled items as regression/reference/fallback content.
+- [x] Freeze Writing.
+
+## Part 1 expansion gate
+
+Before 8.5F, process at least 20 Part 1 candidates through the production-equivalent pipeline. Report first-pass acceptance, rejection/regeneration, ambiguity, difficulty, length and novelty failures, API usage/latency and a representative manual review. The gate fails if content is accepted by average score despite any critical-dimension failure.
+
+## Later roadmap
+
+| Milestone | Scope | Preconditions |
+| --- | --- | --- |
+| Writing | Prompt, editor, word count, timer and draft history | Phase 8.5G complete and stable |
+| Exam simulation | Timed multi-part session and summary | Format and content supply verified |
+| Listening/Speaking/optional evaluation | Separate privacy, licensing, audio and evaluation specs | Explicit authorization and new architecture decision |

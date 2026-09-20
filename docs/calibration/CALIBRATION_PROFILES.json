@@ -1,0 +1,90 @@
+{
+  "profileVersion": "1.0.0",
+  "status": "phase-8.5A-baseline",
+  "measuredAt": "2026-09-17",
+  "evidence": {
+    "officialSampleCount": 2,
+    "wordCountMethod": "Lexical tokens extracted from official sample-paper task text; titles, instructions, questions, options, gap markers, and page furniture excluded. Part 7 includes paragraph options.",
+    "sources": [
+      "https://www.cambridgeenglish.org/exams-and-tests/qualifications/advanced/format/",
+      "https://www.cambridgeenglish.org/exams-and-tests/qualifications/advanced/preparation/",
+      "https://www.cambridgeenglish.org/Images/167804-c1-advanced-handbook.pdf"
+    ],
+    "caveat": "Observed ranges are empirical guardrails from two exemplars, not official Cambridge word-count rules."
+  },
+  "parts": {
+    "1": {
+      "official": { "items": 8, "marksPerItem": 1, "optionCount": 4, "task": "multiple-choice cloze" },
+      "observed": {
+        "runningWords": [154, 135],
+        "paragraphs": [3, 3],
+        "interGapWords": {
+          "samples": [[24, 16, 9, 9, 12, 37, 15], [7, 15, 11, 9, 19, 12, 17]],
+          "sampleMedians": [15, 12],
+          "observedMinimum": 7
+        },
+        "sentenceWords": {
+          "sampleMeans": [17.1, 24.8],
+          "sampleMedians": [19.5, 25.5],
+          "observedRange": [5, 37]
+        }
+      },
+      "current": { "runningWords": [42, 80, 80], "interGapMedianWords": [4, 7, 8], "paragraphs": [1, 1, 1] },
+      "targets": {
+        "runningWords": { "min": 130, "max": 170 },
+        "paragraphs": { "min": 2, "max": 4 },
+        "interGapWords": { "hardMinimum": 6, "medianMin": 11, "medianMax": 20 },
+        "gapCount": 8,
+        "optionCount": 4
+      },
+      "criticalChecks": ["answer uniqueness", "plausible same-domain distractors", "collocational or semantic precision", "coherent authentic prose", "benchmark spacing", "correct explanations"]
+    },
+    "2": {
+      "official": { "items": 8, "marksPerItem": 1, "wordsPerGap": 1, "task": "open cloze" },
+      "observed": { "runningWords": [153, 151] },
+      "current": { "runningWords": [95, 95, 90] },
+      "targets": { "runningWords": { "min": 140, "max": 175 }, "gapCount": 8, "wordsPerGap": 1 },
+      "criticalChecks": ["single defensible completion or explicitly justified variants", "function-word and structural range", "no punctuation giveaway", "coherent text"]
+    },
+    "3": {
+      "official": { "items": 8, "marksPerItem": 1, "task": "word formation" },
+      "observed": { "runningWords": [146, 128] },
+      "current": { "runningWords": [89, 57, 76] },
+      "targets": { "runningWords": { "min": 125, "max": 170 }, "gapCount": 8, "promptWordCount": 8 },
+      "criticalChecks": ["answer derives from the supplied base", "required form is unique in context", "mixed affixation/internal change/compounding where natural", "no trivial repetition", "correct spelling"]
+    },
+    "4": {
+      "official": { "items": 6, "maxMarksPerItem": 2, "answerWords": { "min": 3, "max": 6 }, "keywordUnchanged": true, "task": "key word transformation" },
+      "targets": { "completedSentenceGrammatical": true, "meaningEquivalent": true, "answerWords": { "min": 3, "max": 6 }, "itemCount": 6 },
+      "criticalChecks": ["completed sentence is grammatical", "no duplicated surrounding text", "semantic equivalence", "keyword unchanged", "all accepted variants genuinely equivalent", "partial-credit units justified"]
+    },
+    "5": {
+      "official": { "items": 6, "marksPerItem": 2, "optionCount": 4, "task": "multiple-choice reading" },
+      "observed": { "runningWords": [755, 785], "wordsPerQuestion": [125.8, 130.8] },
+      "current": { "runningWords": [178, 167, 161] },
+      "targets": { "runningWords": { "min": 700, "max": 850 }, "itemCount": 6, "optionCount": 4 },
+      "criticalChecks": ["evidence in text", "detail and inference mix", "attitude/tone/purpose where supported", "parallel plausible distractors", "no answer from world knowledge alone"]
+    },
+    "6": {
+      "official": { "texts": 4, "items": 4, "marksPerItem": 2, "task": "cross-text multiple matching" },
+      "observed": { "runningWords": [535, 617], "wordsPerQuestion": [133.8, 154.3] },
+      "current": { "runningWords": [163, 150, 158] },
+      "targets": { "runningWords": { "min": 520, "max": 680 }, "textCount": 4, "itemCount": 4 },
+      "criticalChecks": ["requires comparison across texts", "opinions/attitudes distinguishable but nuanced", "not four isolated detail lookups", "answer evidence unique"]
+    },
+    "7": {
+      "official": { "items": 6, "marksPerItem": 2, "paragraphOptions": 7, "unusedOptions": 1, "task": "gapped text" },
+      "observed": { "basePlusOptionWords": [796, 822], "wordsPerGap": [132.7, 137.0] },
+      "current": { "basePlusOptionWords": [431, 440, 435] },
+      "targets": { "basePlusOptionWords": { "min": 750, "max": 900 }, "gapCount": 6, "paragraphOptions": 7, "unusedOptions": 1 },
+      "criticalChecks": ["fit depends on cohesion/coherence/global meaning", "references resolve across gap", "paragraphs have plausible competing links", "no answer-leading prompt", "one unused option"]
+    },
+    "8": {
+      "official": { "items": 10, "marksPerItem": 1, "task": "multiple matching" },
+      "observed": { "runningWords": [693, 655], "wordsPerQuestion": [69.3, 65.5], "observedTextSections": [4, 4] },
+      "current": { "runningWords": [165, 149, 174] },
+      "targets": { "runningWords": { "min": 620, "max": 750 }, "itemCount": 10, "preferredTextSections": 4 },
+      "criticalChecks": ["specific information/opinion/attitude evidence", "sections reusable across questions", "paraphrase rather than lexical copying", "balanced answer distribution", "unique support"]
+    }
+  }
+}

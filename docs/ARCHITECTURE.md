@@ -16,7 +16,7 @@ content catalogue + local persistence
 IndexedDB in the browser
 ```
 
-The deployed artifact is a static PWA served by GitHub Pages. GitHub Actions runs validation, tests, and the production build. There is no permanent server in v0.1.
+The deployed artifact is currently a static PWA served by GitHub Pages. GitHub Actions runs validation, tests, and the production build. Phase 8.5 authorizes a separate minimal HTTPS generation service, but the concrete provider and deployment are deliberately deferred to the 8.5B decision in `docs/GENERATION_BACKEND.md`.
 
 The implementation strategy is reuse-first with a license-first gate: the audited `examiner` shell is the preferred technical foundation, `ts-fsrs` is isolated behind the FSRS adapter, `cae-tutor` is a reviewed pedagogical reference, and unlicensed or GPL-covered application code is not part of the initial client.
 
@@ -78,3 +78,7 @@ Graders are pure functions: same item plus same response produces the same resul
 - CI runs typecheck, tests, content validation, and build.
 - GitHub Pages serves the generated static files.
 - The PWA manifest and service worker are required for the installable shell and offline cache.
+
+## Planned Phase 8.5 content-supply boundary
+
+Dynamic generation is not a new authority for learner history. The PWA will request structured generation intent from a server-side endpoint, consume only fully validated exercises from a separate ready pool, and continue to append attempts/reviews through the existing repositories. Generated exercise cache, generation history and novelty fingerprints receive separate IndexedDB stores. The OpenAI credential and generation prompts remain server-side. See [`PHASE_8_5_SPEC.md`](PHASE_8_5_SPEC.md).

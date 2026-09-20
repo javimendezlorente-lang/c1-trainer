@@ -1,6 +1,6 @@
 # Architecture decision
 
-Status: approved foundation decision; Phase 8 Reading Parts 5–8 implemented
+Status: approved foundation decision; extended by Phase 8.5 product reset
 
 ## Decision
 
@@ -60,9 +60,9 @@ Use hash routing or another GitHub Pages-safe route strategy, an installable man
 - **New app from `npm create vite`:** rejected for now because `examiner` already provides a tested shell and interaction patterns.
 - **Copying `curso-c1-advanced`:** rejected because no reusable license was found and its content/provenance must not enter the project.
 - **Using `web_rephrasings` as Part 4 base:** rejected because the backend is out of scope, the code is GPL v3, and exact-string grading is insufficient.
-- **Runtime LLM generation:** rejected for v0.1 because it adds backend, cost, latency, privacy, and QA risk.
+- **Runtime LLM generation in the v0.1 browser:** rejected because it exposes security, cost, latency, privacy and QA risks. Phase 8.5 separately authorizes a server-side, validation-gated generation service under [`PHASE_8_5_SPEC.md`](PHASE_8_5_SPEC.md); direct browser-to-OpenAI calls remain rejected.
 - **Official-score prediction:** rejected until a separately verified scoring specification exists.
 
 ## Consequences
 
-This choice minimizes infrastructure work but requires a careful migration from generic JS/JSX vocabulary flows to typed, content-driven CAE flows. Phase 2 provides the canonical domain/schema contract, Phase 3 provides installable app-shell infrastructure, Phase 4 proves the Part 1 renderer/grader boundary, Phase 5 adds the historical attempt boundary, Phase 6 adds rebuildable FSRS scheduling and offline review sessions, Phase 6.5 adds local versioned backup/restore of the ledgers, and Phase 8 adds dedicated Reading Parts 5–8 renderers over the same ledgers. Licensing provenance remains an explicit build concern. The next milestone is additional product scope, not AI or adaptive selection.
+This choice minimizes infrastructure work while retaining typed, content-driven CAE flows. Phase 2 provides the canonical domain/schema contract, Phase 3 the installable shell, Phase 4 the Part 1 renderer/grader boundary, Phase 5 the historical attempt boundary, Phase 6 rebuildable FSRS scheduling, Phase 6.5 local versioned backup/restore, and Phase 8 dedicated Reading renderers. Phase 8.5 adds a secure generated-content supply layer without changing the event ledgers or deterministic grading authority. Licensing provenance remains an explicit build concern. Writing is paused until the dynamic training model passes its quality gates.

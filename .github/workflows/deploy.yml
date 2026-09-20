@@ -50,10 +50,48 @@ jobs:
       - name: Validate approved content
         run: npm run validate:content -- content/approved/part1
 
+  backend:
+    name: Backend Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.19.0
+
+      - name: Install Worker dependencies
+        working-directory: backend
+        run: pnpm install --frozen-lockfile
+
+      - name: Run Worker typecheck
+        working-directory: backend
+        run: pnpm typecheck
+
+      - name: Run Worker lint
+        working-directory: backend
+        run: pnpm lint
+
+      - name: Run Worker tests
+        working-directory: backend
+        run: pnpm test
+
+      - name: Verify Worker bundle
+        working-directory: backend
+        run: pnpm exec wrangler deploy --dry-run
+
   build:
     name: Build
     runs-on: ubuntu-latest
-    needs: test
+    needs: [test, backend]
     
     steps:
       - name: Checkout code

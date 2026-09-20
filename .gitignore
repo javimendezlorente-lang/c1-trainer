@@ -12,6 +12,9 @@ coverage
 dist
 dist-ssr
 *.local
+.dev.vars
+.tmp/
+backend/.wrangler/
 
 # Editor directories and files
 .mise.toml

@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "types": ["@cloudflare/workers-types", "node", "vitest/globals"]
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts", "../schemas/**/*.json", "../docs/calibration/CALIBRATION_PROFILES.json"]
+}

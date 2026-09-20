@@ -24,9 +24,11 @@ Every exercise has stable metadata: a semantic version, globally unique corpus I
 
 ## IDs and provenance
 
-Exercise IDs follow `c1-ruoe-p{part}-{six-digit-sequence}`, for example `c1-ruoe-p1-000001`. Question IDs are local to an exercise (`q1` … `q8` or `q6` for Part 4), while cloze gaps are local (`g1` … `g8`). Exercise IDs are the stable global identity used by future attempts, Error Bank records, and content review logs.
+Bundled exercise IDs follow `c1-ruoe-p{part}-{six-digit-sequence}`, for example `c1-ruoe-p1-000001`. Validated runtime-generated candidates use the separate UUID namespace `gen-c1-p{part}-{uuid-v4}`; the server creates these IDs after model output succeeds and the client must never treat them as learner-facing labels. Question IDs are local to an exercise (`q1` … `q8` or `q6` for Part 4), while cloze gaps are local (`g1` … `g8`). Exercise IDs are the stable global identity used by attempts, Error Bank records, generated-content storage and content review logs.
 
 `source.kind` distinguishes `original_manual`, `original_ai`, and `imported_permitted`. `reviewStatus` distinguishes draft, review, approved, and rejected. Provenance stores metadata, not copied Cambridge text.
+
+The v1 ID pattern was extended compatibly to admit `gen-c1-p{part}-{uuid-v4}` for Phase 8.5 generated candidates. Existing bundled IDs and historical events remain valid; generated candidates are stored separately and normally begin with `reviewStatus: "review"` until later quality gates approve them.
 
 ## Versioning and compatibility
 

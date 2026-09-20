@@ -4,11 +4,15 @@ Status: normative product boundary for Phase 8.5
 
 Phase 8.5A checkpoint commit: `6473f4c` (`docs: checkpoint Phase 8.5A audit`)
 
+Phase 8.5B implementation checkpoint: secure Cloudflare Worker and Part 1 proof-of-concept contract are implemented. See [`GENERATION_BACKEND.md`](GENERATION_BACKEND.md), [`PART1_GENERATION_V1.md`](generation/PART1_GENERATION_V1.md) and [`PART1_POC_REPORT.md`](generation/PART1_POC_REPORT.md). The real five-candidate report remains pending until deployment credentials are available; no generated content is being treated as approved.
+
 ## Decision
 
 Writing is paused. The next milestone is a practically inexhaustible, Cambridge-calibrated training engine for Reading and Use of English Parts 1–8. The current 24 exercises are regression/reference material and offline fallback candidates, not the product’s conceptual limit.
 
 The current event-sourced learning architecture remains authoritative. Dynamic content adds a content supply layer; it does not replace `AttemptEvent`, `ReviewEvent`, deterministic grading, rebuildable projections, IndexedDB, FSRS or backup/restore.
+
+Phase 8.5B extends the v1 ID pattern compatibly for server-created generated candidates (`gen-c1-p{part}-{uuid-v4}`). This is a schema-compatible addition, not a reinterpretation of bundled IDs; the change is recorded in `docs/CONTENT_SCHEMA.md` and does not require a historical-event migration.
 
 ## Required pipeline
 
@@ -94,7 +98,7 @@ The backend must impose request, retry and output/token limits; capture API usag
 ## Implementation order and gates
 
 1. **8.5A — complete:** UX/product audit and Parts 1–8 calibration study.
-2. **8.5B:** secure backend decision and Part 1 Responses API proof of concept.
+2. **8.5B:** secure backend decision and Part 1 Responses API proof of concept; code and mocked security contract complete, real five-candidate evidence pending.
 3. **8.5C:** Part 1 planner, validation, critic and novelty engine.
 4. **8.5D:** ready pool and generated-content IndexedDB repositories.
 5. **8.5E:** Home, Practice and Review product redesign.

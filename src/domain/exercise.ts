@@ -23,7 +23,7 @@ export interface ExerciseSource {
 
 export interface BaseExercise {
   schemaVersion: SchemaVersion
-  id: `c1-ruoe-p${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8}-${string}`
+  id: `c1-ruoe-p${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8}-${string}` | `gen-c1-p${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8}-${string}`
   exam: 'C1_ADVANCED'
   paper: 'READING_USE_OF_ENGLISH'
   part: number

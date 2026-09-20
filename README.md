@@ -2,18 +2,18 @@
 
 Mobile-first browser application for deliberate practice of Cambridge C1 Advanced English, on the path to a full PWA.
 
-This repository starts with the product and engineering contract. The implementation now has an installable shell, a canonical domain/content contract, complete original Reading and Use of English Parts 1–8 practice, and local FSRS-backed review sessions.
+This repository starts with the product and engineering contract. The implementation now has an installable shell, a canonical domain/content contract, complete original Reading and Use of English Parts 1–8 practice, local FSRS-backed review sessions, and a separate authenticated Worker proof of concept for generating review-only Part 1 candidates.
 
 ## Scope of the first release
 
 - C1 Advanced Reading and Use of English Parts 1–8.
 - Original, reviewable exercises; no copied Cambridge examination material.
 - Automatic marking, explanations, attempt history, statistics, Error Bank, and local spaced review.
-- React + Vite + Zustand, with no backend. Durable learning storage, Error Bank, progress projections, and offline review are implemented locally in IndexedDB.
+- React + Vite + Zustand for the learner app. Durable learning storage, Error Bank, progress projections, and offline review remain local in IndexedDB. Dynamic generation is isolated in the optional Cloudflare Worker described in [`GENERATION_BACKEND.md`](docs/GENERATION_BACKEND.md); it is not required for offline study.
 
 ## Current milestone
 
-Phase 8 — Cambridge C1 Advanced Reading Parts 5–8 is complete. The approved corpus contains 24 original exercises and 168 scored items; dedicated deterministic reading graders, mixed Parts 1–8 AttemptEvents, rebuildable Error Bank/Progress/FSRS projections, and versioned backup/restore all work offline. Writing, Listening, Speaking, cloud sync, adaptive selection, and parameter optimization remain out of scope.
+Phase 8.5A is complete and 8.5B backend implementation is in progress. The approved corpus contains 24 original exercises and 168 scored items; dedicated deterministic reading graders, mixed Parts 1–8 AttemptEvents, rebuildable Error Bank/Progress/FSRS projections, and versioned backup/restore work offline. Writing remains frozen; the real five-candidate Part 1 generation report is still pending credentials.
 
 The project is a personal, non-commercial study tool. It is independent and is not affiliated with, endorsed by, or sponsored by Cambridge English or the University of Cambridge.
 

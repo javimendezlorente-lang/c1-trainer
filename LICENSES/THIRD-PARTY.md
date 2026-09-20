@@ -50,3 +50,19 @@ Current audited sources and decisions are documented in [`docs/research/LICENSIN
 - Use: browser-side FSRS scheduling for deliberate Error Bank review sessions, isolated behind `src/learning/fsrs/fsrsAdapter.ts`.
 - Modification status: package is used as published; the optional optimizer/binding package is not installed.
 - Purpose: calculate and preview Again/Hard/Good/Easy scheduling outcomes. It does not grade exercises or replace the append-only AttemptEvent/ReviewEvent history.
+
+## Phase 8.5B Worker dependencies
+
+### `openai`
+
+- Package: `openai` `7.20.0`
+- Source: <https://github.com/openai/openai-node>
+- License: Apache-2.0 (package metadata)
+- Use: server-side Responses API client in the Cloudflare Worker; no browser import and no API key in the frontend bundle.
+
+### `wrangler` and `@cloudflare/workers-types`
+
+- Packages: `wrangler` `4.135.0`, `@cloudflare/workers-types` `5.20260920.1`
+- Source: <https://github.com/cloudflare/workers-sdk>
+- License: MIT OR Apache-2.0 (package metadata)
+- Use: local Worker development, deployment commands and Cloudflare Worker TypeScript types. These are development/deployment dependencies, not learner runtime dependencies.

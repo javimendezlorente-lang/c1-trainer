@@ -1,0 +1,27 @@
+{
+  "name": "c1-trainer-generation-worker",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --local --port 8787",
+    "deploy": "wrangler deploy",
+    "lint": "eslint src test",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "ajv": "8.20.0",
+    "openai": "7.20.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "5.20260920.1",
+    "@types/node": "24.5.2",
+    "@typescript-eslint/eslint-plugin": "8.49.0",
+    "@typescript-eslint/parser": "8.49.0",
+    "eslint": "9.39.1",
+    "typescript": "5.8.3",
+    "vitest": "2.1.9",
+    "wrangler": "4.135.0"
+  }
+}

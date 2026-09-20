@@ -14,6 +14,7 @@
     "validate:content": "node scripts/validate-content.mjs",
     "generate:icons": "node scripts/generate-pwa-icons.mjs",
     "verify:pwa": "node scripts/verify-pwa-build.mjs",
+    "generate:part1": "node scripts/generate-part1.mjs",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage"
   },

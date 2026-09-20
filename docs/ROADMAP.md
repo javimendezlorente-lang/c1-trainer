@@ -25,7 +25,7 @@ The former next milestone, Writing, is deliberately stopped. It is not resumed u
 | Subphase | Scope | Exit gate | Status |
 | --- | --- | --- | --- |
 | 8.5A | Product/UX audit and Cambridge calibration audit | UX audit, Parts 1–8 benchmarks, machine profile and updated specs | **Complete** |
-| 8.5B | Secure backend/API proof of concept for Part 1 | Backend decision, secret boundary, structured Part 1 response, request/cost limits and contract tests | Next |
+| 8.5B | Secure backend/API proof of concept for Part 1 | Backend decision, secret boundary, structured Part 1 response, request/cost limits and contract tests | Code complete; real five-candidate evidence pending credentials |
 | 8.5C | Part 1 planner, validation, critic and novelty engine | Real pipeline; finite retries; 20-candidate acceptance report passes | Blocked by 8.5B |
 | 8.5D | Ready pool and generated-content IndexedDB | Consume/replenish/offline/failure behavior tested; history/fingerprints stored separately | Blocked by 8.5C |
 | 8.5E | Home, Practice and Review product redesign | New exercise is primary; learner context replaces IDs; disposition actions preserve history | Blocked by 8.5D |
@@ -41,6 +41,14 @@ The former next milestone, Writing, is deliberately stopped. It is not resumed u
 - [x] Record the dynamic-generation, security, ready-pool, novelty, offline and backup boundaries in [`PHASE_8_5_SPEC.md`](PHASE_8_5_SPEC.md).
 - [x] Reframe the 24 bundled items as regression/reference/fallback content.
 - [x] Freeze Writing.
+
+## 8.5B deliverables
+
+- [x] Separate Cloudflare Worker with explicit authentication and CORS boundary.
+- [x] Responses API Structured Outputs candidate contract, canonical transformation and deterministic Part 1 checks.
+- [x] Request limits, bounded output, cooldown, controlled errors and frontend-secret scan.
+- [x] Mocked backend tests and deployment documentation.
+- [ ] Generate and manually inspect five real Part 1 candidates; see [`PART1_POC_REPORT.md`](generation/PART1_POC_REPORT.md).
 
 ## Part 1 expansion gate
 

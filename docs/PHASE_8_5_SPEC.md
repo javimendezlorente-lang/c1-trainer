@@ -2,6 +2,8 @@
 
 Status: normative product boundary for Phase 8.5
 
+Phase 8.5A checkpoint commit: `6473f4c` (`docs: checkpoint Phase 8.5A audit`)
+
 ## Decision
 
 Writing is paused. The next milestone is a practically inexhaustible, Cambridge-calibrated training engine for Reading and Use of English Parts 1–8. The current 24 exercises are regression/reference material and offline fallback candidates, not the product’s conceptual limit.

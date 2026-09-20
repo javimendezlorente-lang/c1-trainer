@@ -26,7 +26,7 @@ The former next milestone, Writing, is deliberately stopped. It is not resumed u
 | --- | --- | --- | --- |
 | 8.5A | Product/UX audit and Cambridge calibration audit | UX audit, Parts 1–8 benchmarks, machine profile and updated specs | **Complete** |
 | 8.5B | Secure backend/API proof of concept for Part 1 | Backend decision, secret boundary, structured Part 1 response, request/cost limits and contract tests | Code complete; real five-candidate evidence pending credentials |
-| 8.5C | Part 1 planner, validation, critic and novelty engine | Real pipeline; finite retries; 20-candidate acceptance report passes | Blocked by 8.5B |
+| 8.5C | Part 1 local batch factory, validation, critic, novelty and staging | Real 100-candidate calibration report and manual audit pass | Code complete; real run pending credentials |
 | 8.5D | Ready pool and generated-content IndexedDB | Consume/replenish/offline/failure behavior tested; history/fingerprints stored separately | Blocked by 8.5C |
 | 8.5E | Home, Practice and Review product redesign | New exercise is primary; learner context replaces IDs; disposition actions preserve history | Blocked by 8.5D |
 | 8.5F | Dynamic generation Parts 2–4 | Per-part validators/critics and calibrated sample evidence pass | Blocked by Part 1 gate |
@@ -49,6 +49,17 @@ The former next milestone, Writing, is deliberately stopped. It is not resumed u
 - [x] Request limits, bounded output, cooldown, controlled errors and frontend-secret scan.
 - [x] Mocked backend tests and deployment documentation.
 - [ ] Generate and manually inspect five real Part 1 candidates; see [`PART1_POC_REPORT.md`](generation/PART1_POC_REPORT.md).
+
+## 8.5C deliverables
+
+- [x] Deterministic/stochastic blueprint planner with controlled topic, genre, difficulty and skill distributions.
+- [x] Independent Batch JSONL requests with stable `custom_id` values and result reconciliation.
+- [x] Part 1 generation v2 prompt, deterministic schema/semantic/calibration gates and lexical duplication checks.
+- [x] Offline fingerprints, shingles, Jaccard near-duplicate checks and target-expression repetition limits.
+- [x] Structured Terra critic policy with hard failures, critical thresholds and explicit `BORDERLINE` handling.
+- [x] Ignored run artifacts, telemetry/cost accounting, staging output and explicit promotion command.
+- [x] Factory tests for planning, JSONL, reconciliation, malformed results, novelty and critic policy.
+- [ ] Execute `P1-CALIBRATION-100`, manually audit samples and complete [`PART1_CALIBRATION_100.md`](generation/PART1_CALIBRATION_100.md).
 
 ## Part 1 expansion gate
 

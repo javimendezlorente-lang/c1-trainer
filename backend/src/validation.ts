@@ -115,6 +115,13 @@ export function validateAndCanonicalizePart1(candidate: unknown, model: string):
   return exercise
 }
 
+export function validateCanonicalPart1(exercise: unknown): void {
+  if (!validateCanonicalSchema || !validateCanonicalSchema(exercise)) {
+    const details = (validateCanonicalSchema?.errors ?? []).map((error) => `${error.instancePath || '/'} ${error.message}`)
+    throw new GenerationError('SCHEMA_VALIDATION_FAILED', `Canonical exercise failed schema validation: ${details.join('; ')}`, 400, details)
+  }
+}
+
 export function part1Metrics(exercise: CanonicalPart1Exercise): { wordCount: number; gapSpacing: number[]; paragraphCount: number } {
   const textWithoutMarkers = exercise.content.text.replace(GAP_MARKER, ' ')
   const segments = exercise.content.text.split(GAP_MARKER)

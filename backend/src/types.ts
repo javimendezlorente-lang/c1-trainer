@@ -21,7 +21,7 @@ export interface Part1GenerationRequest {
 
 export interface Part1Candidate {
   title: string
-  difficulty: 3 | 4 | 5
+  difficulty: 2 | 3 | 4 | 5
   topic: string
   skills: {
     primarySkill: Part1Skill
@@ -65,6 +65,6 @@ export interface CanonicalPart1Exercise extends Part1Candidate {
   source: {
     kind: 'original_ai'
     generator: string
-    reviewStatus: 'review'
+    reviewStatus: 'review' | 'approved'
   }
 }

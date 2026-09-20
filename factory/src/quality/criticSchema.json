@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://c1-trainer.local/factory/part1-critic-v1.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["scores", "hardFailures", "verdict", "rationale"],
+  "properties": {
+    "scores": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cambridgeResemblance", "c1Calibration", "naturalness", "coherence", "distractorPlausibility", "answerUniqueness", "lexicalSophistication", "gapQuality", "explanationCorrectness", "pedagogicalUsefulness"],
+      "properties": {
+        "cambridgeResemblance": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "c1Calibration": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "naturalness": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "coherence": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "distractorPlausibility": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "answerUniqueness": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "lexicalSophistication": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "gapQuality": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "explanationCorrectness": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "pedagogicalUsefulness": { "type": "integer", "minimum": 1, "maximum": 5 }
+      }
+    },
+    "hardFailures": { "type": "array", "items": { "type": "string", "minLength": 1, "maxLength": 200 }, "maxItems": 10 },
+    "verdict": { "enum": ["ACCEPT", "REJECT", "BORDERLINE"] },
+    "rationale": { "type": "string", "minLength": 1, "maxLength": 1200 }
+  }
+}

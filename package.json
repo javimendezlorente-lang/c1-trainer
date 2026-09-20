@@ -15,6 +15,10 @@
     "generate:icons": "node scripts/generate-pwa-icons.mjs",
     "verify:pwa": "node scripts/verify-pwa-build.mjs",
     "generate:part1": "node scripts/generate-part1.mjs",
+    "factory": "pnpm --dir factory exec tsx src/cli.ts",
+    "factory:test": "pnpm --dir factory test",
+    "factory:typecheck": "pnpm --dir factory typecheck",
+    "content:promote": "pnpm --dir factory exec tsx src/cli.ts promote",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage"
   },

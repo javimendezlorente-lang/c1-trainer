@@ -6,7 +6,7 @@
   "required": ["title", "difficulty", "topic", "skills", "content", "questions"],
   "properties": {
     "title": { "type": "string", "minLength": 1, "maxLength": 120 },
-    "difficulty": { "type": "integer", "enum": [3, 4, 5] },
+    "difficulty": { "type": "integer", "enum": [2, 3, 4, 5] },
     "topic": { "type": "string", "minLength": 1, "maxLength": 80 },
     "skills": {
       "type": "object",

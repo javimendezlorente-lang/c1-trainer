@@ -88,6 +88,18 @@ jobs:
         working-directory: backend
         run: pnpm exec wrangler deploy --dry-run
 
+      - name: Install factory dependencies
+        working-directory: factory
+        run: pnpm install --frozen-lockfile
+
+      - name: Run factory typecheck
+        working-directory: factory
+        run: pnpm typecheck
+
+      - name: Run factory tests
+        working-directory: factory
+        run: pnpm test
+
   build:
     name: Build
     runs-on: ubuntu-latest

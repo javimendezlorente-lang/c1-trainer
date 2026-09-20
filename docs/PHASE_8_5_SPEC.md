@@ -6,6 +6,8 @@ Phase 8.5A checkpoint commit: `6473f4c` (`docs: checkpoint Phase 8.5A audit`)
 
 Phase 8.5B implementation checkpoint: secure Cloudflare Worker and Part 1 proof-of-concept contract are implemented. See [`GENERATION_BACKEND.md`](GENERATION_BACKEND.md), [`PART1_GENERATION_V1.md`](generation/PART1_GENERATION_V1.md) and [`PART1_POC_REPORT.md`](generation/PART1_POC_REPORT.md). The real five-candidate report remains pending until deployment credentials are available; no generated content is being treated as approved.
 
+Phase 8.5C changes the primary production path to a local pre-generated library. The Worker remains intact as a PoC and possible future runtime path. The factory specification and operational commands are in [`GENERATION_FACTORY.md`](GENERATION_FACTORY.md), with prompt version [`PART1_GENERATION_V2.md`](generation/PART1_GENERATION_V2.md) and calibration report [`PART1_CALIBRATION_100.md`](generation/PART1_CALIBRATION_100.md).
+
 Phase 8.5B code checkpoint commit: `94706e8` (`feat: add secure Part 1 generation worker`)
 
 ## Decision
@@ -21,7 +23,7 @@ Phase 8.5B extends the v1 ID pattern compatibly for server-created generated can
 ```text
 GenerationRequest
 → GenerationPlanner
-→ OpenAI Responses API generator
+→ OpenAI Responses API generator or Batch API factory
 → canonical JSON Schema validation
 → semantic validation
 → independent quality critic
@@ -101,7 +103,7 @@ The backend must impose request, retry and output/token limits; capture API usag
 
 1. **8.5A — complete:** UX/product audit and Parts 1–8 calibration study.
 2. **8.5B:** secure backend decision and Part 1 Responses API proof of concept; code and mocked security contract complete, real five-candidate evidence pending.
-3. **8.5C:** Part 1 planner, validation, critic and novelty engine.
+3. **8.5C:** local Part 1 batch factory, deterministic gates, novelty catalog, Terra critic, staging and explicit promotion; implementation complete, real 100-candidate evidence pending.
 4. **8.5D:** ready pool and generated-content IndexedDB repositories.
 5. **8.5E:** Home, Practice and Review product redesign.
 6. **8.5F:** generalize to Parts 2–4.

@@ -6,6 +6,8 @@ Phase 8.5A checkpoint commit: `6473f4c` (`docs: checkpoint Phase 8.5A audit`)
 
 Phase 8.5B implementation checkpoint: secure Cloudflare Worker and Part 1 proof-of-concept contract are implemented. See [`GENERATION_BACKEND.md`](GENERATION_BACKEND.md), [`PART1_GENERATION_V1.md`](generation/PART1_GENERATION_V1.md) and [`PART1_POC_REPORT.md`](generation/PART1_POC_REPORT.md). The real five-candidate report remains pending until deployment credentials are available; no generated content is being treated as approved.
 
+Phase 8.5B code checkpoint commit: `94706e8` (`feat: add secure Part 1 generation worker`)
+
 ## Decision
 
 Writing is paused. The next milestone is a practically inexhaustible, Cambridge-calibrated training engine for Reading and Use of English Parts 1–8. The current 24 exercises are regression/reference material and offline fallback candidates, not the product’s conceptual limit.

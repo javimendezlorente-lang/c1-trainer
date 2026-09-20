@@ -8,6 +8,8 @@ Phase 8.5B implementation checkpoint: secure Cloudflare Worker and Part 1 proof-
 
 Phase 8.5C changes the primary production path to a local pre-generated library. The Worker remains intact as a PoC and possible future runtime path. The factory specification and operational commands are in [`GENERATION_FACTORY.md`](GENERATION_FACTORY.md), with prompt version [`PART1_GENERATION_V2.md`](generation/PART1_GENERATION_V2.md) and calibration report [`PART1_CALIBRATION_100.md`](generation/PART1_CALIBRATION_100.md).
 
+Phase 8.5C code checkpoint commit: `b0c430e` (`feat: add Part 1 batch content factory`)
+
 Phase 8.5B code checkpoint commit: `94706e8` (`feat: add secure Part 1 generation worker`)
 
 ## Decision

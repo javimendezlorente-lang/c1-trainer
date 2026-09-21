@@ -7,7 +7,7 @@
     "dev": "wrangler dev --local --port 8787",
     "deploy": "wrangler deploy",
     "lint": "eslint src test",
-    "test": "vitest run",
+    "test": "vitest run --config vitest.config.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

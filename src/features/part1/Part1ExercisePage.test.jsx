@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { describe, expect, it } from 'vitest'
@@ -13,8 +13,8 @@ describe('Part 1 practice flow', () => {
       </MemoryRouter>,
     )
 
-    await user.click(screen.getByRole('button', { name: /Exercise 1 Signals in the canopy/i }))
-    expect(screen.getAllByRole('radio')).toHaveLength(32)
+    await user.click(screen.getAllByRole('button', { name: 'Start practice' })[0])
+    await waitFor(() => expect(screen.getAllByRole('radio')).toHaveLength(32))
     expect(screen.queryByText(/Correct answer:/i)).not.toBeInTheDocument()
 
     const firstOption = screen.getAllByRole('radio')[0]
@@ -25,7 +25,7 @@ describe('Part 1 practice flow', () => {
     expect(changedOption).toBeChecked()
 
     await user.click(screen.getByRole('button', { name: 'Submit answers' }))
-    expect(await screen.findByText('Score: 1 / 8')).toBeInTheDocument()
+    expect(await screen.findByText(/Score: \d+ \/ 8/)).toBeInTheDocument()
     expect(screen.getAllByText(/Correct answer:/i)).toHaveLength(8)
     expect(screen.getAllByText(/Explanation:/i)).toHaveLength(8)
 

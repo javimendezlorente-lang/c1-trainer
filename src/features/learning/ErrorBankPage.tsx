@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { rebuildProjections } from '../../application/part1Submission'
 import type { ErrorBankRecord } from '../../learning'
 import './learning.css'
+import { reviewLabel } from '../../presentation/exerciseLabels'
 
 export default function ErrorBankPage() {
   const [records, setRecords] = useState<ErrorBankRecord[] | null>(null)
@@ -28,14 +29,14 @@ export default function ErrorBankPage() {
         <ul className="learning-list">
           {records.map((record) => (
             <li className="learning-card" key={record.itemKey}>
-              <h2>{record.exerciseId} · {record.questionId}</h2>
+              <h2>{reviewLabel(record)}</h2>
               <p>
                 <span className={record.status === 'active' ? 'learning-status-active' : 'learning-status-cleared'}>
                   {record.status === 'active' ? 'Needs review' : 'Cleared on latest attempt'}
                 </span>
                 {' · '}{record.incorrectAttempts} incorrect of {record.totalAttempts} attempts
               </p>
-              <p className="learning-muted">Skill: {record.skill} · Explanation: {record.explanationReference}</p>
+              <p className="learning-muted">Explanation available when you open the review card.</p>
             </li>
           ))}
         </ul>

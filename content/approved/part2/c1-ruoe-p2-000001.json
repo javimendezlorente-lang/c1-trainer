@@ -1,1 +1,134 @@
-{"schemaVersion":"1.0.0","id":"c1-ruoe-p2-000001","exam":"C1_ADVANCED","paper":"READING_USE_OF_ENGLISH","part":2,"type":"open_cloze","title":"The language of maps","difficulty":3,"topic":"cartography","source":{"kind":"original_manual","reviewStatus":"approved"},"skills":{"primarySkill":"cohesion","secondarySkills":["reference","conjunction"]},"content":{"text":"Maps are often treated as objective records, even {{gap:1}} they reflect choices made by their creators. The symbols {{gap:2}} appear on a map depend on what the map is intended to show. A transport map, for example, may omit streets {{gap:3}} are irrelevant to commuters. This does not make the map inaccurate; {{gap:4}}, it makes the information easier to use. Readers should therefore ask {{gap:5}} purpose a map serves before deciding {{gap:6}} to trust it. Only {{gap:7}} they understand its limits can they interpret it properly, rather {{gap:8}} assuming that every detail has been included.","gaps":[{"id":"g1","number":1},{"id":"g2","number":2},{"id":"g3","number":3},{"id":"g4","number":4},{"id":"g5","number":5},{"id":"g6","number":6},{"id":"g7","number":7},{"id":"g8","number":8}]},"questions":[{"id":"q1","gap":1,"acceptedAnswers":["though","although"],"canonicalAnswer":"though","explanation":"Though introduces a contrast between apparent objectivity and editorial choice."},{"id":"q2","gap":2,"acceptedAnswers":["that"],"canonicalAnswer":"that","explanation":"That introduces the relative clause describing the symbols."},{"id":"q3","gap":3,"acceptedAnswers":["which"],"canonicalAnswer":"which","explanation":"Which refers back to streets."},{"id":"q4","gap":4,"acceptedAnswers":["rather"],"canonicalAnswer":"rather","explanation":"Rather introduces the corrective contrast."},{"id":"q5","gap":5,"acceptedAnswers":["what"],"canonicalAnswer":"what","explanation":"What purpose forms an embedded question."},{"id":"q6","gap":6,"acceptedAnswers":["whether"],"canonicalAnswer":"whether","explanation":"Whether introduces the alternative question of trust."},{"id":"q7","gap":7,"acceptedAnswers":["once"],"canonicalAnswer":"once","explanation":"Once means after the condition has been met."},{"id":"q8","gap":8,"acceptedAnswers":["than"],"canonicalAnswer":"than","explanation":"Rather than introduces the rejected alternative."}]}
+{
+  "schemaVersion": "1.0.0",
+  "id": "c1-ruoe-p2-000001",
+  "exam": "C1_ADVANCED",
+  "paper": "READING_USE_OF_ENGLISH",
+  "part": 2,
+  "type": "open_cloze",
+  "title": "The language of maps",
+  "difficulty": 3,
+  "topic": "cartography",
+  "source": {
+    "kind": "original_manual",
+    "reviewStatus": "approved"
+  },
+  "skills": {
+    "primarySkill": "cohesion",
+    "secondarySkills": [
+      "reference",
+      "conjunction"
+    ]
+  },
+  "content": {
+    "text": "Maps are often treated as objective records, even {{gap:1}} they reflect choices made by their creators. A surveyor decides which boundaries deserve emphasis, while a publisher decides how much detail a reader can reasonably absorb on one page. The symbols {{gap:2}} appear on a map depend on what the map is intended to show, and the absence of a symbol may be just as deliberate as its presence. A transport map, for example, may omit streets {{gap:3}} are irrelevant to commuters, although those streets remain important to residents. This does not make the map inaccurate; {{gap:4}}, it makes the information easier to use. Readers should therefore ask {{gap:5}} purpose a map serves before deciding {{gap:6}} to trust it. Only {{gap:7}} they understand its limits can they interpret it properly, rather {{gap:8}} assuming that every detail has been included. The same principle applies to historical maps: their omissions can reveal the purpose for which they were drawn. This is why a map must be read as an argument about relevance, not as a complete miniature world.",
+    "gaps": [
+      {
+        "id": "g1",
+        "number": 1
+      },
+      {
+        "id": "g2",
+        "number": 2
+      },
+      {
+        "id": "g3",
+        "number": 3
+      },
+      {
+        "id": "g4",
+        "number": 4
+      },
+      {
+        "id": "g5",
+        "number": 5
+      },
+      {
+        "id": "g6",
+        "number": 6
+      },
+      {
+        "id": "g7",
+        "number": 7
+      },
+      {
+        "id": "g8",
+        "number": 8
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "gap": 1,
+      "acceptedAnswers": [
+        "though",
+        "although"
+      ],
+      "canonicalAnswer": "though",
+      "explanation": "Though introduces a contrast between apparent objectivity and editorial choice."
+    },
+    {
+      "id": "q2",
+      "gap": 2,
+      "acceptedAnswers": [
+        "that"
+      ],
+      "canonicalAnswer": "that",
+      "explanation": "That introduces the relative clause describing the symbols."
+    },
+    {
+      "id": "q3",
+      "gap": 3,
+      "acceptedAnswers": [
+        "which"
+      ],
+      "canonicalAnswer": "which",
+      "explanation": "Which refers back to streets."
+    },
+    {
+      "id": "q4",
+      "gap": 4,
+      "acceptedAnswers": [
+        "rather"
+      ],
+      "canonicalAnswer": "rather",
+      "explanation": "Rather introduces the corrective contrast."
+    },
+    {
+      "id": "q5",
+      "gap": 5,
+      "acceptedAnswers": [
+        "what"
+      ],
+      "canonicalAnswer": "what",
+      "explanation": "What purpose forms an embedded question."
+    },
+    {
+      "id": "q6",
+      "gap": 6,
+      "acceptedAnswers": [
+        "whether"
+      ],
+      "canonicalAnswer": "whether",
+      "explanation": "Whether introduces the alternative question of trust."
+    },
+    {
+      "id": "q7",
+      "gap": 7,
+      "acceptedAnswers": [
+        "once"
+      ],
+      "canonicalAnswer": "once",
+      "explanation": "Once means after the condition has been met."
+    },
+    {
+      "id": "q8",
+      "gap": 8,
+      "acceptedAnswers": [
+        "than"
+      ],
+      "canonicalAnswer": "than",
+      "explanation": "Rather than introduces the rejected alternative."
+    }
+  ]
+}

@@ -1,1 +1,172 @@
-{"schemaVersion":"1.0.0","id":"c1-ruoe-p5-000002","exam":"C1_ADVANCED","paper":"READING_USE_OF_ENGLISH","part":5,"type":"multiple_choice_reading","title":"A map of the night sky","difficulty":4,"topic":"science","source":{"kind":"original_manual","reviewStatus":"approved"},"skills":{"primarySkill":"inference","secondarySkills":["detail","main_idea","purpose"]},"content":{"text":"When astronomers describe a star as variable, they do not necessarily mean that it is erratic. Many stars brighten and fade according to a regular rhythm, caused by changes in their outer layers or by the orbit of a companion. The apparent instability is therefore often a clue to an underlying order.\n\nThis is why variable stars have proved useful as cosmic markers. If researchers can compare a star’s known intrinsic brightness with how bright it appears from Earth, they can estimate its distance. The method is not effortless: dust can obscure light, and different families of variable stars behave differently. Yet the stars offer a rare measurement tool across enormous stretches of space.\n\nThe achievement is less dramatic than a new photograph of a distant galaxy, but it is more foundational. A picture can reveal what is there; a reliable distance tells scientists how the parts of the universe relate to one another. In astronomy, location is not background information. It is part of the explanation."},"questions":[{"id":"q1","prompt":"What misconception about variable stars does the first paragraph address?","options":[{"id":"A","text":"that their brightness cannot be measured"},{"id":"B","text":"that every change in brightness is unpredictable"},{"id":"C","text":"that they are all accompanied by planets"},{"id":"D","text":"that their outer layers never change"}],"correctOptionId":"B","explanation":"The writer distinguishes regular variation from erratic behaviour."},{"id":"q2","prompt":"Why can variable stars help researchers estimate distance?","options":[{"id":"A","text":"Their companions reveal the direction of Earth."},{"id":"B","text":"Their position is fixed relative to nearby galaxies."},{"id":"C","text":"Their known brightness can be compared with their apparent brightness."},{"id":"D","text":"Their rhythm becomes faster as they move away."}],"correctOptionId":"C","explanation":"The second paragraph states that the comparison supplies the distance estimate."},{"id":"q3","prompt":"The phrase ‘The method is not effortless’ introduces","options":[{"id":"A","text":"technical complications that qualify the method’s usefulness"},{"id":"B","text":"a claim that the method has been abandoned"},{"id":"C","text":"an example of a star with no measurable rhythm"},{"id":"D","text":"a contrast between astronomy and photography"}],"correctOptionId":"A","explanation":"Dust and different star families complicate, but do not invalidate, the method."},{"id":"q4","prompt":"What does the final paragraph imply about astronomical photographs?","options":[{"id":"A","text":"They are usually more accurate than measurements."},{"id":"B","text":"They can be visually impressive without answering every question."},{"id":"C","text":"They have made distance calculations unnecessary."},{"id":"D","text":"They are useful only for public education."}],"correctOptionId":"B","explanation":"The paragraph contrasts a revealing picture with the deeper explanatory value of distance."},{"id":"q5","prompt":"What does ‘foundational’ mean in context?","options":[{"id":"A","text":"serving as a basis for further understanding"},{"id":"B","text":"being restricted to the oldest stars"},{"id":"C","text":"requiring a new kind of telescope"},{"id":"D","text":"being more attractive to observers"}],"correctOptionId":"A","explanation":"Reliable distances underpin scientists’ understanding of relationships in the universe."},{"id":"q6","prompt":"Which statement best summarises the text?","options":[{"id":"A","text":"Variable stars are mainly valuable because they produce attractive images."},{"id":"B","text":"Regular stellar changes can provide difficult but powerful distance evidence."},{"id":"C","text":"Astronomers have solved the problem of measuring cosmic distance."},{"id":"D","text":"Dust is the principal reason galaxies are difficult to photograph."}],"correctOptionId":"B","explanation":"This captures both the regularity of the stars and the qualified usefulness of the method."}]}
+{
+  "schemaVersion": "1.0.0",
+  "id": "c1-ruoe-p5-000002",
+  "exam": "C1_ADVANCED",
+  "paper": "READING_USE_OF_ENGLISH",
+  "part": 5,
+  "type": "multiple_choice_reading",
+  "title": "A map of the night sky",
+  "difficulty": 4,
+  "topic": "science",
+  "source": {
+    "kind": "original_manual",
+    "reviewStatus": "approved"
+  },
+  "skills": {
+    "primarySkill": "inference",
+    "secondarySkills": [
+      "detail",
+      "main_idea",
+      "purpose"
+    ]
+  },
+  "content": {
+    "text": "When astronomers describe a star as variable, they do not necessarily mean that it is erratic. Many stars brighten and fade according to a regular rhythm, caused by changes in their outer layers or by the orbit of a companion. The apparent instability is therefore often a clue to an underlying order.\n\nThis is why variable stars have proved useful as cosmic markers. If researchers can compare a star’s known intrinsic brightness with how bright it appears from Earth, they can estimate its distance. The method is not effortless: dust can obscure light, and different families of variable stars behave differently. Yet the stars offer a rare measurement tool across enormous stretches of space.\n\nThe achievement is less dramatic than a new photograph of a distant galaxy, but it is more foundational. A picture can reveal what is there; a reliable distance tells scientists how the parts of the universe relate to one another. In astronomy, location is not background information. It is part of the explanation.\n\nThe same caution applies to the statistics produced by a survey. A catalogue of variable stars may contain thousands of candidates, but a candidate is not yet a reliable distance marker. Researchers inspect the light curve, remove observations affected by weather or equipment and compare the result with stars whose properties are independently known. This work is slow precisely because the attractive part of astronomy is not always the most informative. A sudden change draws attention; a stable, well-understood rhythm may support a stronger conclusion. Distance estimates also accumulate historically. A new instrument is checked against earlier measurements so that a change in scale is not mistaken for a change in the universe. It tells readers which conclusions are robust and which depend on additional evidence. The comparison also reveals why scientific progress is rarely a straight line. A revised calibration may alter a distance without making earlier observers careless; it may simply show that a small assumption affected a large calculation. Researchers preserve old measurements because a disagreement can identify the source of an error and improve the next method. For a reader, the important point is not to choose between old and new figures as though one must be dishonest. It is to ask how each figure was obtained, what range accompanies it and whether independent observations support the same account. Variable stars provide a particularly clear lesson in this disciplined revision. This is why the method remains foundational despite its complications. It does not provide a shortcut around uncertainty; it provides a disciplined way to express uncertainty and reduce it. The final distance may be revised as instruments improve, but the comparison between expected and observed light continues to connect an apparently small stellar rhythm with a much larger account of the universe. The method therefore rewards patience, comparison and the willingness to report limits alongside results. A dependable estimate is consequently an achievement of method rather than appearance. Its authority comes from the checks that remain visible when the headline image has disappeared. The reader is therefore asked to admire neither the instrument nor the picture in isolation, but the reasoning that connects observation to explanation. This balance between measurement and interpretation is what prevents a compelling photograph from being mistaken for a complete explanation of distance and scale. This balance between measurement and interpretation is what prevents a compelling photograph from being mistaken for a complete explanation of distance and scale. A distance estimate becomes especially valuable when it changes a comparison between objects. Two galaxies may look similar in an image while differing greatly in size or brightness once their distances are known. Conversely, an apparent difference may disappear when the measurement is corrected. Variable stars therefore support questions that are less visually immediate than the pictures that attract public attention. Their rhythms help establish the framework in which other observations can be interpreted. The method is not effortless, but its transparency allows another team to challenge a result, repeat the comparison and improve the estimate without discarding the whole enterprise. The best account therefore includes both a number and the path to that number. It identifies the observations used, the calibration applied and the uncertainty that remains. Readers may not follow every calculation, but they can understand why a result deserves confidence and what new observation might revise it. In this way, a modest stellar variation becomes part of a cumulative scientific argument rather than a spectacular fact isolated from its context. The result is not certainty but a better-founded comparison, one that can be revisited when new observations or improved instruments become available."
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What misconception about variable stars does the first paragraph address?",
+      "options": [
+        {
+          "id": "A",
+          "text": "that their brightness cannot be measured"
+        },
+        {
+          "id": "B",
+          "text": "that every change in brightness is unpredictable"
+        },
+        {
+          "id": "C",
+          "text": "that they are all accompanied by planets"
+        },
+        {
+          "id": "D",
+          "text": "that their outer layers never change"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": "The writer distinguishes regular variation from erratic behaviour."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why can variable stars help researchers estimate distance?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Their companions reveal the direction of Earth."
+        },
+        {
+          "id": "B",
+          "text": "Their position is fixed relative to nearby galaxies."
+        },
+        {
+          "id": "C",
+          "text": "Their known brightness can be compared with their apparent brightness."
+        },
+        {
+          "id": "D",
+          "text": "Their rhythm becomes faster as they move away."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": "The second paragraph states that the comparison supplies the distance estimate."
+    },
+    {
+      "id": "q3",
+      "prompt": "The phrase ‘The method is not effortless’ introduces",
+      "options": [
+        {
+          "id": "A",
+          "text": "technical complications that qualify the method’s usefulness"
+        },
+        {
+          "id": "B",
+          "text": "a claim that the method has been abandoned"
+        },
+        {
+          "id": "C",
+          "text": "an example of a star with no measurable rhythm"
+        },
+        {
+          "id": "D",
+          "text": "a contrast between astronomy and photography"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": "Dust and different star families complicate, but do not invalidate, the method."
+    },
+    {
+      "id": "q4",
+      "prompt": "What does the final paragraph imply about astronomical photographs?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They are usually more accurate than measurements."
+        },
+        {
+          "id": "B",
+          "text": "They can be visually impressive without answering every question."
+        },
+        {
+          "id": "C",
+          "text": "They have made distance calculations unnecessary."
+        },
+        {
+          "id": "D",
+          "text": "They are useful only for public education."
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": "The paragraph contrasts a revealing picture with the deeper explanatory value of distance."
+    },
+    {
+      "id": "q5",
+      "prompt": "What does ‘foundational’ mean in context?",
+      "options": [
+        {
+          "id": "A",
+          "text": "serving as a basis for further understanding"
+        },
+        {
+          "id": "B",
+          "text": "being restricted to the oldest stars"
+        },
+        {
+          "id": "C",
+          "text": "requiring a new kind of telescope"
+        },
+        {
+          "id": "D",
+          "text": "being more attractive to observers"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": "Reliable distances underpin scientists’ understanding of relationships in the universe."
+    },
+    {
+      "id": "q6",
+      "prompt": "Which statement best summarises the text?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Variable stars are mainly valuable because they produce attractive images."
+        },
+        {
+          "id": "B",
+          "text": "Regular stellar changes can provide difficult but powerful distance evidence."
+        },
+        {
+          "id": "C",
+          "text": "Astronomers have solved the problem of measuring cosmic distance."
+        },
+        {
+          "id": "D",
+          "text": "Dust is the principal reason galaxies are difficult to photograph."
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": "This captures both the regularity of the stars and the qualified usefulness of the method."
+    }
+  ]
+}

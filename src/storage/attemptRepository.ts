@@ -2,10 +2,11 @@ import Dexie, { type Table } from 'dexie'
 import type { AttemptEvent } from '../domain/attempt'
 import type { ReviewEvent } from '../domain/review'
 import type { ReviewCardProjection } from '../learning/fsrs'
+import type { ReviewDisposition } from '../domain/reviewDisposition'
 import { sameHistoricalEvent } from '../backup/compare'
 
 export const ATTEMPT_DATABASE_NAME = 'c1-trainer'
-export const ATTEMPT_DATABASE_VERSION = 3
+export const ATTEMPT_DATABASE_VERSION = 4
 
 interface AttemptKeyRecord {
   idempotencyKey: string
@@ -50,6 +51,8 @@ export interface AttemptRepository {
   listReviewEvents(): Promise<ReviewEvent[]>
   listReviewCards(): Promise<ReviewCardProjection[]>
   replaceReviewCards(cards: readonly ReviewCardProjection[]): Promise<void>
+  listReviewDispositions(): Promise<ReviewDisposition[]>
+  setReviewDisposition(disposition: ReviewDisposition): Promise<void>
   clearLearningData(): Promise<void>
   mergeHistoricalEvents(attemptEvents: readonly AttemptEvent[], reviewEvents: readonly ReviewEvent[]): Promise<HistoricalImportResult>
 }
@@ -61,6 +64,7 @@ export class C1TrainerDatabase extends Dexie {
   reviewEvents!: Table<ReviewEvent, string>
   reviewKeys!: Table<ReviewKeyRecord, string>
   reviewCards!: Table<ReviewCardProjection, string>
+  reviewDispositions!: Table<ReviewDisposition, string>
 
   constructor(name = ATTEMPT_DATABASE_NAME) {
     super(name)
@@ -124,6 +128,20 @@ export class C1TrainerDatabase extends Dexie {
           }
         }
         await transaction.table('meta').put({ key: 'schemaVersion', value: '3' })
+      })
+
+    this.version(4)
+      .stores({
+        attempts: 'eventId, idempotencyKey, occurredAt, exerciseId, part',
+        attemptKeys: 'idempotencyKey',
+        meta: 'key',
+        reviewEvents: 'eventId, reviewCardId, reviewedAt, idempotencyKey, exerciseId',
+        reviewKeys: 'idempotencyKey',
+        reviewCards: 'id, due, state, exerciseId, questionId',
+        reviewDispositions: 'reviewCardId, state, changedAt, exerciseId, questionId',
+      })
+      .upgrade(async (transaction) => {
+        await transaction.table('meta').put({ key: 'schemaVersion', value: '4' })
       })
   }
 }
@@ -199,14 +217,23 @@ export class DexieAttemptRepository implements AttemptRepository {
     })
   }
 
+  async listReviewDispositions(): Promise<ReviewDisposition[]> {
+    return this.db.reviewDispositions.toArray()
+  }
+
+  async setReviewDisposition(disposition: ReviewDisposition): Promise<void> {
+    await this.db.reviewDispositions.put(disposition)
+  }
+
   async clearLearningData(): Promise<void> {
-    await this.db.transaction('rw', this.db.attempts, this.db.attemptKeys, this.db.reviewEvents, this.db.reviewKeys, this.db.reviewCards, async () => {
+    await this.db.transaction('rw', [this.db.attempts, this.db.attemptKeys, this.db.reviewEvents, this.db.reviewKeys, this.db.reviewCards, this.db.reviewDispositions], async () => {
       await Promise.all([
         this.db.attempts.clear(),
         this.db.attemptKeys.clear(),
         this.db.reviewEvents.clear(),
         this.db.reviewKeys.clear(),
         this.db.reviewCards.clear(),
+        this.db.reviewDispositions.clear(),
       ])
     })
   }

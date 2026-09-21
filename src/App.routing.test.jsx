@@ -5,7 +5,7 @@ import App from './App'
 
 describe('C1 Trainer routing', () => {
   it.each([
-    ['/practice', 'Practice'],
+    ['/practice', 'What do you want to practise?'],
     ['/review', 'Review'],
     ['/progress', 'Progress'],
     ['/settings', 'Settings'],

@@ -1,1 +1,113 @@
-{"schemaVersion":"1.0.0","id":"c1-ruoe-p8-000002","exam":"C1_ADVANCED","paper":"READING_USE_OF_ENGLISH","part":8,"type":"multiple_matching","title":"Four accounts of learning","difficulty":4,"topic":"education","source":{"kind":"original_manual","reviewStatus":"approved"},"skills":{"primarySkill":"detail","secondarySkills":["attitude","inference","purpose"]},"content":{"texts":[{"id":"text-a","label":"A","title":"The evening class","text":"The class was advertised as an introduction to ceramics, but the tutor spent the first two sessions on observation and proportion. I had expected to make something quickly; instead I learned to look at an object before deciding how to shape it."},{"id":"text-b","label":"B","title":"The language exchange","text":"Conversation was awkward until we stopped treating mistakes as interruptions. Once they became material for the next question, the group began to take more risks. The most useful lesson was social rather than grammatical."},{"id":"text-c","label":"C","title":"The coding workshop","text":"The instructor gave us a broken programme and no complete demonstration. This was uncomfortable, particularly for those of us used to following steps, but it forced us to test assumptions and explain our choices."},{"id":"text-d","label":"D","title":"The museum course","text":"We were asked to keep a private notebook rather than submit weekly work. At the end, comparing early and late entries showed me a change I had not noticed while it was happening: I was asking more precise questions."}]},"questions":[{"id":"q1","prompt":"Which learner was surprised by the initial focus of the course?","correctTextId":"text-a","explanation":"The learner expected to make something but first studied observation and proportion."},{"id":"q2","prompt":"Which course encouraged participants to use errors productively?","correctTextId":"text-b","explanation":"Mistakes became material for the next question."},{"id":"q3","prompt":"Which course required learners to justify decisions?","correctTextId":"text-c","explanation":"The workshop forced participants to test assumptions and explain choices."},{"id":"q4","prompt":"Which learner noticed progress by comparing records over time?","correctTextId":"text-d","explanation":"Comparing notebook entries revealed a change not noticed in the moment."},{"id":"q5","prompt":"Which account suggests that the social atmosphere affected learning?","correctTextId":"text-b","explanation":"The group took more risks once mistakes were treated differently."},{"id":"q6","prompt":"Which course deliberately avoided giving a full model to copy?","correctTextId":"text-c","explanation":"The instructor supplied a broken programme and no complete demonstration."},{"id":"q7","prompt":"Which learner developed greater precision in questioning?","correctTextId":"text-d","explanation":"The late notebook entries contained more precise questions."},{"id":"q8","prompt":"Which learner found that speed was not the immediate priority?","correctTextId":"text-a","explanation":"The learner wanted to make something quickly but first learned to observe."},{"id":"q9","prompt":"Which account says the most important lesson was not about the stated subject?","correctTextId":"text-b","explanation":"The writer calls the lesson social rather than grammatical."},{"id":"q10","prompt":"Which account would appeal to someone who learns through investigation?","correctTextId":"text-c","explanation":"The workshop centres on testing assumptions and explaining choices."}]}
+{
+  "schemaVersion": "1.0.0",
+  "id": "c1-ruoe-p8-000002",
+  "exam": "C1_ADVANCED",
+  "paper": "READING_USE_OF_ENGLISH",
+  "part": 8,
+  "type": "multiple_matching",
+  "title": "Four accounts of learning",
+  "difficulty": 4,
+  "topic": "education",
+  "source": {
+    "kind": "original_manual",
+    "reviewStatus": "approved"
+  },
+  "skills": {
+    "primarySkill": "detail",
+    "secondarySkills": [
+      "attitude",
+      "inference",
+      "purpose"
+    ]
+  },
+  "content": {
+    "texts": [
+      {
+        "id": "text-a",
+        "label": "A",
+        "title": "The evening class",
+        "text": "The class was advertised as an introduction to ceramics, but the tutor spent the first two sessions on observation and proportion. I had expected to make something quickly; instead I learned to look at an object before deciding how to shape it. The tutor’s method made early slowness purposeful. The course rewarded a reasoned alteration, and that changed what counted as improvement. The experience changed the writer’s interpretation of the task, not merely the amount of information available. That distinction is what makes the account useful beyond its immediate setting. The writer’s conclusion remains qualified. It values the change because it altered attention and behaviour, while acknowledging that no single method works independently of context, time and human judgement. The account is persuasive because the writer describes a change in method, not simply a successful result. Readers can compare the original expectation with the later interpretation and see why the experience mattered. This careful qualification gives the reader a transferable lesson rather than a simple recommendation."
+      },
+      {
+        "id": "text-b",
+        "label": "B",
+        "title": "The language exchange",
+        "text": "Conversation was awkward until we stopped treating mistakes as interruptions. Once they became material for the next question, the group began to take more risks. The most useful lesson was social rather than grammatical. The group did not become free of mistakes. It became better at using them without allowing one confident speaker to define participation. The experience changed the writer’s interpretation of the task, not merely the amount of information available. That distinction is what makes the account useful beyond its immediate setting. The writer’s conclusion remains qualified. It values the change because it altered attention and behaviour, while acknowledging that no single method works independently of context, time and human judgement. The account is persuasive because the writer describes a change in method, not simply a successful result. Readers can compare the original expectation with the later interpretation and see why the experience mattered. This careful qualification gives the reader a transferable lesson rather than a simple recommendation."
+      },
+      {
+        "id": "text-c",
+        "label": "C",
+        "title": "The coding workshop",
+        "text": "The instructor gave us a broken programme and no complete demonstration. This was uncomfortable, particularly for those of us used to following steps, but it forced us to test assumptions and explain our choices. The broken programme could not be solved by memory alone. We had to inspect, compare and defend a choice. The experience changed the writer’s interpretation of the task, not merely the amount of information available. That distinction is what makes the account useful beyond its immediate setting. The writer’s conclusion remains qualified. It values the change because it altered attention and behaviour, while acknowledging that no single method works independently of context, time and human judgement. The account is persuasive because the writer describes a change in method, not simply a successful result. Readers can compare the original expectation with the later interpretation and see why the experience mattered. This careful qualification gives the reader a transferable lesson rather than a simple recommendation."
+      },
+      {
+        "id": "text-d",
+        "label": "D",
+        "title": "The museum course",
+        "text": "We were asked to keep a private notebook rather than submit weekly work. At the end, comparing early and late entries showed me a change I had not noticed while it was happening: I was asking more precise questions. The private record preserved failed questions and showed which assumptions had prevented a more useful question at the beginning. The experience changed the writer’s interpretation of the task, not merely the amount of information available. That distinction is what makes the account useful beyond its immediate setting. The writer’s conclusion remains qualified. It values the change because it altered attention and behaviour, while acknowledging that no single method works independently of context, time and human judgement. The account is persuasive because the writer describes a change in method, not simply a successful result. Readers can compare the original expectation with the later interpretation and see why the experience mattered. This careful qualification gives the reader a transferable lesson rather than a simple recommendation."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Which learner was surprised by the initial focus of the course?",
+      "correctTextId": "text-a",
+      "explanation": "The learner expected to make something but first studied observation and proportion."
+    },
+    {
+      "id": "q2",
+      "prompt": "Which course encouraged participants to use errors productively?",
+      "correctTextId": "text-b",
+      "explanation": "Mistakes became material for the next question."
+    },
+    {
+      "id": "q3",
+      "prompt": "Which course required learners to justify decisions?",
+      "correctTextId": "text-c",
+      "explanation": "The workshop forced participants to test assumptions and explain choices."
+    },
+    {
+      "id": "q4",
+      "prompt": "Which learner noticed progress by comparing records over time?",
+      "correctTextId": "text-d",
+      "explanation": "Comparing notebook entries revealed a change not noticed in the moment."
+    },
+    {
+      "id": "q5",
+      "prompt": "Which account suggests that the social atmosphere affected learning?",
+      "correctTextId": "text-b",
+      "explanation": "The group took more risks once mistakes were treated differently."
+    },
+    {
+      "id": "q6",
+      "prompt": "Which course deliberately avoided giving a full model to copy?",
+      "correctTextId": "text-c",
+      "explanation": "The instructor supplied a broken programme and no complete demonstration."
+    },
+    {
+      "id": "q7",
+      "prompt": "Which learner developed greater precision in questioning?",
+      "correctTextId": "text-d",
+      "explanation": "The late notebook entries contained more precise questions."
+    },
+    {
+      "id": "q8",
+      "prompt": "Which learner found that speed was not the immediate priority?",
+      "correctTextId": "text-a",
+      "explanation": "The learner wanted to make something quickly but first learned to observe."
+    },
+    {
+      "id": "q9",
+      "prompt": "Which account says the most important lesson was not about the stated subject?",
+      "correctTextId": "text-b",
+      "explanation": "The writer calls the lesson social rather than grammatical."
+    },
+    {
+      "id": "q10",
+      "prompt": "Which account would appeal to someone who learns through investigation?",
+      "correctTextId": "text-c",
+      "explanation": "The workshop centres on testing assumptions and explaining choices."
+    }
+  ]
+}

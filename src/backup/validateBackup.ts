@@ -56,9 +56,10 @@ export function isValidReviewEvent(value: unknown): value is ReviewEvent {
 export function validateBackupEnvelope(value: unknown): BackupEnvelopeV1 {
   if (!isRecord(value) || value.format !== BACKUP_FORMAT || typeof value.version !== 'string') throw new BackupError('invalid_backup', 'Backup envelope is missing its required format metadata.')
   if (!/^1\.\d+\.\d+$/.test(value.version)) throw new BackupError('unsupported_version', `Backup version ${String(value.version)} is not supported. Only 1.x.x is supported.`)
-  if (!isIso(value.exportedAt) || !isRecord(value.app) || value.app.databaseVersion !== 3 || !Array.isArray(value.attemptEvents) || !Array.isArray(value.reviewEvents)) throw new BackupError('invalid_backup', 'Backup envelope metadata or ledgers are invalid.')
+  if (!isIso(value.exportedAt) || !isRecord(value.app) || ![3, 4].includes(value.app.databaseVersion as number) || !Array.isArray(value.attemptEvents) || !Array.isArray(value.reviewEvents)) throw new BackupError('invalid_backup', 'Backup envelope metadata or ledgers are invalid.')
   if (!value.attemptEvents.every(isValidAttemptEvent)) throw new BackupError('invalid_attempt_event', 'Backup contains an invalid AttemptEvent.')
   if (!value.reviewEvents.every(isValidReviewEvent)) throw new BackupError('invalid_review_event', 'Backup contains an invalid ReviewEvent.')
+  if (value.reviewDispositions !== undefined && (!Array.isArray(value.reviewDispositions) || !value.reviewDispositions.every((item) => isRecord(item) && typeof item.reviewCardId === 'string' && typeof item.exerciseId === 'string' && typeof item.questionId === 'string' && ['active', 'mastered', 'archived'].includes(item.state as string) && isIso(item.changedAt)))) throw new BackupError('invalid_backup', 'Backup contains an invalid review disposition.')
   return value as unknown as BackupEnvelopeV1
 }
 

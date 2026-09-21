@@ -6,4 +6,6 @@ export {
   attemptRepository,
   deleteAttemptDatabase,
 } from './attemptRepository'
+export { checkStorage } from './storageDiagnostics'
+export type { StorageStatus } from './storageDiagnostics'
 export type { AppendAttemptResult, AppendReviewResult, AttemptRepository, HistoricalImportResult } from './attemptRepository'

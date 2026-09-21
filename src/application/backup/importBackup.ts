@@ -9,9 +9,13 @@ export interface BackupImportPreview {
   attemptEventsToSkip: number
   reviewEventsToAdd: number
   reviewEventsToSkip: number
+  reviewDispositionsToAdd: number
+  reviewDispositionsToSkip: number
 }
 
 export interface BackupImportResult extends HistoricalImportResult {
+  reviewDispositionsAdded: number
+  reviewDispositionsSkipped: number
   projections: LearningProjections
 }
 
@@ -44,16 +48,24 @@ function countChanges(incoming: readonly { eventId: string; idempotencyKey: stri
 
 export async function previewBackup(input: string | BackupEnvelopeV1, repository: AttemptRepository = attemptRepository): Promise<BackupImportPreview> {
   const envelope = typeof input === 'string' ? parseBackupJson(input) : parseBackupJson(JSON.stringify(input))
-  const [existingAttempts, existingReviews] = await Promise.all([repository.list(), repository.listReviewEvents()])
+  const [existingAttempts, existingReviews, existingDispositions] = await Promise.all([repository.list(), repository.listReviewEvents(), repository.listReviewDispositions()])
   const attempts = countChanges(envelope.attemptEvents, existingAttempts, 'AttemptEvent')
   const reviews = countChanges(envelope.reviewEvents, existingReviews, 'ReviewEvent')
-  return { envelope, attemptEventsToAdd: attempts.added, attemptEventsToSkip: attempts.skipped, reviewEventsToAdd: reviews.added, reviewEventsToSkip: reviews.skipped }
+  const incomingDispositions = envelope.reviewDispositions ?? []
+  const existingByCard = new Map(existingDispositions.map((item) => [item.reviewCardId, item]))
+  const dispositions = incomingDispositions.reduce((result, item) => {
+    const prior = existingByCard.get(item.reviewCardId)
+    if (!prior || item.changedAt > prior.changedAt) { existingByCard.set(item.reviewCardId, item); result.added += 1 } else result.skipped += 1
+    return result
+  }, { added: 0, skipped: 0 })
+  return { envelope, attemptEventsToAdd: attempts.added, attemptEventsToSkip: attempts.skipped, reviewEventsToAdd: reviews.added, reviewEventsToSkip: reviews.skipped, reviewDispositionsToAdd: dispositions.added, reviewDispositionsToSkip: dispositions.skipped }
 }
 
 export async function importBackup(input: string | BackupEnvelopeV1, repository: AttemptRepository = attemptRepository): Promise<BackupImportResult> {
   const preview = await previewBackup(input, repository)
   let merge: HistoricalImportResult
   try {
+    for (const disposition of preview.envelope.reviewDispositions ?? []) await repository.setReviewDisposition(disposition)
     merge = await repository.mergeHistoricalEvents(preview.envelope.attemptEvents, preview.envelope.reviewEvents)
   } catch (error) {
     if (error instanceof BackupError) throw error
@@ -66,7 +78,7 @@ export async function importBackup(input: string | BackupEnvelopeV1, repository:
     const [attemptEvents, reviewEvents] = await Promise.all([repository.list(), repository.listReviewEvents()])
     const cards = rebuildReviewCards(attemptEvents, reviewEvents)
     await repository.replaceReviewCards(cards)
-    return { ...merge, projections: rebuildLearningProjections(attemptEvents, reviewEvents) }
+    return { ...merge, reviewDispositionsAdded: preview.reviewDispositionsToAdd, reviewDispositionsSkipped: preview.reviewDispositionsToSkip, projections: rebuildLearningProjections(attemptEvents, reviewEvents) }
   } catch {
     throw new BackupError('rebuild_failure', 'Learning history was stored, but projections could not be rebuilt.')
   }

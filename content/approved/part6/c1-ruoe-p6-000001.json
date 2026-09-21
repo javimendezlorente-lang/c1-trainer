@@ -1,1 +1,77 @@
-{"schemaVersion":"1.0.0","id":"c1-ruoe-p6-000001","exam":"C1_ADVANCED","paper":"READING_USE_OF_ENGLISH","part":6,"type":"cross_text_multiple_matching","title":"What makes a museum memorable?","difficulty":4,"topic":"culture","source":{"kind":"original_manual","reviewStatus":"approved"},"skills":{"primarySkill":"attitude","secondarySkills":["inference","comparison","detail"]},"content":{"texts":[{"id":"text-a","label":"A","title":"The curator","text":"A memorable museum does not merely display objects; it gives visitors a reason to connect them. I favour a clear narrative, even if that means leaving some material in storage. Without selection, a collection becomes an inventory, and an inventory rarely changes how anyone sees the world."},{"id":"text-b","label":"B","title":"The architect","text":"I am less persuaded by narrative. Visitors should be able to make unexpected connections, so I prefer spaces that allow several routes through a collection. A well-designed room can be suggestive without telling people what to think."},{"id":"text-c","label":"C","title":"The teacher","text":"The finest exhibitions respect the visitor’s time. I look for labels that answer genuine questions rather than display specialist vocabulary. A modest object can be powerful when its context is made accessible, but accessibility is not the same as simplifying everything."},{"id":"text-d","label":"D","title":"The researcher","text":"Museums should be places of uncertainty. I become suspicious when an exhibition presents one interpretation as final. Evidence can be arranged clearly while still acknowledging gaps, disagreement and the possibility that new work will change the story."}]},"questions":[{"id":"q1","prompt":"Which writer values presenting a coherent storyline?","correctTextId":"text-a","explanation":"The curator explicitly favours a clear narrative and purposeful selection."},{"id":"q2","prompt":"Which writer believes visitors should have freedom to form their own links?","correctTextId":"text-b","explanation":"The architect prefers several routes and unexpected connections rather than a prescribed narrative."},{"id":"q3","prompt":"Which writer distinguishes accessibility from making content simplistic?","correctTextId":"text-c","explanation":"The teacher says accessibility is not the same as simplifying everything."},{"id":"q4","prompt":"Which writer stresses that interpretations may need revision?","correctTextId":"text-d","explanation":"The researcher refers to new work changing the story and warns against final interpretations."}]}
+{
+  "schemaVersion": "1.0.0",
+  "id": "c1-ruoe-p6-000001",
+  "exam": "C1_ADVANCED",
+  "paper": "READING_USE_OF_ENGLISH",
+  "part": 6,
+  "type": "cross_text_multiple_matching",
+  "title": "What makes a museum memorable?",
+  "difficulty": 4,
+  "topic": "culture",
+  "source": {
+    "kind": "original_manual",
+    "reviewStatus": "approved"
+  },
+  "skills": {
+    "primarySkill": "attitude",
+    "secondarySkills": [
+      "inference",
+      "comparison",
+      "detail"
+    ]
+  },
+  "content": {
+    "texts": [
+      {
+        "id": "text-a",
+        "label": "A",
+        "title": "The curator",
+        "text": "A memorable museum does not merely display objects; it gives visitors a reason to connect them. I favour a clear narrative, even if that means leaving some material in storage. Without selection, a collection becomes an inventory, and an inventory rarely changes how anyone sees the world. A narrative can make absence visible by explaining why an object was not selected. Selection is useful when it opens a question rather than closing the collection around one official meaning. The disagreement between these views is productive because it concerns how much guidance a public institution should provide, not whether visitors deserve serious attention. The strongest position is not the loudest one; it is the account that recognises what its preferred solution leaves unresolved and explains how visitors, residents or colleagues might respond. This qualification keeps comparison meaningful: each writer offers a preference, but also identifies a cost that a less careful account might ignore."
+      },
+      {
+        "id": "text-b",
+        "label": "B",
+        "title": "The architect",
+        "text": "I am less persuaded by narrative. Visitors should be able to make unexpected connections, so I prefer spaces that allow several routes through a collection. A well-designed room can be suggestive without telling people what to think. Freedom requires design too. Several possible connections work best when the room offers landmarks without insisting on a single conclusion. The disagreement between these views is productive because it concerns how much guidance a public institution should provide, not whether visitors deserve serious attention. The strongest position is not the loudest one; it is the account that recognises what its preferred solution leaves unresolved and explains how visitors, residents or colleagues might respond. This qualification keeps comparison meaningful: each writer offers a preference, but also identifies a cost that a less careful account might ignore."
+      },
+      {
+        "id": "text-c",
+        "label": "C",
+        "title": "The teacher",
+        "text": "The finest exhibitions respect the visitor’s time. I look for labels that answer genuine questions rather than display specialist vocabulary. A modest object can be powerful when its context is made accessible, but accessibility is not the same as simplifying everything. Clear language is an invitation, not a reduction of expertise. The visitor should be able to enter a complex idea and pursue its difficulty at a suitable pace. The disagreement between these views is productive because it concerns how much guidance a public institution should provide, not whether visitors deserve serious attention. The strongest position is not the loudest one; it is the account that recognises what its preferred solution leaves unresolved and explains how visitors, residents or colleagues might respond. This qualification keeps comparison meaningful: each writer offers a preference, but also identifies a cost that a less careful account might ignore."
+      },
+      {
+        "id": "text-d",
+        "label": "D",
+        "title": "The researcher",
+        "text": "Museums should be places of uncertainty. I become suspicious when an exhibition presents one interpretation as final. Evidence can be arranged clearly while still acknowledging gaps, disagreement and the possibility that new work will change the story. An exhibition can distinguish evidence from speculation while admitting that its arrangement is an interpretation. That honesty makes later revision feel like scholarship rather than failure. The disagreement between these views is productive because it concerns how much guidance a public institution should provide, not whether visitors deserve serious attention. The strongest position is not the loudest one; it is the account that recognises what its preferred solution leaves unresolved and explains how visitors, residents or colleagues might respond. This qualification keeps comparison meaningful: each writer offers a preference, but also identifies a cost that a less careful account might ignore."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Which writer values presenting a coherent storyline?",
+      "correctTextId": "text-a",
+      "explanation": "The curator explicitly favours a clear narrative and purposeful selection."
+    },
+    {
+      "id": "q2",
+      "prompt": "Which writer believes visitors should have freedom to form their own links?",
+      "correctTextId": "text-b",
+      "explanation": "The architect prefers several routes and unexpected connections rather than a prescribed narrative."
+    },
+    {
+      "id": "q3",
+      "prompt": "Which writer distinguishes accessibility from making content simplistic?",
+      "correctTextId": "text-c",
+      "explanation": "The teacher says accessibility is not the same as simplifying everything."
+    },
+    {
+      "id": "q4",
+      "prompt": "Which writer stresses that interpretations may need revision?",
+      "correctTextId": "text-d",
+      "explanation": "The researcher refers to new work changing the story and warns against final interpretations."
+    }
+  ]
+}

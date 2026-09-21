@@ -27,8 +27,8 @@ The former next milestone, Writing, is deliberately stopped. It is not resumed u
 | 8.5A | Product/UX audit and Cambridge calibration audit | UX audit, Parts 1–8 benchmarks, machine profile and updated specs | **Complete** |
 | 8.5B | Secure backend/API proof of concept for Part 1 | Backend decision, secret boundary, structured Part 1 response, request/cost limits and contract tests | Code complete; real five-candidate evidence pending credentials |
 | 8.5C | Part 1 local batch factory, validation, critic, novelty and staging | Real 100-candidate calibration report and manual audit pass | Code complete; real run pending credentials |
-| 8.5D | Ready pool and generated-content IndexedDB | Consume/replenish/offline/failure behavior tested; history/fingerprints stored separately | Blocked by 8.5C |
-| 8.5E | Home, Practice and Review product redesign | New exercise is primary; learner context replaces IDs; disposition actions preserve history | Blocked by 8.5D |
+| 8.5D | Persistence hardening, static exercise library and learner product reset | IndexedDB reopen/backup tests; eligible fallback corpus; unseen-first rotation; Home/Practice/Review redesign | **CODE COMPLETE — DEVICE ACCEPTANCE PENDING**; runtime generation deliberately dormant |
+| 8.5E | Dynamic ready pool and generated-content IndexedDB | Consume/replenish/offline/failure behavior tested; history/fingerprints stored separately | Not started; requires explicit activation after D |
 | 8.5F | Dynamic generation Parts 2–4 | Per-part validators/critics and calibrated sample evidence pass | Blocked by Part 1 gate |
 | 8.5G | Dynamic generation Parts 5–8 | Reading calibration, mobile reference UX and quality evidence pass | Blocked by 8.5F |
 

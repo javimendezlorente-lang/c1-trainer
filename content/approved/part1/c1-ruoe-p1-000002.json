@@ -8,23 +8,285 @@
   "title": "Making room for new ideas",
   "difficulty": 3,
   "topic": "organisational change",
-  "source": { "kind": "original_manual", "reviewStatus": "approved" },
-  "skills": { "primarySkill": "fixed_expression", "secondarySkills": ["complementation"] },
+  "source": {
+    "kind": "original_manual",
+    "reviewStatus": "approved"
+  },
+  "skills": {
+    "primarySkill": "fixed_expression",
+    "secondarySkills": [
+      "complementation"
+    ]
+  },
   "content": {
-    "text": "When a team is asked to rethink a familiar process, the first response is often to {{gap:1}} the proposal aside. A skilled facilitator will {{gap:2}} account of existing concerns, {{gap:3}} on the team's experience and {{gap:4}} sight of the pressures of the working day. This approach can {{gap:5}} about practical changes without {{gap:6}} credibility to the people who must put them into practice, while helping the group {{gap:7}} a distinction between genuine risks and objections that can be {{gap:8}} out.",
+    "text": "When a team is asked to rethink a familiar process, the first response is often to {{gap:1}} the proposal aside, particularly when previous reforms have increased paperwork without improving the result. A skilled facilitator will {{gap:2}} account of existing concerns, {{gap:3}} on the team's experience and {{gap:4}} sight of the pressures of the working day. Rather than treating resistance as proof that people dislike change, the facilitator asks which part of the proposal creates a practical obstacle and which part merely challenges a habit. This approach can {{gap:5}} about useful changes without {{gap:6}} credibility to the people who must put them into practice. It also helps the group {{gap:7}} a distinction between genuine risks and objections that can be {{gap:8}} out once the evidence has been considered. The final recommendation is consequently more persuasive because it acknowledges inconvenience instead of hiding it behind enthusiastic language.",
     "gaps": [
-      { "id": "g1", "number": 1 }, { "id": "g2", "number": 2 }, { "id": "g3", "number": 3 }, { "id": "g4", "number": 4 },
-      { "id": "g5", "number": 5 }, { "id": "g6", "number": 6 }, { "id": "g7", "number": 7 }, { "id": "g8", "number": 8 }
+      {
+        "id": "g1",
+        "number": 1
+      },
+      {
+        "id": "g2",
+        "number": 2
+      },
+      {
+        "id": "g3",
+        "number": 3
+      },
+      {
+        "id": "g4",
+        "number": 4
+      },
+      {
+        "id": "g5",
+        "number": 5
+      },
+      {
+        "id": "g6",
+        "number": 6
+      },
+      {
+        "id": "g7",
+        "number": 7
+      },
+      {
+        "id": "g8",
+        "number": 8
+      }
     ]
   },
   "questions": [
-    { "id": "q1", "gap": 1, "options": [{ "id": "A", "text": "set" }, { "id": "B", "text": "put" }, { "id": "C", "text": "lay" }, { "id": "D", "text": "cast" }], "correctOptionId": "A", "explanation": "Set aside means postpone or reserve for later consideration.", "distractorExplanations": { "B": "Put aside is possible in other contexts, but set aside is the more precise fixed expression here.", "C": "Lay aside is formal and uncommon in this modern workplace context.", "D": "Cast aside usually means reject or discard, which is stronger than the intended meaning." } },
-    { "id": "q2", "gap": 2, "options": [{ "id": "A", "text": "give" }, { "id": "B", "text": "take" }, { "id": "C", "text": "hold" }, { "id": "D", "text": "make" }], "correctOptionId": "B", "explanation": "Take account of is the established expression.", "distractorExplanations": { "A": "Give account of means explain or report, not consider.", "C": "Hold account of is not idiomatic.", "D": "Make account of is not the standard expression." } },
-    { "id": "q3", "gap": 3, "options": [{ "id": "A", "text": "draw" }, { "id": "B", "text": "pull" }, { "id": "C", "text": "bring" }, { "id": "D", "text": "reach" }], "correctOptionId": "A", "explanation": "Draw on experience means use it as a resource.", "distractorExplanations": { "B": "Pull on experience is not idiomatic.", "C": "Bring on experience changes the meaning and does not fit the preposition.", "D": "Reach on experience is not grammatical." } },
-    { "id": "q4", "gap": 4, "options": [{ "id": "A", "text": "keep" }, { "id": "B", "text": "lose" }, { "id": "C", "text": "make" }, { "id": "D", "text": "set" }], "correctOptionId": "A", "explanation": "Keep sight of is the fixed expression meaning remain aware of something.", "distractorExplanations": { "B": "Lose sight of means stop being aware of something.", "C": "Make sight of is not idiomatic.", "D": "Set sight of is not the standard expression." } },
-    { "id": "q5", "gap": 5, "options": [{ "id": "A", "text": "bring" }, { "id": "B", "text": "make" }, { "id": "C", "text": "take" }, { "id": "D", "text": "turn" }], "correctOptionId": "A", "explanation": "Bring about means cause something to happen.", "distractorExplanations": { "B": "Make about is not idiomatic.", "C": "Take about does not mean cause in this structure.", "D": "Turn about would suggest reversal or movement, not causation." } },
-    { "id": "q6", "gap": 6, "options": [{ "id": "A", "text": "losing" }, { "id": "B", "text": "giving" }, { "id": "C", "text": "lending" }, { "id": "D", "text": "passing" }], "correctOptionId": "C", "explanation": "Lend credibility to means make something seem trustworthy.", "distractorExplanations": { "A": "Lose credibility means become less trusted, the opposite of the intended meaning.", "B": "Give credibility is possible but does not form the intended collocation here.", "D": "Pass credibility is not idiomatic." } },
-    { "id": "q7", "gap": 7, "options": [{ "id": "A", "text": "make" }, { "id": "B", "text": "do" }, { "id": "C", "text": "draw" }, { "id": "D", "text": "set" }], "correctOptionId": "A", "explanation": "Make a distinction means recognise a meaningful difference.", "distractorExplanations": { "B": "Do a distinction is not idiomatic.", "C": "Draw a distinction is possible, but make is the intended neutral collocation.", "D": "Set a distinction is not the standard expression." } },
-    { "id": "q8", "gap": 8, "options": [{ "id": "A", "text": "taken" }, { "id": "B", "text": "ruled" }, { "id": "C", "text": "held" }, { "id": "D", "text": "cut" }], "correctOptionId": "B", "explanation": "Rule out means decide that something is not possible or suitable.", "distractorExplanations": { "A": "Take out has several meanings but does not fit the idea of excluding an objection.", "C": "Hold out means resist or remain available, not exclude.", "D": "Cut out does not fit the formal decision-making context." } }
+    {
+      "id": "q1",
+      "gap": 1,
+      "options": [
+        {
+          "id": "A",
+          "text": "set"
+        },
+        {
+          "id": "B",
+          "text": "put"
+        },
+        {
+          "id": "C",
+          "text": "lay"
+        },
+        {
+          "id": "D",
+          "text": "cast"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": "Set aside means postpone or reserve for later consideration.",
+      "distractorExplanations": {
+        "B": "Put aside is possible in other contexts, but set aside is the more precise fixed expression here.",
+        "C": "Lay aside is formal and uncommon in this modern workplace context.",
+        "D": "Cast aside usually means reject or discard, which is stronger than the intended meaning."
+      }
+    },
+    {
+      "id": "q2",
+      "gap": 2,
+      "options": [
+        {
+          "id": "A",
+          "text": "give"
+        },
+        {
+          "id": "B",
+          "text": "take"
+        },
+        {
+          "id": "C",
+          "text": "hold"
+        },
+        {
+          "id": "D",
+          "text": "make"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": "Take account of is the established expression.",
+      "distractorExplanations": {
+        "A": "Give account of means explain or report, not consider.",
+        "C": "Hold account of is not idiomatic.",
+        "D": "Make account of is not the standard expression."
+      }
+    },
+    {
+      "id": "q3",
+      "gap": 3,
+      "options": [
+        {
+          "id": "A",
+          "text": "draw"
+        },
+        {
+          "id": "B",
+          "text": "pull"
+        },
+        {
+          "id": "C",
+          "text": "bring"
+        },
+        {
+          "id": "D",
+          "text": "reach"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": "Draw on experience means use it as a resource.",
+      "distractorExplanations": {
+        "B": "Pull on experience is not idiomatic.",
+        "C": "Bring on experience changes the meaning and does not fit the preposition.",
+        "D": "Reach on experience is not grammatical."
+      }
+    },
+    {
+      "id": "q4",
+      "gap": 4,
+      "options": [
+        {
+          "id": "A",
+          "text": "keep"
+        },
+        {
+          "id": "B",
+          "text": "lose"
+        },
+        {
+          "id": "C",
+          "text": "make"
+        },
+        {
+          "id": "D",
+          "text": "set"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": "Keep sight of is the fixed expression meaning remain aware of something.",
+      "distractorExplanations": {
+        "B": "Lose sight of means stop being aware of something.",
+        "C": "Make sight of is not idiomatic.",
+        "D": "Set sight of is not the standard expression."
+      }
+    },
+    {
+      "id": "q5",
+      "gap": 5,
+      "options": [
+        {
+          "id": "A",
+          "text": "bring"
+        },
+        {
+          "id": "B",
+          "text": "make"
+        },
+        {
+          "id": "C",
+          "text": "take"
+        },
+        {
+          "id": "D",
+          "text": "turn"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": "Bring about means cause something to happen.",
+      "distractorExplanations": {
+        "B": "Make about is not idiomatic.",
+        "C": "Take about does not mean cause in this structure.",
+        "D": "Turn about would suggest reversal or movement, not causation."
+      }
+    },
+    {
+      "id": "q6",
+      "gap": 6,
+      "options": [
+        {
+          "id": "A",
+          "text": "losing"
+        },
+        {
+          "id": "B",
+          "text": "giving"
+        },
+        {
+          "id": "C",
+          "text": "lending"
+        },
+        {
+          "id": "D",
+          "text": "passing"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": "Lend credibility to means make something seem trustworthy.",
+      "distractorExplanations": {
+        "A": "Lose credibility means become less trusted, the opposite of the intended meaning.",
+        "B": "Give credibility is possible but does not form the intended collocation here.",
+        "D": "Pass credibility is not idiomatic."
+      }
+    },
+    {
+      "id": "q7",
+      "gap": 7,
+      "options": [
+        {
+          "id": "A",
+          "text": "make"
+        },
+        {
+          "id": "B",
+          "text": "do"
+        },
+        {
+          "id": "C",
+          "text": "draw"
+        },
+        {
+          "id": "D",
+          "text": "set"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": "Make a distinction means recognise a meaningful difference.",
+      "distractorExplanations": {
+        "B": "Do a distinction is not idiomatic.",
+        "C": "Draw a distinction is possible, but make is the intended neutral collocation.",
+        "D": "Set a distinction is not the standard expression."
+      }
+    },
+    {
+      "id": "q8",
+      "gap": 8,
+      "options": [
+        {
+          "id": "A",
+          "text": "taken"
+        },
+        {
+          "id": "B",
+          "text": "ruled"
+        },
+        {
+          "id": "C",
+          "text": "held"
+        },
+        {
+          "id": "D",
+          "text": "cut"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": "Rule out means decide that something is not possible or suitable.",
+      "distractorExplanations": {
+        "A": "Take out has several meanings but does not fit the idea of excluding an objection.",
+        "C": "Hold out means resist or remain available, not exclude.",
+        "D": "Cut out does not fit the formal decision-making context."
+      }
+    }
   ]
 }

@@ -4,8 +4,8 @@ import { attemptRepository, type AttemptRepository } from '../../storage'
 import { nowIso } from '../../time/clock'
 
 export async function exportBackup(repository: AttemptRepository = attemptRepository, exportedAt = nowIso()): Promise<{ envelope: BackupEnvelopeV1; json: string; filename: string }> {
-  const [attemptEvents, reviewEvents] = await Promise.all([repository.list(), repository.listReviewEvents()])
-  const envelope = createBackupEnvelope(attemptEvents, reviewEvents, exportedAt)
+  const [attemptEvents, reviewEvents, reviewDispositions] = await Promise.all([repository.list(), repository.listReviewEvents(), repository.listReviewDispositions()])
+  const envelope = createBackupEnvelope(attemptEvents, reviewEvents, exportedAt, 4, reviewDispositions)
   return { envelope, json: serializeBackup(envelope), filename: backupFilename(exportedAt) }
 }
 

@@ -8,23 +8,285 @@
   "title": "Signals in the canopy",
   "difficulty": 3,
   "topic": "scientific observation",
-  "source": { "kind": "original_manual", "reviewStatus": "approved" },
-  "skills": { "primarySkill": "collocation", "secondarySkills": ["semantic_precision"] },
+  "source": {
+    "kind": "original_manual",
+    "reviewStatus": "approved"
+  },
+  "skills": {
+    "primarySkill": "collocation",
+    "secondarySkills": [
+      "semantic_precision"
+    ]
+  },
   "content": {
-    "text": "Field teams often {{gap:1}} careful notes before they {{gap:2}} a conclusion. This habit can {{gap:3}} researchers from making a hasty {{gap:4}} and helps them {{gap:5}} patterns that would otherwise {{gap:6}} unnoticed. A clear record also {{gap:7}} later comparison and {{gap:8}} shared discussion.",
+    "text": "During a survey of nocturnal insects, field teams routinely {{gap:1}} observations in a standardized log before they {{gap:2}} their first conclusion about the habitat. The work is less dramatic than it sounds: researchers return to the same clearing on several nights, note the temperature and wind, and distinguish an unusual sighting from a predictable response to weather. A strict protocol can {{gap:3}} researchers from making a hasty {{gap:4}} about the evidence, especially when one striking specimen attracts attention. It also helps them {{gap:5}} patterns that would otherwise {{gap:6}} the team's attention, such as a gradual shift in feeding time. A clear record {{gap:7}} later comparison between sites and {{gap:8}} productive discussion when the team decides which explanation deserves further testing. The conclusion is therefore based on accumulated observations rather than on the most memorable moment of the survey, and the wording of the final report reflects that distinction.",
     "gaps": [
-      { "id": "g1", "number": 1 }, { "id": "g2", "number": 2 }, { "id": "g3", "number": 3 }, { "id": "g4", "number": 4 },
-      { "id": "g5", "number": 5 }, { "id": "g6", "number": 6 }, { "id": "g7", "number": 7 }, { "id": "g8", "number": 8 }
+      {
+        "id": "g1",
+        "number": 1
+      },
+      {
+        "id": "g2",
+        "number": 2
+      },
+      {
+        "id": "g3",
+        "number": 3
+      },
+      {
+        "id": "g4",
+        "number": 4
+      },
+      {
+        "id": "g5",
+        "number": 5
+      },
+      {
+        "id": "g6",
+        "number": 6
+      },
+      {
+        "id": "g7",
+        "number": 7
+      },
+      {
+        "id": "g8",
+        "number": 8
+      }
     ]
   },
   "questions": [
-    { "id": "q1", "gap": 1, "options": [{ "id": "A", "text": "make" }, { "id": "B", "text": "take" }, { "id": "C", "text": "do" }, { "id": "D", "text": "set" }], "correctOptionId": "B", "explanation": "The established collocation is take notes.", "distractorExplanations": { "A": "Make notes is possible in some varieties, but take notes is the intended collocation here.", "C": "Do notes is not idiomatic English.", "D": "Set notes does not fit this meaning." } },
-    { "id": "q2", "gap": 2, "options": [{ "id": "A", "text": "draw" }, { "id": "B", "text": "pull" }, { "id": "C", "text": "reach" }, { "id": "D", "text": "touch" }], "correctOptionId": "C", "explanation": "Reach a conclusion is the standard collocation.", "distractorExplanations": { "A": "Draw a conclusion can be valid, but does not fit the chosen intended phrasing.", "B": "Pull a conclusion is not idiomatic.", "D": "Touch a conclusion does not express making a judgement." } },
-    { "id": "q3", "gap": 3, "options": [{ "id": "A", "text": "prevent" }, { "id": "B", "text": "avoid" }, { "id": "C", "text": "refuse" }, { "id": "D", "text": "deny" }], "correctOptionId": "A", "explanation": "Prevent someone from doing something fits the grammar and meaning.", "distractorExplanations": { "B": "Avoid does not take the structure researchers from making.", "C": "Refuse would require a different subject and construction.", "D": "Deny does not mean stop someone from acting." } },
-    { "id": "q4", "gap": 4, "options": [{ "id": "A", "text": "decision" }, { "id": "B", "text": "choice" }, { "id": "C", "text": "conclusion" }, { "id": "D", "text": "judgement" }], "correctOptionId": "D", "explanation": "Make a hasty judgement is the intended collocation.", "distractorExplanations": { "A": "Make a hasty decision is possible, but the context concerns interpretation rather than action.", "B": "Choice does not collocate as naturally with hasty here.", "C": "Conclusion repeats the idea already expressed by the following gap." } },
-    { "id": "q5", "gap": 5, "options": [{ "id": "A", "text": "notice" }, { "id": "B", "text": "observe" }, { "id": "C", "text": "watch" }, { "id": "D", "text": "look" }], "correctOptionId": "A", "explanation": "Notice patterns is the natural verb choice here.", "distractorExplanations": { "B": "Observe patterns is possible, but is less precise for patterns discovered incidentally.", "C": "Watch normally describes sustained visual attention.", "D": "Look requires a suitable particle or preposition in this structure." } },
-    { "id": "q6", "gap": 6, "options": [{ "id": "A", "text": "remain" }, { "id": "B", "text": "stay" }, { "id": "C", "text": "go" }, { "id": "D", "text": "pass" }], "correctOptionId": "A", "explanation": "Remain unnoticed expresses the intended state.", "distractorExplanations": { "B": "Stay unnoticed is possible but less formal than the intended choice.", "C": "Go unnoticed describes escaping attention, not a continuing state in this passage.", "D": "Pass unnoticed does not fit the plural subject and meaning as well." } },
-    { "id": "q7", "gap": 7, "options": [{ "id": "A", "text": "allows" }, { "id": "B", "text": "permits" }, { "id": "C", "text": "enables" }, { "id": "D", "text": "lets" }], "correctOptionId": "C", "explanation": "Enables later comparison is the best formal collocation.", "distractorExplanations": { "A": "Allows is grammatical, but less precise in this formal context.", "B": "Permits usually suggests permission rather than making an activity possible.", "D": "Lets is too informal and would normally be followed by an object before the verb." } },
-    { "id": "q8", "gap": 8, "options": [{ "id": "A", "text": "supports" }, { "id": "B", "text": "holds" }, { "id": "C", "text": "keeps" }, { "id": "D", "text": "carries" }], "correctOptionId": "A", "explanation": "Supports shared discussion fits the meaning.", "distractorExplanations": { "B": "Hold discussion is not the natural collocation in this meaning.", "C": "Keep discussion usually suggests continuing a discussion already in progress.", "D": "Carry discussion is not idiomatic here." } }
+    {
+      "id": "q1",
+      "gap": 1,
+      "options": [
+        {
+          "id": "A",
+          "text": "record"
+        },
+        {
+          "id": "B",
+          "text": "misread"
+        },
+        {
+          "id": "C",
+          "text": "conceal"
+        },
+        {
+          "id": "D",
+          "text": "omit"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": "Record observations in a log is the precise expression for entering field data.",
+      "distractorExplanations": {
+        "B": "Misread means interpret something incorrectly.",
+        "C": "Conceal means deliberately hide information.",
+        "D": "Omit means leave information out."
+      }
+    },
+    {
+      "id": "q2",
+      "gap": 2,
+      "options": [
+        {
+          "id": "A",
+          "text": "reach"
+        },
+        {
+          "id": "B",
+          "text": "abandon"
+        },
+        {
+          "id": "C",
+          "text": "publish"
+        },
+        {
+          "id": "D",
+          "text": "test"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": "Reach a conclusion is the natural expression in this context.",
+      "distractorExplanations": {
+        "B": "Abandon a conclusion means withdraw it, not form it.",
+        "C": "Publish a conclusion concerns communicating it, not deciding it.",
+        "D": "Test a conclusion concerns evaluating it after it has been formed."
+      }
+    },
+    {
+      "id": "q3",
+      "gap": 3,
+      "options": [
+        {
+          "id": "A",
+          "text": "prevent"
+        },
+        {
+          "id": "B",
+          "text": "avoid"
+        },
+        {
+          "id": "C",
+          "text": "refuse"
+        },
+        {
+          "id": "D",
+          "text": "deny"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": "Prevent someone from doing something fits the grammar and meaning.",
+      "distractorExplanations": {
+        "B": "Avoid does not take the structure researchers from making.",
+        "C": "Refuse would require a different subject and construction.",
+        "D": "Deny does not mean stop someone from acting."
+      }
+    },
+    {
+      "id": "q4",
+      "gap": 4,
+      "options": [
+        {
+          "id": "A",
+          "text": "judgement"
+        },
+        {
+          "id": "B",
+          "text": "estimate"
+        },
+        {
+          "id": "C",
+          "text": "prediction"
+        },
+        {
+          "id": "D",
+          "text": "description"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": "A hasty judgement is an assessment formed too quickly from limited evidence.",
+      "distractorExplanations": {
+        "B": "An estimate normally concerns a quantity or value.",
+        "C": "A prediction concerns a future event rather than an assessment of evidence.",
+        "D": "A description records features but is not a judgement about them."
+      }
+    },
+    {
+      "id": "q5",
+      "gap": 5,
+      "options": [
+        {
+          "id": "A",
+          "text": "notice"
+        },
+        {
+          "id": "B",
+          "text": "overlook"
+        },
+        {
+          "id": "C",
+          "text": "dismiss"
+        },
+        {
+          "id": "D",
+          "text": "conceal"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": "Notice means become aware of a pattern that was not previously apparent.",
+      "distractorExplanations": {
+        "B": "Overlook means fail to see something.",
+        "C": "Dismiss means reject or treat something as unimportant.",
+        "D": "Conceal means hide something from view."
+      }
+    },
+    {
+      "id": "q6",
+      "gap": 6,
+      "options": [
+        {
+          "id": "A",
+          "text": "escape"
+        },
+        {
+          "id": "B",
+          "text": "hold"
+        },
+        {
+          "id": "C",
+          "text": "make"
+        },
+        {
+          "id": "D",
+          "text": "draw"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": "Escape the team's attention means remain undiscovered.",
+      "distractorExplanations": {
+        "B": "Hold the team's attention has the opposite meaning.",
+        "C": "Make the team's attention is not idiomatic.",
+        "D": "Draw the team's attention means become noticed."
+      }
+    },
+    {
+      "id": "q7",
+      "gap": 7,
+      "options": [
+        {
+          "id": "A",
+          "text": "facilitates"
+        },
+        {
+          "id": "B",
+          "text": "delays"
+        },
+        {
+          "id": "C",
+          "text": "prevents"
+        },
+        {
+          "id": "D",
+          "text": "obscures"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": "Facilitates means makes later comparison easier.",
+      "distractorExplanations": {
+        "B": "Delays means makes something happen later.",
+        "C": "Prevents means stops comparison from happening.",
+        "D": "Obscures means makes comparison more difficult."
+      }
+    },
+    {
+      "id": "q8",
+      "gap": 8,
+      "options": [
+        {
+          "id": "A",
+          "text": "encourages"
+        },
+        {
+          "id": "B",
+          "text": "stores"
+        },
+        {
+          "id": "C",
+          "text": "interrupts"
+        },
+        {
+          "id": "D",
+          "text": "postpones"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": "A clear shared record encourages productive discussion of the evidence.",
+      "distractorExplanations": {
+        "B": "Stores describes retaining information, not promoting discussion.",
+        "C": "Interrupts means breaks off a discussion.",
+        "D": "Postpones means delays a discussion."
+      }
+    }
   ]
 }

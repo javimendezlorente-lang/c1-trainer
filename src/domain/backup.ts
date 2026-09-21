@@ -1,5 +1,6 @@
 import type { AttemptEvent } from './attempt'
 import type { ReviewEvent } from './review'
+import type { ReviewDisposition } from './reviewDisposition'
 
 export const BACKUP_FORMAT = 'c1-trainer-backup' as const
 export const BACKUP_FORMAT_VERSION = '1.0.0' as const
@@ -15,4 +16,5 @@ export interface BackupEnvelopeV1 {
   app: BackupMetadata
   attemptEvents: AttemptEvent[]
   reviewEvents: ReviewEvent[]
+  reviewDispositions?: ReviewDisposition[]
 }

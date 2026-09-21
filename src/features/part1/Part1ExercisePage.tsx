@@ -78,8 +78,8 @@ export default function Part1ExercisePage({ initialExercise = null }: { initialE
               idempotencyKey,
             })
             setGrade(submission.grade)
-          } catch {
-            setSubmissionError('The attempt could not be saved locally. Please try submitting again.')
+          } catch (error) {
+            setSubmissionError(error instanceof Error && error.message.includes('IndexedDB') ? 'Local storage is unavailable in this browser. Open C1 Trainer in Safari or enable site storage, then try again.' : 'The attempt could not be saved locally. Check that site storage is enabled and try submitting again. Your answer has not been counted.')
           } finally {
             setIsSubmitting(false)
           }

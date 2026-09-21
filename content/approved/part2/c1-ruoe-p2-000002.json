@@ -1,1 +1,133 @@
-{"schemaVersion":"1.0.0","id":"c1-ruoe-p2-000002","exam":"C1_ADVANCED","paper":"READING_USE_OF_ENGLISH","part":2,"type":"open_cloze","title":"Urban shade","difficulty":4,"topic":"urban ecology","source":{"kind":"original_manual","reviewStatus":"approved"},"skills":{"primarySkill":"concession","secondarySkills":["preposition","relative_clause"]},"content":{"text":"Cities are warmer than their surroundings, partly because concrete stores heat long {{gap:1}} sunset. Planting trees can help, provided {{gap:2}} they are given enough room to grow. The best schemes combine species {{gap:3}} tolerate drought with designs that allow rainwater to reach their roots. Even {{gap:4}} a tree is young, its canopy can provide shade; {{gap:5}}, planners must not assume that planting alone will solve the problem. Trees need care, without {{gap:6}} they may fail to survive, and this is something {{gap:7}} local budgets must take into account if green projects are {{gap:8}} remain effective.","gaps":[{"id":"g1","number":1},{"id":"g2","number":2},{"id":"g3","number":3},{"id":"g4","number":4},{"id":"g5","number":5},{"id":"g6","number":6},{"id":"g7","number":7},{"id":"g8","number":8}]},"questions":[{"id":"q1","gap":1,"acceptedAnswers":["after"],"canonicalAnswer":"after","explanation":"Heat remains stored after sunset."},{"id":"q2","gap":2,"acceptedAnswers":["that"],"canonicalAnswer":"that","explanation":"Provided that introduces the condition."},{"id":"q3","gap":3,"acceptedAnswers":["which"],"canonicalAnswer":"which","explanation":"Which refers to species."},{"id":"q4","gap":4,"acceptedAnswers":["when"],"canonicalAnswer":"when","explanation":"When introduces the time clause."},{"id":"q5","gap":5,"acceptedAnswers":["however"],"canonicalAnswer":"however","explanation":"However signals a contrast with the preceding benefit."},{"id":"q6","gap":6,"acceptedAnswers":["which"],"canonicalAnswer":"which","explanation":"Without which refers to care."},{"id":"q7","gap":7,"acceptedAnswers":["that"],"canonicalAnswer":"that","explanation":"That introduces the clause explaining what budgets must do."},{"id":"q8","gap":8,"acceptedAnswers":["to"],"canonicalAnswer":"to","explanation":"To remain completes the infinitive."}]}
+{
+  "schemaVersion": "1.0.0",
+  "id": "c1-ruoe-p2-000002",
+  "exam": "C1_ADVANCED",
+  "paper": "READING_USE_OF_ENGLISH",
+  "part": 2,
+  "type": "open_cloze",
+  "title": "Urban shade",
+  "difficulty": 4,
+  "topic": "urban ecology",
+  "source": {
+    "kind": "original_manual",
+    "reviewStatus": "approved"
+  },
+  "skills": {
+    "primarySkill": "concession",
+    "secondarySkills": [
+      "preposition",
+      "relative_clause"
+    ]
+  },
+  "content": {
+    "text": "Cities are warmer than their surroundings, partly because concrete stores heat long {{gap:1}} sunset and releases it slowly through the night. The difference is most noticeable in districts where dark surfaces replace vegetation and buildings restrict air movement. Planting trees can help, provided {{gap:2}} they are given enough room to grow. The best schemes combine species {{gap:3}} tolerate drought with designs that allow rainwater to reach their roots, rather than placing young trees in tiny decorative pits. Even {{gap:4}} a tree is young, its canopy can provide shade; {{gap:5}}, planners must not assume that planting alone will solve the problem. Trees need care, without {{gap:6}} they may fail to survive, and this is something {{gap:7}} local budgets must take into account if green projects are {{gap:8}} remain effective. A planting scheme is effective only when its long-term conditions are considered at the design stage. Maintenance is therefore part of the environmental intervention, not an optional expense that can be postponed.",
+    "gaps": [
+      {
+        "id": "g1",
+        "number": 1
+      },
+      {
+        "id": "g2",
+        "number": 2
+      },
+      {
+        "id": "g3",
+        "number": 3
+      },
+      {
+        "id": "g4",
+        "number": 4
+      },
+      {
+        "id": "g5",
+        "number": 5
+      },
+      {
+        "id": "g6",
+        "number": 6
+      },
+      {
+        "id": "g7",
+        "number": 7
+      },
+      {
+        "id": "g8",
+        "number": 8
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "gap": 1,
+      "acceptedAnswers": [
+        "after"
+      ],
+      "canonicalAnswer": "after",
+      "explanation": "Heat remains stored after sunset."
+    },
+    {
+      "id": "q2",
+      "gap": 2,
+      "acceptedAnswers": [
+        "that"
+      ],
+      "canonicalAnswer": "that",
+      "explanation": "Provided that introduces the condition."
+    },
+    {
+      "id": "q3",
+      "gap": 3,
+      "acceptedAnswers": [
+        "which"
+      ],
+      "canonicalAnswer": "which",
+      "explanation": "Which refers to species."
+    },
+    {
+      "id": "q4",
+      "gap": 4,
+      "acceptedAnswers": [
+        "when"
+      ],
+      "canonicalAnswer": "when",
+      "explanation": "When introduces the time clause."
+    },
+    {
+      "id": "q5",
+      "gap": 5,
+      "acceptedAnswers": [
+        "however"
+      ],
+      "canonicalAnswer": "however",
+      "explanation": "However signals a contrast with the preceding benefit."
+    },
+    {
+      "id": "q6",
+      "gap": 6,
+      "acceptedAnswers": [
+        "which"
+      ],
+      "canonicalAnswer": "which",
+      "explanation": "Without which refers to care."
+    },
+    {
+      "id": "q7",
+      "gap": 7,
+      "acceptedAnswers": [
+        "that"
+      ],
+      "canonicalAnswer": "that",
+      "explanation": "That introduces the clause explaining what budgets must do."
+    },
+    {
+      "id": "q8",
+      "gap": 8,
+      "acceptedAnswers": [
+        "to"
+      ],
+      "canonicalAnswer": "to",
+      "explanation": "To remain completes the infinitive."
+    }
+  ]
+}

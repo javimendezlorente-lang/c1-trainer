@@ -34,7 +34,7 @@ export default function Settings() {
     try {
       const result = await importBackup(pendingImport.json)
       setPendingImport(null)
-      setMessage(`Import complete. AttemptEvents added: ${result.attemptEventsAdded}; skipped: ${result.attemptEventsSkipped}. ReviewEvents added: ${result.reviewEventsAdded}; skipped: ${result.reviewEventsSkipped}. Learning projections rebuilt successfully.`)
+      setMessage(`Import complete. ${result.attemptEventsAdded} practice records and ${result.reviewEventsAdded} review records added. Existing history was kept.`)
     } catch (error) { setMessage(error instanceof Error ? error.message : 'Import failed. Learning data was not changed.') }
     finally { setBusy(false) }
   }
@@ -63,7 +63,7 @@ export default function Settings() {
       <div className="settings-card settings-learning-card">
         <div>
           <h3>Learning data</h3>
-          <p>Backups contain local AttemptEvents and ReviewEvents only. They may include answers, timestamps, and learning history. Nothing is uploaded.</p>
+          <p>Backups contain your local answers, scores, review history and timestamps. Nothing is uploaded.</p>
         </div>
         <div className="settings-actions">
           <button type="button" onClick={() => void handleExport()} disabled={busy}>Export backup</button>

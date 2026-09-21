@@ -111,6 +111,18 @@
   text-decoration: none;
 }
 
+.home-actions,
+.review-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.review-card-actions button {
+  min-height: 42px;
+  padding: 0.55rem 0.75rem;
+}
+
 .review-session-card {
   margin: 1rem 0;
 }

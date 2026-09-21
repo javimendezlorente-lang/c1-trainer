@@ -78,7 +78,7 @@ describe('DexieAttemptRepository', () => {
 
   it('exposes the expected database migration version', () => {
     const database = new C1TrainerDatabase(uniqueDatabaseName())
-    expect(database.verno).toBe(3)
+    expect(database.verno).toBe(4)
     database.close()
   })
 })

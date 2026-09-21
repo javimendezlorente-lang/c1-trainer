@@ -73,6 +73,33 @@
   border-radius: 12px;
 }
 
+.practice-part-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.practice-part-card small {
+  color: var(--text-secondary);
+}
+
+.practice-library {
+  margin-top: 1rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 520px) {
+  .practice-part-card {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .practice-part-card button {
+    width: 100%;
+  }
+}
+
 .part1-type-card h3,
 .part1-type-card p {
   margin: 0;

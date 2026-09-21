@@ -12,6 +12,12 @@ Phase 8.5C code checkpoint commit: `b0c430e` (`feat: add Part 1 batch content fa
 
 Phase 8.5B code checkpoint commit: `94706e8` (`feat: add secure Part 1 generation worker`)
 
+## 8.5D release boundary
+
+Phase 8.5D is code-complete only after the static fallback corpus, persistence hardening, product reset, backup compatibility and automated quality gates pass. Real public-origin and physical iPhone/Safari acceptance remain a separate manual gate. The release status is therefore `CODE COMPLETE — DEVICE ACCEPTANCE PENDING` until [`DEVICE_ACCEPTANCE.md`](DEVICE_ACCEPTANCE.md) is executed by a human.
+
+There is no OpenAI API call, Batch run, Worker deployment or runtime generation dependency in this phase. The 24 bundled items remain the finite offline fallback and regression corpus; future dynamic ready-pool work belongs to a later explicitly activated phase and is not started here.
+
 ## Decision
 
 Writing is paused. The next milestone is a practically inexhaustible, Cambridge-calibrated training engine for Reading and Use of English Parts 1–8. The current 24 exercises are regression/reference material and offline fallback candidates, not the product’s conceptual limit.
@@ -106,10 +112,10 @@ The backend must impose request, retry and output/token limits; capture API usag
 1. **8.5A — complete:** UX/product audit and Parts 1–8 calibration study.
 2. **8.5B:** secure backend decision and Part 1 Responses API proof of concept; code and mocked security contract complete, real five-candidate evidence pending.
 3. **8.5C:** local Part 1 batch factory, deterministic gates, novelty catalog, Terra critic, staging and explicit promotion; implementation complete, real 100-candidate evidence pending.
-4. **8.5D:** ready pool and generated-content IndexedDB repositories.
-5. **8.5E:** Home, Practice and Review product redesign.
-6. **8.5F:** generalize to Parts 2–4.
-7. **8.5G:** generalize to Parts 5–8.
+4. **8.5D:** persistence hardening, static eligible fallback library, corpus recalibration and Home/Practice/Review product reset; runtime generation deliberately dormant.
+5. **8.5E:** dynamic ready pool and generated-content IndexedDB repositories, only after explicit activation.
+6. **8.5F:** generalize dynamic generation to Parts 2–4.
+7. **8.5G:** generalize dynamic generation to Parts 5–8.
 
 Before 8.5F, run at least 20 Part 1 candidates through the real pipeline and report first-pass acceptance, rejection/regeneration, ambiguity, difficulty, length and novelty failures, plus representative manual inspection. Expansion is blocked until the evidence is satisfactory.
 

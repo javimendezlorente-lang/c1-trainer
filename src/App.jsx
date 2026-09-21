@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { NavLink, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Home from './pages/Home'
@@ -7,6 +7,7 @@ import Review from './pages/Review'
 import Progress from './pages/Progress'
 import Settings from './pages/Settings'
 import { useThemeStore } from './store/themeStore'
+import { checkStorage } from './storage'
 
 const navigation = [
   { label: 'Home', path: '/' },
@@ -18,10 +19,17 @@ const navigation = [
 
 export default function App() {
   const { theme, toggleTheme } = useThemeStore()
+  const [storageWarning, setStorageWarning] = useState(null)
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
   }, [theme])
+
+  useEffect(() => {
+    let active = true
+    void checkStorage().then((status) => { if (active && !status.available) setStorageWarning('Local learning storage is unavailable. Open this app in Safari or enable site storage before submitting.') })
+    return () => { active = false }
+  }, [])
 
   return (
     <div className="app">
@@ -50,6 +58,7 @@ export default function App() {
       </header>
 
       <main className="app-main">
+        {storageWarning && <p className="storage-warning" role="alert">{storageWarning}</p>}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/practice" element={<Practice />} />

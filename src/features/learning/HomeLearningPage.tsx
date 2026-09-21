@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import { rebuildProjections } from '../../application/part1Submission'
 import './learning.css'
+import { exerciseLibrary } from '../../content/exerciseLibrary'
 
 export default function HomeLearningPage() {
-  const [due, setDue] = useState<number | null>(null)
-  useEffect(() => { let active = true; rebuildProjections().then((projections) => { if (active) setDue(projections.review.reviewsDue) }); return () => { active = false } }, [])
-  return <section className="learning-page" aria-labelledby="home-title"><p className="eyebrow">C1 Trainer</p><h1 id="home-title">Home</h1><p className="learning-intro">Your next focused practice session starts here.</p><div className="learning-card"><h2>Reviews due</h2><p>{due === null ? 'Loading…' : due}</p><a className="review-link" href="#/review">Review now</a></div></section>
+  const [data, setData] = useState<{ due: number; attempts: number; accuracy: number; weak: string[] } | null>(null)
+  useEffect(() => { let active = true; rebuildProjections().then((projections) => { if (active) setData({ due: projections.review.reviewsDue, attempts: projections.progress.attempts, accuracy: projections.progress.accuracy, weak: projections.progress.bySkill.slice().sort((a, b) => a.accuracy - b.accuracy).slice(0, 2).map((item) => item.skill.replaceAll('_', ' ')) }) }); return () => { active = false } }, [])
+  const firstUse = data?.attempts === 0
+  return <section className="learning-page" aria-labelledby="home-title"><p className="eyebrow">C1 Trainer</p><h1 id="home-title">Home</h1><p className="learning-intro">{firstUse ? 'Build a daily habit with one short exercise and your pending reviews.' : 'Continue with one focused exercise, then clear the reviews that are due.'}</p><div className="home-actions"><a className="review-link" href="#/practice">Start practice</a>{(data?.due ?? 0) > 0 && <a className="review-link" href="#/review">Review now</a>}</div><div className="learning-summary"><div><strong>{data?.due ?? '—'}</strong><span>Reviews due</span></div><div><strong>{data?.attempts ?? '—'}</strong><span>Practice attempts</span></div><div><strong>{data?.accuracy ?? '—'}{data ? '%' : ''}</strong><span>Practice accuracy</span></div></div>{data && data.attempts > 0 ? <div className="learning-card"><h2>Recent performance</h2><p>You have completed {data.attempts} practice attempt{data.attempts === 1 ? '' : 's'}.</p>{data.weak.length > 0 && <p><strong>Areas to revisit:</strong> {data.weak.join(' · ')}</p>}<a className="review-link" href="#/progress">See progress</a></div> : <div className="learning-card"><h2>First session</h2><p>Choose any Part 1–4 exercise. After submitting, your score will appear in Progress and any mistakes will appear in Review.</p><a className="review-link" href="#/practice">Choose a part</a></div>}{exerciseLibrary.list().length > 0 && <p className="learning-muted">Offline practice is ready.</p>}</section>
 }

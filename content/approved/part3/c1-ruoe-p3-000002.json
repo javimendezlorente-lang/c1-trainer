@@ -1,1 +1,153 @@
-{"schemaVersion":"1.0.0","id":"c1-ruoe-p3-000002","exam":"C1_ADVANCED","paper":"READING_USE_OF_ENGLISH","part":3,"type":"word_formation","title":"Archives and memory","difficulty":4,"topic":"archives","source":{"kind":"original_manual","reviewStatus":"approved"},"skills":{"primarySkill":"suffix","secondarySkills":["internal_change","word_class_change"]},"content":{"text":"Archives preserve traces of society. Their {{gap:1}} (ORGANISE) requires care, while digital {{gap:2}} (STORE) creates duties. A catalogue reveals the {{gap:3}} (DIVERSE) of a collection, but may expose the {{gap:4}} (VISIBLE) of voices never recorded. Archivists question the {{gap:5}} (NEUTRAL) of their choices. Such {{gap:6}} (REFLECT) makes assumptions more {{gap:7}} (EXPLAIN) and public value more {{gap:8}} (APPARENT).","gaps":[{"id":"g1","number":1},{"id":"g2","number":2},{"id":"g3","number":3},{"id":"g4","number":4},{"id":"g5","number":5},{"id":"g6","number":6},{"id":"g7","number":7},{"id":"g8","number":8}]},"questions":[{"id":"q1","gap":1,"root":"ORGANISE","canonicalAnswer":"organisation","acceptedAnswers":["organisation","organization"],"transformations":["suffix","word_class_change"],"explanation":"The noun organisation follows their."},{"id":"q2","gap":2,"root":"STORE","canonicalAnswer":"storage","transformations":["suffix","word_class_change"],"explanation":"Storage names the process."},{"id":"q3","gap":3,"root":"DIVERSE","canonicalAnswer":"diversity","transformations":["suffix","word_class_change"],"explanation":"Diversity is the noun required."},{"id":"q4","gap":4,"root":"VISIBLE","canonicalAnswer":"invisibility","transformations":["negative_prefix","suffix","word_class_change"],"explanation":"Invisibility names the state of not being seen."},{"id":"q5","gap":5,"root":"NEUTRAL","canonicalAnswer":"neutrality","transformations":["suffix","word_class_change"],"explanation":"Neutrality is the noun being questioned."},{"id":"q6","gap":6,"root":"REFLECT","canonicalAnswer":"reflection","transformations":["suffix","word_class_change"],"explanation":"Reflection follows such."},{"id":"q7","gap":7,"root":"EXPLAIN","canonicalAnswer":"explicit","transformations":["internal_change","word_class_change"],"explanation":"Explicit means clearly stated."},{"id":"q8","gap":8,"root":"APPEARANCE","canonicalAnswer":"apparent","transformations":["word_class_change"],"explanation":"Apparent is the adjective required."}]}
+{
+  "schemaVersion": "1.0.0",
+  "id": "c1-ruoe-p3-000002",
+  "exam": "C1_ADVANCED",
+  "paper": "READING_USE_OF_ENGLISH",
+  "part": 3,
+  "type": "word_formation",
+  "title": "Archives and memory",
+  "difficulty": 4,
+  "topic": "archives",
+  "source": {
+    "kind": "original_manual",
+    "reviewStatus": "approved"
+  },
+  "skills": {
+    "primarySkill": "suffix",
+    "secondarySkills": [
+      "internal_change",
+      "word_class_change"
+    ]
+  },
+  "content": {
+    "text": "Archives preserve traces of society. Their {{gap:1}} (ORGANISE) requires care, while digital {{gap:2}} (STORE) creates duties that did not exist when every catalogue was made by hand. A catalogue reveals the {{gap:3}} (DIVERSE) of a collection, but may expose the {{gap:4}} (VISIBLE) of voices never recorded, especially when earlier institutions decided whose papers were worth keeping. Archivists therefore question the apparent {{gap:5}} (NEUTRAL) of their choices and record uncertainty where evidence is incomplete. Such {{gap:6}} (REFLECT) makes assumptions more {{gap:7}} (EXPLAIN) and public value more {{gap:8}} (APPARENT) without pretending that a description can restore what was lost. A careful description cannot recover a missing voice, but it can prevent the catalogue from concealing the gap. That admission is a form of accuracy, because it tells readers what the archive cannot show.",
+    "gaps": [
+      {
+        "id": "g1",
+        "number": 1
+      },
+      {
+        "id": "g2",
+        "number": 2
+      },
+      {
+        "id": "g3",
+        "number": 3
+      },
+      {
+        "id": "g4",
+        "number": 4
+      },
+      {
+        "id": "g5",
+        "number": 5
+      },
+      {
+        "id": "g6",
+        "number": 6
+      },
+      {
+        "id": "g7",
+        "number": 7
+      },
+      {
+        "id": "g8",
+        "number": 8
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "gap": 1,
+      "root": "ORGANISE",
+      "canonicalAnswer": "organisation",
+      "acceptedAnswers": [
+        "organisation",
+        "organization"
+      ],
+      "transformations": [
+        "suffix",
+        "word_class_change"
+      ],
+      "explanation": "The noun organisation follows their."
+    },
+    {
+      "id": "q2",
+      "gap": 2,
+      "root": "STORE",
+      "canonicalAnswer": "storage",
+      "transformations": [
+        "suffix",
+        "word_class_change"
+      ],
+      "explanation": "Storage names the process."
+    },
+    {
+      "id": "q3",
+      "gap": 3,
+      "root": "DIVERSE",
+      "canonicalAnswer": "diversity",
+      "transformations": [
+        "suffix",
+        "word_class_change"
+      ],
+      "explanation": "Diversity is the noun required."
+    },
+    {
+      "id": "q4",
+      "gap": 4,
+      "root": "VISIBLE",
+      "canonicalAnswer": "invisibility",
+      "transformations": [
+        "negative_prefix",
+        "suffix",
+        "word_class_change"
+      ],
+      "explanation": "Invisibility names the state of not being seen."
+    },
+    {
+      "id": "q5",
+      "gap": 5,
+      "root": "NEUTRAL",
+      "canonicalAnswer": "neutrality",
+      "transformations": [
+        "suffix",
+        "word_class_change"
+      ],
+      "explanation": "Neutrality is the noun being questioned."
+    },
+    {
+      "id": "q6",
+      "gap": 6,
+      "root": "REFLECT",
+      "canonicalAnswer": "reflection",
+      "transformations": [
+        "suffix",
+        "word_class_change"
+      ],
+      "explanation": "Reflection follows such."
+    },
+    {
+      "id": "q7",
+      "gap": 7,
+      "root": "EXPLAIN",
+      "canonicalAnswer": "explicit",
+      "transformations": [
+        "internal_change",
+        "word_class_change"
+      ],
+      "explanation": "Explicit means clearly stated."
+    },
+    {
+      "id": "q8",
+      "gap": 8,
+      "root": "APPEARANCE",
+      "canonicalAnswer": "apparent",
+      "transformations": [
+        "word_class_change"
+      ],
+      "explanation": "Apparent is the adjective required."
+    }
+  ]
+}
